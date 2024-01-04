@@ -8,6 +8,6 @@ class Page extends Component
 {
     public function render()
     {
-        return view('livewire.pages.landing.page');
+        return view('livewire.pages.landing.page')->layout('layouts.landing');;
     }
 }

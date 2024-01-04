@@ -12,7 +12,9 @@ Route::prefix('auth')->group(function () {
     Route::get('register', Register::class);
 });
 
-Route::get('/', App\Livewire\Pages\Dashboard\Dashboard::class);
+Route::get('/dashboard', App\Livewire\Pages\Dashboard\Dashboard::class);
+
+Route::get('/', App\Livewire\Pages\Landing\Page::class);
 
 
 
