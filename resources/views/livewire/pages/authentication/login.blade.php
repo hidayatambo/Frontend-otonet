@@ -33,7 +33,7 @@
                                         <input id="checkbox1" type="checkbox">
                                         <label class="text-muted" for="checkbox1">Remember password</label>
                                     </div>
-                                    <a href="{{ url('/dashboard')}}" wire:navigate
+                                    <a href="{{ url('/dashboard')}}"
                                         class="btn btn-primary btn-block w-100">Sign In</a>
                                     {{-- <button class="btn btn-primary btn-block w-100" type="submit">Sign in</button> --}}
                                 </div>
