@@ -7,10 +7,14 @@ use Illuminate\Support\Facades\Route;
  */
 use App\Livewire\Pages\Authentication\Login;
 use App\Livewire\Pages\Authentication\Register;
+Route::prefix('auth')->group(function () {
+    Route::get('login', Login::class);
+    Route::get('register', Register::class);
+});
+
+Route::get('/', App\Livewire\Pages\Dashboard\Dashboard::class);
 
 
-Route::get('/login', Login::class);
-Route::get('/register', Register::class);
 
 
 /*
@@ -24,6 +28,6 @@ Route::get('/register', Register::class);
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
