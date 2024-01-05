@@ -5,11 +5,13 @@ use Illuminate\Support\Facades\Route;
 /**
  * * Route For Authentication
  */
-use App\Livewire\Pages\Authentication\Login;
-use App\Livewire\Pages\Authentication\Register;
+
+
 Route::prefix('auth')->group(function () {
-    Route::get('login', Login::class);
-    Route::get('register', Register::class);
+    Route::get('login', App\Livewire\Pages\Authentication\Login::class);
+    Route::get('register', App\Livewire\Pages\Authentication\Register::class);
+    Route::get('email_confirmation', App\Livewire\Pages\Authentication\EmailConfirmaation::class);
+
 });
 
 Route::get('/dashboard', App\Livewire\Pages\Dashboard\Dashboard::class);

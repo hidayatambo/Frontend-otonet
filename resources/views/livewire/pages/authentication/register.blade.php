@@ -85,7 +85,7 @@
                 icon: options.icon,
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = "{{ url('/dashboard')}}"
+                    window.location.href = "{{ url('/auth/email_confirmation')}}"
                 }
             });
         });
