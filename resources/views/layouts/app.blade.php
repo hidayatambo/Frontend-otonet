@@ -23,11 +23,11 @@
     <!-- Feather icon-->
     <link rel="stylesheet" type="text/css" href="{{asset('admin/css/vendors/feather-icon.css')}}">
     <!-- Plugins css start-->
-    {{-- <link rel="stylesheet" type="text/css" href="{{asset('admin/css/vendors/slick.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('admin/css/vendors/slick.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin/css/vendors/slick-theme.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin/css/vendors/scrollbar.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin/css/vendors/animate.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('admin/css/vendors/sweetalert2.css')}}"> --}}
+    <link rel="stylesheet" type="text/css" href="{{asset('admin/css/vendors/sweetalert2.css')}}">
     <!-- Plugins css Ends-->
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="{{asset('admin/css/vendors/bootstrap.css')}}">
@@ -50,14 +50,16 @@
     <!-- Sidebar jquery-->
     <script src="{{asset('admin/js/config.js')}}"></script>
     <!-- Plugins JS start-->
-    {{-- <script src="{{asset('admin/js/sidebar-menu.js')}}"></script>
+    <script src="{{ asset('admin/js/form-validation-custom.js') }}"></script>
+
+    <script src="{{asset('admin/js/sidebar-menu.js')}}"></script>
     <script src="{{asset('admin/js/sidebar-pin.js')}}"></script>
     <script src="{{asset('admin/js/slick/slick.min.js')}}"></script>
     <script src="{{asset('admin/js/slick/slick.js')}} "></script>
     <script src="{{asset('admin/js/header-slick.js')}}"></script>
     <script src="{{asset('admin/js/sweet-alert/sweetalert.min.js')}}"></script>
     <script src="{{asset('admin/js/sweet-alert/app.js')}}"></script>
-    <script src="{{asset('admin/js/height-equal.js')}}"></script> --}}
+    <script src="{{asset('admin/js/height-equal.js')}}"></script>
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
     <script src="{{asset('admin/js/script.js')}}"></script>
