@@ -1,7 +1,7 @@
 <!-- login page start-->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xl-7"><img class="bg-img-cover bg-center" src="{{ url('images/login/2.jpg') }}"
+        <div class="col-xl-7"><img class="bg-img-cover bg-center" src="{{ asset('admin/images/login/2.jpg') }}"
                 alt="looginpage"></div>
         <div class="col-xl-5 p-0">
             <div class="login-card login-dark">
@@ -10,21 +10,23 @@
                         <div class="d-flex justify-content-center">
 
                             <img style="width:80%" class="img-fluid for-light"
-                                src="{{ url('images/logo/logo-techthink-hub-indonesia.png') }}" alt="looginpage">
+                                src="{{ asset('admin/images/logo/logo-techthink-hub-indonesia.png') }}"
+                                alt="looginpage">
                         </div>
                         <div class="login-main">
-                            <form class="theme-form">
+                            <form class="theme-form" wire:submit="login">
                                 <h4>Sign in to account</h4>
                                 <p>Enter your email & password to login</p>
                                 <div class="form-group">
                                     <label class="col-form-label">Email Address</label>
-                                    <input class="form-control" type="email" required="" placeholder="Test@gmail.com">
+                                    <input class="form-control" type="email" required="" placeholder="Test@gmail.com"
+                                        wire:model="email">
                                 </div>
                                 <div class="form-group">
                                     <label class="col-form-label">Password</label>
                                     <div class="form-input position-relative">
                                         <input class="form-control" type="password" name="login[password]" required=""
-                                            placeholder="*********">
+                                            wire:model="password" placeholder="*********">
                                         <div class="show-hide"><span class="show"> </span></div>
                                     </div>
                                 </div>
@@ -33,9 +35,9 @@
                                         <input id="checkbox1" type="checkbox">
                                         <label class="text-muted" for="checkbox1">Remember password</label>
                                     </div>
-                                    <a href="{{ url('/dashboard')}}"
-                                        class="btn btn-primary btn-block w-100">Sign In</a>
-                                    {{-- <button class="btn btn-primary btn-block w-100" type="submit">Sign in</button> --}}
+                                    {{-- <a href="{{ url('/dashboard')}}" --}}
+                                    {{-- class="btn btn-primary btn-block w-100">Sign In</a> --}}
+                                    <button class="btn btn-primary btn-block w-100" type="submit">Sign in</button>
                                 </div>
                                 <h6 class="text-muted mt-4 or">Or Sign in with</h6>
                                 <div class="social mt-6">
@@ -54,3 +56,24 @@
                 </div>
             </div>
         </div>
+    </div>
+    @livewireScripts
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        Livewire.on('swal:success', function (options) {
+            Swal.fire({
+                title: options.title,
+                text: options.text,
+                icon: options.icon,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "{{ url('/dashboard')}}"
+                }
+            });
+        });
+
+        Livewire.on('swal:error', function (options) {
+            Swal.fire(options.title, options.text, options.icon);
+        });
+    </script>
+</div>

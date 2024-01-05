@@ -1305,8 +1305,7 @@
                         <h2>
                             From getting started
                         </h2>
-                        <p>Start working with Cuba CSS that can provide everything you need to generate awareness,
-                            drive traffic, connect.</p>
+                        <p>slider ini akan menampilkan top plugin</p>
                     </div>
                 </div>
             </div>

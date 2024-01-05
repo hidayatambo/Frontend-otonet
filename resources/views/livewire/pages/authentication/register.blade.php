@@ -1,13 +1,13 @@
 <!-- login page start-->
 <div class="container-fluid p-0">
     <div class="row m-0">
-        <div class="col-xl-7 p-0"><img class="bg-img-cover bg-center" src="{{ url('images/login/1.jpg') }}" alt="looginpage"></div>
+        <div class="col-xl-7 p-0"><img class="bg-img-cover bg-center" src="{{ asset('admin/images/login/1.jpg') }}" alt="looginpage"></div>
         <div class="col-xl-5 p-0">
             <div class="login-card login-dark">
                 <div>
                     <div><a class="logo text-start" href="index.html"><img class="img-fluid for-light"
-                                src="{{ url('images/logo/logo.png') }}" alt="looginpage"><img class="img-fluid for-dark"
-                                src="{{ url('images/logo/logo_dark.png') }}" alt="looginpage"></a></div>
+                                src="{{ asset('admin/images/logo/logo.png') }}" alt="looginpage"><img class="img-fluid for-dark"
+                                src="{{ asset('admin/images/logo/logo_dark.png') }}" alt="looginpage"></a></div>
                     <div class="login-main">
                         <form class="theme-form">
                             <h4>Create your account</h4>
