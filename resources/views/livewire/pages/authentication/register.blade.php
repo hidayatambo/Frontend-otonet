@@ -56,15 +56,6 @@
                                 </div>
                                 <button class="btn btn-primary btn-block w-100" type="submit">Create Account</button>
                             </div>
-                            <h6 class="text-muted mt-4 or">Or signup with</h6>
-                            <div class="social mt-4">
-                                <div class="btn-showcase d-flex justify-content-center">
-                                    <a class="btn btn-light" href="https://twitter.com/login?lang=en"
-                                        target="_blank"><i class="icon-google"></i> Google</a>
-                                    <a class="btn btn-light" href="https://www.facebook.com/" target="_blank"><i
-                                            class="txt-fb" data-feather="facebook"></i>facebook</a>
-                                </div>
-                            </div>
                             <p class="mt-4 mb-0 text-center">Already have an account?<a class="ms-2"
                                     href="{{ url('auth/login') }}" wire:navigate>Sign in</a></p>
                         </form>
