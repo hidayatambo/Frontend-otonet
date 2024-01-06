@@ -1,15 +1,16 @@
 <!-- login page start-->
 <div class="container-fluid">
-    <div class="row">
+    <div class="row m-0">
         <livewire:components.auth.login-left />
         <div class="col-xl-5 p-0">
             <livewire:components.auth.header />
-            <div class="login-card login-dark">
+            <div class="login-card login-dark card" style="align-items: stretch; min-height: auto;">
                 <div class="row">
-                    <div class="col-6"><button class="btn bg-transparent"><img src="{{ asset('internal/icon/1.png') }}" class="img-thumbnail bg-transparent border-0"></button></div>
-                    <div class="col-6"><button class="btn bg-transparent"><img src="{{ asset('internal/icon/2.png') }}" class="img-thumbnail bg-transparent border-0"></button></div>
-                    <div class="col-6"><button class="btn bg-transparent"><img src="{{ asset('internal/icon/3.png') }}" class="img-thumbnail bg-transparent border-0"></button></div>
-                    <div class="col-6"><button class="btn bg-transparent"><img src="{{ asset('internal/icon/4.png') }}" class="img-thumbnail bg-transparent border-0"></button></div>
+                    <h1 class="bold text-center">Pilih Jenis Usaha Anda</h1>
+                    <div class="col-6"><a wire:navigate href="{{ url('/auth/register?jenis=Bengkel') }}" class="btn bg-transparent"><img src="{{ asset('internal/icon/1.png') }}" class="img-thumbnail bg-transparent border-0"><h5 class="text-center">Bengkel</h5></a></div>
+                    <div class="col-6"><a wire:navigate href="{{ url('/auth/register?jenis=Manufaktur') }}" class="btn bg-transparent"><img src="{{ asset('internal/icon/2.png') }}" class="img-thumbnail bg-transparent border-0"><h5 class="text-center">Manufaktur</h5></a></div>
+                    <div class="col-6"><a wire:navigate href="{{ url('/auth/register?jenis=Manufaktur 2') }}" class="btn bg-transparent"><img src="{{ asset('internal/icon/3.png') }}" class="img-thumbnail bg-transparent border-0"><h5 class="text-center">Manufaktur 2</h5></a></div>
+                    <div class="col-6"><a wire:navigate href="{{ url('/auth/register?jenis=Retail') }}" class="btn bg-transparent"><img src="{{ asset('internal/icon/4.png') }}" class="img-thumbnail bg-transparent border-0"><h5 class="text-center">Retail</h5></a></div>
                 </div>
             </div>
         </div>

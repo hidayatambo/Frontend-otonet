@@ -1,10 +1,10 @@
 <!-- login page start-->
-<div class="container-fluid">
-    <div class="row">
+<div class="container-fluid p-0">
+    <div class="row m-0">
         <livewire:components.auth.login-left />
         <div class="col-xl-5 p-0">
             <livewire:components.auth.header />
-            <div class="login-card login-dark">
+            <div class="login-card login-dark card" style="align-items: stretch; min-height: auto;">
                 <div class="login-main">
                     <form class="theme-form" wire:submit="login">
                         <h4>Sign in to account</h4>

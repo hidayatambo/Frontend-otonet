@@ -40,7 +40,7 @@
         .full-width-image-container {
             position: relative;
             width: 100%; /* Adjust this as needed */
-            height: 1100px; /* Adjust the height as needed */
+            height: 1000px; /* Adjust the height as needed */
             overflow: hidden;
         }
 

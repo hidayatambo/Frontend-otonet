@@ -4,6 +4,8 @@ namespace App\Livewire\Pages\Authentication;
 
 use Livewire\Component;
 use App\Services\OtonetBackendServices\Auth;
+
+use Illuminate\Http\Request;
 class Register extends Component
 {
     /**
@@ -15,6 +17,12 @@ class Register extends Component
     public $phone;
     public $address;
     public $confirm;
+    public $jenis_usaha;
+
+    public function mount(Request $request)
+    {
+        $this->jenis_usaha = $request->input('jenis');
+    }
 
 
     public function register()
@@ -25,8 +33,7 @@ class Register extends Component
             'phone' => 'required',
             'address' => 'required',
             'confirm' => 'required',
-
-
+            'jenis_usaha' => 'required',
         ]);
 
         $api = new Auth();
