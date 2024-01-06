@@ -36,6 +36,24 @@
     <link id="color" rel="stylesheet" href="{{ asset('admin/css/color-1.css') }}" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/responsive.css')}}">
+    <style>
+        .full-width-image-container {
+            position: relative;
+            width: 100%; /* Adjust this as needed */
+            height: 1100px; /* Adjust the height as needed */
+            overflow: hidden;
+        }
+
+        .full-width-image-container img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the aspect ratio is maintained while covering the area */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
   </head>
   <body>
     {{ $slot }}

@@ -16,7 +16,7 @@ Route::prefix('auth')->group(function () {
 
 Route::get('/dashboard', App\Livewire\Pages\Dashboard\Dashboard::class);
 
-Route::get('/', App\Livewire\Pages\Landing\Page::class);
+Route::get('/', App\Livewire\Pages\Authentication\SelectApplication::class);
 Route::get('/application_unit/{unit}', App\Livewire\Pages\Landing\Page::class);
 
 

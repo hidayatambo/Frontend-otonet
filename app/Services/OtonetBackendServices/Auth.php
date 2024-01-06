@@ -12,7 +12,7 @@ class Auth
     /**
      * The base URL for the Otonet API.
      */
-    protected $apiEndpoint = 'localhost:8000/api/';
+    protected $apiEndpoint;
 
     /**
      * Send login data to the Otonet API and return the response.
@@ -24,6 +24,11 @@ class Auth
      * @param array $data The user login data, usually including email and password.
      * @return array The response from the API as an associative array.
      */
+
+     public function __construct()
+     {
+        $this->apiEndpoint = env('API_URL');
+    }
     function login(array $data) : array
     {
         try {
@@ -49,21 +54,7 @@ class Auth
     {
         try {
             $response = Http::post($this->apiEndpoint . 'register', $data);
-
-            // if ($response->failed()) {
-            //     $errors = $response->json('message');
-            //     foreach ($errors as $field => $message) {
-            //         foreach ($message as $error) {
-            //             // $err = '';
-            //             // foreach($errors as $error)
-            //             // {
-            //             //     $err .= $error .'<br />';
-            //             // }
-            //             $this->addError($field, $error);
-            //         }
-            //     }
-            // }
-            return json_decode($response, true);
+            return json_decode($response->body(), true);
         } catch (\Exception $e) {
             // Handle other exceptions (e.g., network issues, timeouts)
             return ['error' => 'Exception', 'message' => $e->getMessage()];

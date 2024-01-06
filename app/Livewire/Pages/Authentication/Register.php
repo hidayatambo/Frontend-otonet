@@ -12,8 +12,8 @@ class Register extends Component
      */
     public $nama;
     public $email;
-    public $password;
-    public $password_confirmation;
+    public $phone;
+    public $address;
     public $confirm;
 
 
@@ -22,29 +22,15 @@ class Register extends Component
         $this->validate([
             'nama' => 'required',
             'email' => 'required|email',
-            'password' => 'required',
-            'password_confirmation' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
             'confirm' => 'required',
 
 
         ]);
 
         $api = new Auth();
-        $response = $api->register(['email' => $this->email, 'password' => $this->password, 'password_confirmation' => $this->password_confirmation ,'nama' => $this->nama]);
-
-        // if ($response['error']) {
-        //     $errors = $response->json('message');
-        //     foreach ($errors as $field => $message) {
-        //         foreach ($message as $error) {
-        //             // $err = '';
-        //             // foreach($errors as $error)
-        //             // {
-        //             //     $err .= $error .'<br />';
-        //             // }
-        //             $this->addError($field, $error);
-        //         }
-        //     }
-        // }
+        $response = $api->register(['email' => $this->email, 'phone' => $this->phone, 'address' => $this->address ,'nama' => $this->nama]);
 
         if ($response['status'] === true) {
             $this->dispatch('swal:success',
@@ -60,13 +46,6 @@ class Register extends Component
                         $this->addError($field, $error);
                     }
                 }
-                // dd($this->getErrorBag());
-            // }
-            // foreach ($response['message'] as $field => $errors) {
-            //     foreach ($errors as $error) {
-            //         $this->addError($field, $error);
-            //     }
-            // }
 
             $this->dispatch('swal:error',
                 title: 'Register Fail',
