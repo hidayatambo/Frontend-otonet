@@ -26,7 +26,20 @@
                                     <strong>{{ $message }}</strong>
                                 </span> @enderror
                             </div>
-                           
+                            <div class="form-group">
+                                <label class="col-form-label">Number Phone</label>
+                                <input class="form-control @error('phone') is-invalid @enderror" type="text" placeholder="0812XXXXXXX" wire:model="phone">
+                                @error('phone') <span class="txt-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span> @enderror
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label">Address</label>
+                                <input class="form-control @error('address') is-invalid @enderror" type="text" placeholder="Jl ABC" wire:model="address">
+                                @error('address') <span class="txt-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span> @enderror
+                            </div>
                             <div class="form-group mb-0">
                                 <div class="checkbox p-0">
                                     <input id="checkbox1" type="checkbox" wire:model='confirm' required>
