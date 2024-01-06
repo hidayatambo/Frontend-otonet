@@ -26,6 +26,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span> @enderror
                             </div>
+                            {{-- remove password field --}}
                             <div class="form-group">
                                 <label class="col-form-label">Password</label>
                                 <div class="form-input position-relative">
