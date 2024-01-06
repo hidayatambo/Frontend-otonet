@@ -26,29 +26,7 @@
                                     <strong>{{ $message }}</strong>
                                 </span> @enderror
                             </div>
-                            {{-- remove password field --}}
-                            <div class="form-group">
-                                <label class="col-form-label">Password</label>
-                                <div class="form-input position-relative">
-                                    <input class="form-control @error('password') is-invalid @enderror" type="password"
-                                        placeholder="*********" wire:model='password'>
-                                    <div class="show-hide"><span class="show"></span></div>
-                                </div>
-                                @error('password') <span class="txt-danger" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span> @enderror
-                            </div>
-                            <div class="form-group">
-                                <label class="col-form-label">Password Confirmation</label>
-                                <div class="form-input position-relative">
-                                    <input class="form-control @error('password') is-invalid @enderror" type="password"
-                                        placeholder="*********" wire:model='password_confirmation'>
-                                    <div class="show-hide"><span class="show"></span></div>
-                                </div>
-                                @error('password') <span class="txt-danger" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span> @enderror
-                            </div>
+                           
                             <div class="form-group mb-0">
                                 <div class="checkbox p-0">
                                     <input id="checkbox1" type="checkbox" wire:model='confirm' required>
