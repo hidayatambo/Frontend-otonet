@@ -43,13 +43,23 @@
             margin: 0;
             padding: 0;
             height: 100%;
+            width:100%;
             background-image: url("{{ asset('internal/background/landing page-4 full.jpg') }}");
             background-repeat: no-repeat;
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the image */
+            background-attachment: fixed; /* Optional: set the background fixed */
         }
 
         .container-fluid {
             height: 100vh; /* Viewport Height */
             /* overflow: hidden; Prevents scrolling if content is larger than the viewport */
+        }
+        /* Apply overflow: hidden for screens wider than 768px (typically tablets and desktops) */
+        @media (min-width: 992px) {
+            .container-fluid {
+                overflow: hidden;
+            }
         }
 
         .img-fluid {

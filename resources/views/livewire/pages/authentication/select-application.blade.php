@@ -2,22 +2,44 @@
 <div class="container-fluid p-0">
     <div class="row m-0">
         <livewire:components.auth.login-left />
-        <div class="col-xl-5 p-0">
+        <div class="col-xl-4 p-0">
             <livewire:components.auth.header />
-            {{-- <div class="d-flex justify-content-center"> --}}
-                <div class="login-card login-dark card" style="align-items: stretch; min-height: auto; background: transparent;">
-                    <div class="row">
 
-                        <h1 class="bold text-center">Pilih Jenis Usaha Anda</h1>
-                        <div class="col-6"><a wire:navigate href="{{ url('/auth/register?jenis=Bengkel') }}" class="btn bg-transparent"><img style="width:250px;height:250px;" src="{{ asset('internal/icon/1.png') }}" class="img-thumbnail bg-transparent border-0"><h5 class="text-center">Bengkel</h5></a></div>
-                        <div class="col-6"><a wire:navigate href="{{ url('/auth/register?jenis=Manufaktur') }}" class="btn bg-transparent"><img style="width:250px;height:250px;" src="{{ asset('internal/icon/2.png') }}" class="img-thumbnail bg-transparent border-0"><h5 class="text-center">Manufaktur</h5></a></div>
-                        <div class="col-6"><a wire:navigate href="{{ url('/auth/register?jenis=Manufaktur 2') }}" class="btn bg-transparent"><img style="width:250px;height:250px;" src="{{ asset('internal/icon/3.png') }}" class="img-thumbnail bg-transparent border-0"><h5 class="text-center">Manufaktur 2</h5></a></div>
-                        <div class="col-6"><a wire:navigate href="{{ url('/auth/register?jenis=Retail') }}" class="btn bg-transparent"><img style="width:250px;height:250px;" src="{{ asset('internal/icon/4.png') }}" class="img-thumbnail bg-transparent border-0"><h5 class="text-center">Retail</h5></a></div>
+            {{-- <div class="d-flex justify-content-center"> --}}
+            {{-- <div class="d-flex justify-content-center"> --}}
+                <div class="login-card login-dark card"
+                    style="align-items: stretch; min-height: auto; background: transparent;">
+                    <div class="row">
+                        <h1 class="bold text-center pb-2">Pilih Jenis Usaha Anda</h1>
+                        <div class="col-6 p-0 m-0"><a wire:navigate href="{{ url('/auth/register?jenis=Bengkel') }}"
+                                class="btn bg-transparent p-0 m-0"><img src="{{ asset('internal/icon/1.png') }}"
+                                    class="img-thumbnail bg-transparent border-0">
+                                <h5 class="text-center">Perbengkelan</h5>
+                            </a></div>
+                        <div class="col-6 p-0 m-0"><a wire:navigate href="{{ url('/auth/register?jenis=Manufaktur') }}"
+                                class="btn bg-transparent p-0 m-0"><img src="{{ asset('internal/icon/2.png') }}"
+                                    class="img-thumbnail bg-transparent border-0">
+                                <h5 class="text-center">Logistik</h5>
+                            </a></div>
+                        <div class="col-6 p-0 m-0"><a wire:navigate
+                                href="{{ url('/auth/register?jenis=Manufaktur 2') }}"
+                                class="btn bg-transparent p-0 m-0"><img src="{{ asset('internal/icon/3.png') }}"
+                                    class="img-thumbnail bg-transparent border-0">
+                                <h5 class="text-center">Manufaktur</h5>
+                            </a></div>
+                        <div class="col-6 p-0 m-0"><a wire:navigate href="{{ url('/auth/register?jenis=Retail') }}"
+                                class="btn bg-transparent p-0 m-0"><img src="{{ asset('internal/icon/4.png') }}"
+                                    class="img-thumbnail bg-transparent border-0">
+                                <h5 class="text-center">Retail</h5>
+                            </a></div>
                     </div>
+
+
                 </div>
+            </div>
             {{-- </div> --}}
 
-        </div>
+        {{-- </div> --}}
     </div>
     @livewireScripts
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

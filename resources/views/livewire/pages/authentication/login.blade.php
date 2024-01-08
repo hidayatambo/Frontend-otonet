@@ -2,7 +2,7 @@
 <div class="container-fluid p-0">
     <div class="row m-0">
         <livewire:components.auth.login-left />
-        <div class="col-xl-5 p-0">
+        <div class="col-xl-4 p-0">
             <livewire:components.auth.header />
             <div class="login-card login-dark card" style="align-items: stretch; min-height: auto;">
                 <div class="login-main">
