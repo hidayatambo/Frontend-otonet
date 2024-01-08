@@ -8,16 +8,20 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::prefix('auth')->group(function () {
-    Route::get('login', App\Livewire\Pages\Authentication\Login::class);
+    Route::get('login', App\Livewire\Pages\Authentication\Login::class)->name('auth/login');
     Route::get('register', App\Livewire\Pages\Authentication\Register::class);
     Route::get('email_confirmation', App\Livewire\Pages\Authentication\EmailConfirmaation::class);
 
 });
 
-Route::get('/dashboard', App\Livewire\Pages\Dashboard\Dashboard::class);
+Route::middleware(['token.auth'])->group(function () {
+    Route::get('/dashboard', App\Livewire\Pages\Dashboard\Dashboard::class);
+});
+
+
 
 Route::get('/', App\Livewire\Pages\Authentication\SelectApplication::class);
-Route::get('/application_unit/{unit}', App\Livewire\Pages\Landing\Page::class);
+// Route::get('/application_unit/{unit}', App\Livewire\Pages\Landing\Page::class);
 
 
 

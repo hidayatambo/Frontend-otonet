@@ -4,7 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Session;
 
 class TokenAuthMiddleware
 {
@@ -13,8 +14,15 @@ class TokenAuthMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+
+        // Check if the token is stored in the session
+        if (Session::has('token')) {
+            return $next($request);
+        }
+
+        // Redirect to the login page if the token is not in the session
+        return redirect()->route('auth/login');
     }
 }
