@@ -37,6 +37,23 @@
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/responsive.css')}}">
     <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .container-fluid {
+            height: 100vh; /* Viewport Height */
+            overflow: hidden; /* Prevents scrolling if content is larger than the viewport */
+        }
+
+        .img-fluid {
+            max-height: 100vh; /* Maximum height to fit in the viewport */
+            width: auto; /* Maintain aspect ratio */
+            display: block; /* Removes bottom space under the image */
+            margin: auto; /* Center the image if it's smaller than the viewport */
+        }
         .full-width-image-container {
             position: relative;
             width: 100%; /* Adjust this as needed */
@@ -56,7 +73,10 @@
     </style>
   </head>
   <body>
-    {{ $slot }}
+    <div class="container-fluid p-0">
+        {{ $slot }}
+    </div>
+
     <!-- latest jquery-->
     <script src="{{ asset('admin/js/jquery.min.js') }}"></script>
     <!-- Bootstrap js-->

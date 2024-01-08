@@ -1,5 +1,5 @@
 <!-- login page start-->
-<div class="container-fluid">
+<div class="container-fluid p-0">
     <div class="row m-0">
         <livewire:components.auth.login-left />
         <div class="col-xl-5 p-0">

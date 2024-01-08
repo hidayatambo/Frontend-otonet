@@ -393,6 +393,7 @@
   }
   .login-card {
     background: transparent;
+    width:100%;
   }
   .knowledgebase-bg {
     height: 400px;
