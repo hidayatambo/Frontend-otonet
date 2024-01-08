@@ -6,6 +6,9 @@ use Livewire\Component;
 
 // external api
 use App\Services\OtonetBackendServices\Auth;
+
+// session handler
+use Illuminate\Support\Facades\Session;
 class Login extends Component
 {
     public $email;
@@ -22,6 +25,7 @@ class Login extends Component
 
 
         if ($response['status'] === true) {
+            Session::put('token', $$response['token']);
             $this->dispatch('swal:success',
                 title: 'Login Successful',
                 text: 'Welcome!',
