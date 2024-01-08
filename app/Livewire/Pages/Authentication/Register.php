@@ -13,31 +13,46 @@ class Register extends Component
      * inisialize Attribute
      */
     public $nama;
+    public $nama_perusahaan;
     public $email;
     public $phone;
-    public $address;
+    // public $address;
     public $confirm;
-    public $jenis_usaha;
+    public $jenis_aplikasi;
+    public $detail_jenis_aplikasi;
 
     public function mount(Request $request)
     {
-        $this->jenis_usaha = $request->input('jenis');
+        $this->jenis_aplikasi = $request->input('jenis');
     }
 
 
     public function register()
     {
+	/**
         $this->validate([
             'nama' => 'required',
+            'nama_perusahaan' => 'required',
             'email' => 'required|email',
             'phone' => 'required',
-            'address' => 'required',
-            'confirm' => 'required',
-            'jenis_usaha' => 'required',
+            'jenis_aplikasi' => 'required',
+            'detail_jenis_aplikasi' => 'required',
+            'confirm' => 'required'
         ]);
+	dd($this->validate);
+         **/
 
         $api = new Auth();
-        $response = $api->register(['email' => $this->email, 'phone' => $this->phone, 'address' => $this->address ,'nama' => $this->nama]);
+        $response = $api->register([
+            'nama' => $this->nama,
+            'nama_perusahaan' => $this->nama_perusahaan,
+            'email' => $this->email,
+            'no_telepon' => $this->phone,
+            'id_aplikasi' => 1,
+            'id_jenis_aplikasi' => 1,
+            'confirm' => $this->confirm,
+	    'alamat' => ''
+        ]);
 
         if ($response['status'] === true) {
             $this->dispatch('swal:success',
@@ -56,7 +71,7 @@ class Register extends Component
 
             $this->dispatch('swal:error',
                 title: 'Register Fail',
-                text: json_encode($this->getErrorBag()),
+                text: 'Register Failed',
                 icon: 'error'
             );
         }

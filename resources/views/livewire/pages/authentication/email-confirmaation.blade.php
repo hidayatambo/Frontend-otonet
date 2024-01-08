@@ -68,8 +68,7 @@
                   <td style="padding: 30px">
                     <h6 style="font-weight: 600">Email Confirmation</h6>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo esse doloremque nisi aspernatur placeat nesciunt unde. Sapiente maiores ducimus culpa. Dolores, quia nam deserunt tempora voluptatem animi illum corrupti maxime!</p>
-                    <p style="text-align: center"><a href="#" style="padding: 10px; background-color: #7366ff; color: #fff; display: inline-block; border-radius: 4px">Send Verification Again</a></p>
-
+                    <p style="text-align: center"><a href="{{ url('auth/login') }}" wire:navigate style="padding: 10px; background-color: #7366ff; color: #fff; display: inline-block; border-radius: 4px">Login</a></p>
                   </td>
                 </tr>
               </tbody>

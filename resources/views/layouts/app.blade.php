@@ -36,6 +36,8 @@
     <link id="color" rel="stylesheet" href="{{ asset('admin/css/color-1.css') }}" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/responsive.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    @livewireStyles
     <style>
         body, html {
             margin: 0;
@@ -45,7 +47,7 @@
 
         .container-fluid {
             height: 100vh; /* Viewport Height */
-            overflow: hidden; /* Prevents scrolling if content is larger than the viewport */
+            /* overflow: hidden; Prevents scrolling if content is larger than the viewport */
         }
 
         .img-fluid {
@@ -91,12 +93,12 @@
     <script src="{{ asset('admin/js/form-validation-custom.js') }}"></script>
 
     <script src="{{asset('admin/js/sidebar-menu.js')}}"></script>
-    <script src="{{asset('admin/js/sidebar-pin.js')}}"></script>
+    {{-- <script src="{{asset('admin/js/sidebar-pin.js')}}"></script> --}}
     <script src="{{asset('admin/js/slick/slick.min.js')}}"></script>
     <script src="{{asset('admin/js/slick/slick.js')}} "></script>
     <script src="{{asset('admin/js/header-slick.js')}}"></script>
-    <script src="{{asset('admin/js/sweet-alert/sweetalert.min.js')}}"></script>
-    <script src="{{asset('admin/js/sweet-alert/app.js')}}"></script>
+    {{-- <script src="{{asset('admin/js/sweet-alert/sweetalert.min.js')}}"></script> --}}
+    {{-- <script src="{{asset('admin/js/sweet-alert/app.js')}}"></script> --}}
     <script src="{{asset('admin/js/height-equal.js')}}"></script>
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
