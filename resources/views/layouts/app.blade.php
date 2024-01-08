@@ -43,6 +43,8 @@
             margin: 0;
             padding: 0;
             height: 100%;
+            background-image: url("{{ asset('internal/background/landing page-4 full.jpg') }}");
+            background-repeat: no-repeat;
         }
 
         .container-fluid {
@@ -74,7 +76,7 @@
         }
     </style>
   </head>
-  <body>
+  <body style="">
     <div class="container-fluid p-0">
         {{ $slot }}
     </div>
