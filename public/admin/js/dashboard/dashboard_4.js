@@ -440,7 +440,7 @@
         hollow: {
           margin: 10,
           size: "40%",
-          image: "../assets/images/dashboard-4/portfolio-bg.png",
+          image: "../admin/images/dashboard-4/portfolio-bg.png",
           imageWidth: 230,
           imageHeight: 230,
           imageClipped: false,
@@ -473,7 +473,7 @@
               hollow: {
                 margin: 10,
                 size: "40%",
-                image: "../assets/images/dashboard-4/portfolio-bg.png",
+                image: "../admin/images/dashboard-4/portfolio-bg.png",
                 imageWidth: 190,
                 imageHeight: 190,
                 imageClipped: false,

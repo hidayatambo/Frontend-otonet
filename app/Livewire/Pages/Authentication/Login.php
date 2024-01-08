@@ -25,7 +25,7 @@ class Login extends Component
 
 
         if ($response['status'] === true) {
-            Session::put('token', $$response['token']);
+            Session::put('token', $response['token']);
             $this->dispatch('swal:success',
                 title: 'Login Successful',
                 text: 'Welcome!',

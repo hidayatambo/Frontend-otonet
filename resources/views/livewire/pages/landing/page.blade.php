@@ -4,7 +4,7 @@
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="custom-container container">
                 <a class="navbar-brand m-0" href="index.html">
-                    <img src="../assets/images/logo/logo.webp" alt="logo">
+                    <img src="../admin/images/logo/logo.webp" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,7 +57,7 @@
                     <div class="home-content">
 
                         <h1>
-                            <img class="img-fluid heading-style" src="../assets/images/shape/6.webp" alt="lines">
+                            <img class="img-fluid heading-style" src="../admin/images/shape/6.webp" alt="lines">
                             Search,
                             <span class="txt-success">apply & get
                                 <svg class="home-arrow" width="186" height="31" viewBox="0 0 186 31" fill="none"
@@ -76,7 +76,7 @@
                                 <div class="col-md-5">
                                     <div class="d-flex align-items-center">
                                         <svg class="me-2">
-                                            <use href="../assets/svg/icon_sprite.svg#search"></use>
+                                            <use href="../admin/svg/icon_sprite.svg#search"></use>
                                         </svg>
                                         <input class="form-control" type="text" placeholder="Search job type">
                                     </div>
@@ -84,7 +84,7 @@
                                 <div class="col-md-4">
                                     <div class="d-flex align-items-center">
                                         <svg class="me-2">
-                                            <use href="../assets/svg/icon_sprite.svg#map-pin"></use>
+                                            <use href="../admin/svg/icon_sprite.svg#map-pin"></use>
                                         </svg>
                                         <select>
                                             <option value="location">Enter location..</option>
@@ -104,19 +104,19 @@
                                 <ul>
                                     <li>
                                         <svg>
-                                            <use href="../assets/svg/icon_sprite.svg#right"></use>
+                                            <use href="../admin/svg/icon_sprite.svg#right"></use>
                                         </svg>
                                         <span>Great Services</span>
                                     </li>
                                     <li>
                                         <svg>
-                                            <use href="../assets/svg/icon_sprite.svg#right"></use>
+                                            <use href="../admin/svg/icon_sprite.svg#right"></use>
                                         </svg>
                                         <span>Free Signup</span>
                                     </li>
                                     <li>
                                         <svg>
-                                            <use href="../assets/svg/icon_sprite.svg#right"></use>
+                                            <use href="../admin/svg/icon_sprite.svg#right"></use>
                                         </svg>
                                         <span>Best Talent Tools</span>
                                     </li>
@@ -136,7 +136,7 @@
                 </div>
                 <div class="col-lg-6 d-lg-block d-none">
                     <div class="home-image text-end d-md-block d-none">
-                        <img class="img-fluid" src="../assets/images/job/home.webp" alt="career">
+                        <img class="img-fluid" src="../admin/images/job/home.webp" alt="career">
                     </div>
                 </div>
             </div>
@@ -162,7 +162,7 @@
                     <div class="feature-box">
                         <div class="feature-content">
                             <div class="feature-icon">
-                                <img src="../assets/images/social-icons/2.webp" alt="google">
+                                <img src="../admin/images/social-icons/2.webp" alt="google">
                             </div>
                             <h3>Google New York</h3>
                             <div class="d-flex">
@@ -186,7 +186,7 @@
                     <div class="feature-box">
                         <div class="feature-content">
                             <div class="feature-icon">
-                                <img src="../assets/images/social-icons/13.webp" alt="apple">
+                                <img src="../admin/images/social-icons/13.webp" alt="apple">
                             </div>
                             <h3>Apple</h3>
                             <div class="d-flex">
@@ -210,7 +210,7 @@
                     <div class="feature-box">
                         <div class="feature-content">
                             <div class="feature-icon">
-                                <img src="../assets/images/social-icons/4.webp" alt="microsoft">
+                                <img src="../admin/images/social-icons/4.webp" alt="microsoft">
                             </div>
                             <h3>Microsoft Ltd</h3>
                             <div class="d-flex">
@@ -235,7 +235,7 @@
                     <div class="feature-box">
                         <div class="feature-content">
                             <div class="feature-icon">
-                                <img src="../assets/images/social-icons/1.webp" alt="facebook">
+                                <img src="../admin/images/social-icons/1.webp" alt="facebook">
                             </div>
                             <h3>Facebook</h3>
                             <div class="d-flex">
@@ -259,7 +259,7 @@
                     <div class="feature-box">
                         <div class="feature-content">
                             <div class="feature-icon">
-                                <img src="../assets/images/social-icons/14.webp" alt="fiver">
+                                <img src="../admin/images/social-icons/14.webp" alt="fiver">
                             </div>
                             <h3>Fiver</h3>
                             <div class="d-flex">
@@ -283,7 +283,7 @@
                     <div class="feature-box">
                         <div class="feature-content">
                             <div class="feature-icon">
-                                <img src="../assets/images/social-icons/15.webp" alt="figma">
+                                <img src="../admin/images/social-icons/15.webp" alt="figma">
                             </div>
                             <h3>Figma</h3>
                             <div class="d-flex">
@@ -308,7 +308,7 @@
                     <div class="feature-box">
                         <div class="feature-content">
                             <div class="feature-icon">
-                                <img src="../assets/images/social-icons/3.webp" alt="linkedin">
+                                <img src="../admin/images/social-icons/3.webp" alt="linkedin">
                             </div>
                             <h3>LinkedIn</h3>
                             <div class="d-flex">
@@ -332,7 +332,7 @@
                     <div class="feature-box">
                         <div class="feature-content">
                             <div class="feature-icon">
-                                <img src="../assets/images/social-icons/16.webp" alt="freelancer">
+                                <img src="../admin/images/social-icons/16.webp" alt="freelancer">
                             </div>
                             <h3>Freelancer</h3>
                             <div class="d-flex">
@@ -417,7 +417,7 @@
                     <div class="col-xl-4">
                         <div class="footer-contact">
                             <a href="index.html">
-                                <img src="../assets/images/logo/logo_dark.webp" alt="logo">
+                                <img src="../admin/images/logo/logo_dark.webp" alt="logo">
                             </a>
                             <p>Outlived no dwelling denoting in peculiar as he believed. Behavior excellent
                                 middleton be as it curiosity departure ourselves very extreme future.</p>
@@ -522,7 +522,7 @@
                                     <div class="d-flex">
                                         <div class="footer-icon">
                                             <svg>
-                                                <use href="../assets/svg/icon_sprite.svg#map-pin"></use>
+                                                <use href="../admin/svg/icon_sprite.svg#map-pin"></use>
                                             </svg>
                                         </div>
                                         <div>
@@ -535,7 +535,7 @@
                                     <div class="d-flex">
                                         <div class="footer-icon">
                                             <svg>
-                                                <use href="../assets/svg/icon_sprite.svg#inbox"></use>
+                                                <use href="../admin/svg/icon_sprite.svg#inbox"></use>
                                             </svg>
                                         </div>
                                         <div>

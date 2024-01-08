@@ -4053,7 +4053,7 @@
           myTool2: {
             show: true,
             title: "Custom extension method 2",
-            // icon: 'image://./assets/echarts-logo.png',
+            // icon: 'image://./admin/echarts-logo.png',
             onclick: function () {
               alert("myToolHandler2");
             },
@@ -4328,7 +4328,7 @@
 
   require([
     "echarts",
-    "assets/js/chart/echart/data/Michelson-Morley.json",
+    "admin/js/chart/echart/data/Michelson-Morley.json",
   ], function (echarts, rawData) {
     var env = echarts.env;
 
@@ -4507,7 +4507,7 @@
     function initControlPanel(env) {
       if (!env.browser.ie || env.browser.ie.version > 8) {
         var scr = document.createElement("script");
-        scr.src = "../assets/js/chart/echart/lib/dat.gui.min.js";
+        scr.src = "../admin/js/chart/echart/lib/dat.gui.min.js";
         scr.onload = function () {
           var gui = new dat.GUI();
           var config = {

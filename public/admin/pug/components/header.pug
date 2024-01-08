@@ -13,24 +13,24 @@
     .header-logo-wrapper.col-auto.p-0
       .logo-wrapper
         a(href='index.html')
-          img.img-fluid(src='../assets/images/logo/logo.png', alt='')
+          img.img-fluid(src='../admin/images/logo/logo.png', alt='')
       .toggle-sidebar
         i.status_toggle.middle(data-feather='align-center').sidebar-toggle
 
     .left-header.col-xxl-5.col-xl-6.col-lg-5.col-md-4.col-sm-3.p-0
       .notification-slider
-        div.d-flex.h-100 
-          img(src="../assets/images/giftools.gif" alt="gif")
+        div.d-flex.h-100
+          img(src="../admin/images/giftools.gif" alt="gif")
           h6.mb-0.f-w-400
-            span.font-primary Don't Miss Out! 
+            span.font-primary Don't Miss Out!
             span.f-light Out new update has been release.
           i.icon-arrow-top-right.f-light
         div.d-flex.h-100
-          img(src="../assets/images/giftools.gif" alt="gif")
+          img(src="../admin/images/giftools.gif" alt="gif")
           h6.mb-0.f-w-400
-            span.f-light Something you love is now on sale! 
+            span.f-light Something you love is now on sale!
           a.ms-1(href="https://1.envato.market/3GVzd" target="_blank") Buy now !
-          
+
 
     .nav-right.col-xxl-7.col-xl-6.col-md-7.col-8.pull-right.right-header.p-0.ms-auto
       ul.nav-menus
@@ -39,7 +39,7 @@
             .current_lang
               .lang
                 i.flag-icon.flag-icon-us
-                span.lang-txt EN                               
+                span.lang-txt EN
             .more_lang
               .lang.selected(data-value='en')
                 i.flag-icon.flag-icon-us
@@ -66,16 +66,16 @@
               .lang(data-value='ae')
                 i.flag-icon.flag-icon-ae
                 span.lang-txt
-                  | لعربية 
+                  | لعربية
                   span  (ae)
-        li                          
+        li
           span.header-search
             svg
-              use(href='../assets/svg/icon-sprite.svg#search')
+              use(href='../admin/svg/icon-sprite.svg#search')
 
         li.onhover-dropdown
           svg
-            use(href='../assets/svg/icon-sprite.svg#star')
+            use(href='../admin/svg/icon-sprite.svg#star')
           .onhover-show-div.bookmark-flip
             .flip-card
               .flip-card-inner
@@ -113,18 +113,18 @@
         li
           .mode
             svg
-              use(href='../assets/svg/icon-sprite.svg#moon')
+              use(href='../admin/svg/icon-sprite.svg#moon')
         li.cart-nav.onhover-dropdown
           .cart-box
             svg
-              use(href='../assets/svg/icon-sprite.svg#stroke-ecommerce')
+              use(href='../admin/svg/icon-sprite.svg#stroke-ecommerce')
             span.badge.rounded-pill.badge-success 2
           .cart-dropdown.onhover-show-div
             h6.f-18.mb-0.dropdown-title Cart
             ul
               li
                 .media
-                  img.img-fluid.b-r-5.me-3.img-60(src='../assets/images/other-images/cart-img.jpg', alt='')
+                  img.img-fluid.b-r-5.me-3.img-60(src='../admin/images/other-images/cart-img.jpg', alt='')
                   .media-body
                     span Furniture Chair for Home
                     .qty-box
@@ -143,7 +143,7 @@
                       i(data-feather='x')
               li
                 .media
-                  img.img-fluid.b-r-5.me-3.img-60(src='../assets/images/other-images/cart-img.jpg', alt='')
+                  img.img-fluid.b-r-5.me-3.img-60(src='../admin/images/other-images/cart-img.jpg', alt='')
                   .media-body
                     span Furniture Chair for Home
                     .qty-box
@@ -163,7 +163,7 @@
 
               li.total
                 h6.mb-0
-                  | Order Total : 
+                  | Order Total :
                   span.f-right $1000.00
               li.text-center
                 a.d-block.mb-3.view-cart.f-w-700(href='cart.html')
@@ -173,14 +173,14 @@
         li.onhover-dropdown
           .notification-box
             svg
-              use(href='../assets/svg/icon-sprite.svg#notification')
-            span.badge.rounded-pill.badge-secondary 4 
+              use(href='../admin/svg/icon-sprite.svg#notification')
+            span.badge.rounded-pill.badge-secondary 4
           .onhover-show-div.notification-dropdown
-            h6.f-18.mb-0.dropdown-title Notitications                               
+            h6.f-18.mb-0.dropdown-title Notitications
             ul
               li.b-l-primary.border-4
                 p
-                  | Delivery processing 
+                  | Delivery processing
                   span.font-danger 10 min.
               li.b-l-success.border-4
                 p
@@ -198,16 +198,16 @@
                 a.f-w-700(href="#") Check all
         li.profile-nav.onhover-dropdown.pe-0.py-0
           .media.profile-media
-            img.b-r-10(src='../assets/images/dashboard/profile.png', alt='')
+            img.b-r-10(src='../admin/images/dashboard/profile.png', alt='')
             .media-body
               span Emay Walter
-              p.mb-0 Admin 
+              p.mb-0 Admin
                 i.middle.fa.fa-angle-down
           ul.profile-dropdown.onhover-show-div
             li
               a(href='#')
                 i(data-feather='user')
-                span Account 
+                span Account
             li
               a(href='#')
                 i(data-feather='mail')
@@ -222,13 +222,13 @@
                 span Settings
             li
               a(href='#')
-                i(data-feather='log-in') 
+                i(data-feather='log-in')
                 span Log in
 
     //- .d-lg-none.mobile-toggle.pull-right
     //-     i(data-feather='more-horizontal')
     script.result-template(type='text/x-handlebars-template').
-      <div class="ProfileCard u-cf">                        
+      <div class="ProfileCard u-cf">
       <div class="ProfileCard-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay m-0"><path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><polygon points="12 15 17 21 7 21 12 15"></polygon></svg></div>
       <div class="ProfileCard-details">
       <div class="ProfileCard-realName">{{name}}</div>
@@ -236,4 +236,4 @@
       </div>
     script.empty-template(type='text/x-handlebars-template').
       <div class="EmptyMessage">Your search turned up 0 results. This most likely means the backend is down, yikes!</div>
-// Page Header Ends                              
+// Page Header Ends
