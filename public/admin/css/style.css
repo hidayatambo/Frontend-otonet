@@ -28129,9 +28129,13 @@ ul.dot-group li {
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  background: url("../images/login/login_bg.jpg");
+  /* background: url("../images/login/login_bg.jpg"); */
   background-position: center;
   padding: 30px 12px;
+}
+.small-thumbnail {
+    width: 75%; /* Or any size you prefer */
+    height: auto; /* Maintain aspect ratio */
 }
 .login-card .logo {
   display: block;
