@@ -50,6 +50,14 @@
             background-position: center; /* Center the image */
             background-attachment: fixed; /* Optional: set the background fixed */
         }
+        @media (max-width: 991px) {
+            body, html {
+                background-image: none; /* Hides the background image */
+            }
+            .login-left{
+                display: none;
+            }
+        }
 
         .container-fluid {
             height: 100vh; /* Viewport Height */

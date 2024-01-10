@@ -40,11 +40,12 @@
     <link id="color" rel="stylesheet" href="{{ asset('admin/css/color-1.css') }}" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/responsive.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("admin/css/vendors/datatables.css") }}">
 </head>
 
-<body> 
+<body>
     <!-- loader starts-->
-    <div class="loader-wrapper">
+    {{-- <div class="loader-wrapper">
       <div class="loader-index"> <span></span></div>
       <svg>
         <defs></defs>
@@ -53,7 +54,7 @@
           <fecolormatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"> </fecolormatrix>
         </filter>
       </svg>
-    </div>
+    </div> --}}
     <!-- loader ends-->
     <!-- tap on top starts-->
     <div class="tap-top"><i data-feather="chevrons-up"></i></div>
@@ -80,21 +81,7 @@
         <div class="page-body">
           <div class="container-fluid">
             <div class="page-title">
-              <div class="row">
-                <div class="col-6">
-                  <h4>Dashboard</h4>
-                </div>
-                <div class="col-6">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">                                       
-                        <svg class="stroke-icon">
-                          <use href="../admin/svg/icon-sprite.svg#stroke-home"></use>
-                        </svg></a></li>
-                    <li class="breadcrumb-item">Dashboard</li>
-                    <li class="breadcrumb-item active">Dashboard</li>
-                  </ol>
-                </div>
-              </div>
+                <livewire:components.breadcrumb />
             </div>
           </div>
           {{ $slot }}
@@ -104,13 +91,12 @@
       </div>
     </div>
     <!-- latest jquery-->
-    <script
-  src="https://code.jquery.com/jquery-3.7.1.js"
-  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-  crossorigin="anonymous"></script>
+    {{-- @livewireScripts --}}
+    <script src="{{ asset("admin/js/jquery.min.js") }}"></script>
+
     <!-- Bootstrap js-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <!-- feather icon js-->
     <script src="{{ asset('admin/js/icons/feather-icon/feather.min.js') }}"></script>
     <script src="{{ asset('admin/js/icons/feather-icon/feather-icon.js') }}"></script>
@@ -121,7 +107,7 @@
     <script src="{{ asset('admin/js/config.js') }}"></script>
     <!-- Plugins JS start-->
     <script src="{{ asset('admin/js/sidebar-menu.js') }}"></script>
-    <script src="{{ asset('admin/js/sidebar-pin.js') }}"></script>
+    {{-- <script src="{{ asset('admin/js/sidebar-pin.js') }}"></script> --}}
     {{-- <script src="{{ asset('admin/js/clock.js') }}"></script> --}}
     <script src="{{ asset('admin/js/slick/slick.min.js') }}"></script>
     <script src="{{ asset('admin/js/slick/slick.js') }}"></script>
@@ -143,10 +129,13 @@
     <!-- Theme js-->
     <script src="{{ asset('admin/js/script.js') }}"></script>
     <script src="{{ asset('admin/js/theme-customizer/customizer.js') }}"></script>
+
+
     <script>
         new WOW().init();
 
     </script>
+    @stack('scripts')
     <script>
         $(document).ready(function() {
     $("#fullScreenToggle").click(function() {
@@ -168,6 +157,42 @@ function toggleFullScreen() {
     }
 }
 
+    </script>
+
+    {{-- <script src="{{ asset("admin/js/jquery.min.js") }}"></script> --}}
+    <script src="{{ asset("admin/js/datatable/datatables/jquery.dataTables.min.js") }}"></script>
+    <script src="{{ asset("admin/js/datatable/datatable-extension/dataTables.buttons.min.js") }}"></script>
+    <script src="{{ asset("admin/js/datatable/datatable-extension/custom.js") }} "></script>
+
+
+    <script src="{{ asset("admin/js/datatable/datatable-extension/jszip.min.js") }}"></script>
+    <script src="{{ asset("admin/js/datatable/datatable-extension/buttons.colVis.min.js") }}"></script>
+    <script src="{{ asset("admin/js/datatable/datatable-extension/pdfmake.min.js") }}"></script>
+    <script src="{{ asset("admin/js/datatable/datatable-extension/vfs_fonts.js") }}"></script>
+    <script src="{{ asset("admin/js/datatable/datatable-extension/dataTables.autoFill.min.js") }}"></script>
+    <script src="{{ asset("admin/js/datatable/datatable-extension/dataTables.select.min.js") }}"></script>
+    <script src="{{ asset("admin/js/datatable/datatable-extension/buttons.bootstrap4.min.js") }}"></script>
+    <script src="{{ asset("admin/js/datatable/datatable-extension/buttons.html5.min.js") }}"></script>
+    <script src="{{ asset("admin/js/datatable/datatable-extension/buttons.print.min.js") }}"></script>
+    <script src="{{ asset("admin/js/datatable/datatable-extension/dataTables.bootstrap4.min.js") }}"></script>
+    <script src="{{ asset("admin/js/datatable/datatable-extension/dataTables.responsive.min.js") }}"></script>
+    <script src="{{ asset("admin/js/datatable/datatable-extension/responsive.bootstrap4.min.js") }}"></script>
+    <script src="{{ asset("admin/js/datatable/datatable-extension/dataTables.keyTable.min.js") }}"></script>
+    <script src="{{ asset("admin/js/datatable/datatable-extension/dataTables.colReorder.min.js") }}"></script>
+    <script src="{{ asset("admin/js/datatable/datatable-extension/dataTables.fixedHeader.min.js") }}"></script>
+    <script src="{{ asset("admin/js/datatable/datatable-extension/dataTables.rowReorder.min.js") }}"></script>
+    <script src="{{ asset("admin/js/datatable/datatable-extension/dataTables.scroller.min.js") }}"></script>
+    <script>
+        window.addEventListener('openModal', event => {
+            new bootstrap.Modal(document.getElementById(event.detail.id)).show();
+        });
+    </script>
+
+    @livewireScripts
+    <script>
+        Livewire.on('modalClosed', () => {
+            bootstrap.Modal.getInstance(document.getElementById('exampleModalCenter1')).hide();
+        });
     </script>
 </body>
 

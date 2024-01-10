@@ -43,6 +43,7 @@ class Register extends Component
          **/
 
         $api = new Auth();
+
         $response = $api->register([
             'nama' => $this->nama,
             'nama_perusahaan' => $this->nama_perusahaan,
@@ -51,7 +52,7 @@ class Register extends Component
             'id_aplikasi' => 1,
             'id_jenis_aplikasi' => 1,
             'confirm' => $this->confirm,
-	    'alamat' => ''
+	        'alamat' => ''
         ]);
 
         if ($response['status'] === true) {
