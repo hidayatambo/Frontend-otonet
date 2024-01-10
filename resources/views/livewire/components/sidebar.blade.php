@@ -1,102 +1,3 @@
-{{-- <nav class="sidebar-main">
-    <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
-    <div id="sidebar-menu">
-      <ul class="sidebar-links" id="simple-bar">
-        <li class="back-btn"><a href="index.html"><img class="img-fluid" src="{{ asset('admin/images/logo/logo-icon.png') }}"
-alt=""></a>
-<div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i></div>
-</li>
-<li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title active" href="#">
-        <svg class="stroke-icon">
-            <use href="../assets/svg/icon-sprite.svg#stroke-blog"></use>
-        </svg>
-        <svg class="fill-icon">
-            <use href="../assets/svg/icon-sprite.svg#fill-blog"></use>
-        </svg><span>Blog</span>
-        <div class="according-menu"><i class="fa fa-angle-down"></i></div>
-    </a>
-    <ul class="sidebar-submenu" style="display: block;">
-        <li><a href="blog.html">Blog Details</a></li>
-        <li><a href="blog-single.html">Blog Single</a></li>
-        <li><a href="add-post.html" class="active">Add Post</a></li>
-    </ul>
-</li>
-<li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="#">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="">
-            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-        </svg>
-        <span>Master</span></a>
-    <ul class="sidebar-submenu">
-        <li><a href="{{ url('master/supplier') }}" wire:navigate>Supplier</a></li>
-
-    </ul>
-</li>
-<li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="#">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="feather feather-truck">
-            <rect x="1" y="3" width="15" height="13"></rect>
-            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
-            <circle cx="5.5" cy="18.5" r="2.5"></circle>
-            <circle cx="18.5" cy="18.5" r="2.5"></circle>
-        </svg>
-        <span>Gudang</span></a>
-    <ul class="sidebar-submenu">
-        <li><a href="{{ url('/dashboard') }}">-</a></li>
-    </ul>
-</li>
-<li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="#">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="feather feather-shopping-bag">
-            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <path d="M16 10a4 4 0 0 1-8 0"></path>
-        </svg><span>Penjualan</span></a>
-    <ul class="sidebar-submenu">
-        <li><a href="{{ url('/dashboard') }}">-</a></li>
-    </ul>
-</li>
-<li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="#">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="feather feather-dollar-sign">
-            <line x1="12" y1="1" x2="12" y2="23"></line>
-            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-        </svg>
-        <span>Kasir</span></a>
-    <ul class="sidebar-submenu">
-        <li><a href="{{ url('/dashboard') }}">-</a></li>
-    </ul>
-</li>
-<li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="#">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="feather feather-bookmark">
-            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-        </svg><span>Front Office</span></a>
-    <ul class="sidebar-submenu">
-        <li><a href="{{ url('/dashboard') }}">-</a></li>
-    </ul>
-</li>
-<li class="sidebar-list"><i class="fa fa-thumb-tack"></i><a class="sidebar-link sidebar-title" href="#">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="feather feather-file">
-            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
-            <polyline points="13 2 13 9 20 9"></polyline>
-        </svg><span>Laporan</span></a>
-    <ul class="sidebar-submenu">
-        <li><a href="{{ url('/dashboard') }}">-</a></li>
-    </ul>
-</li>
-</ul>
-</div>
-<div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>
-</nav> --}}
 <nav class="sidebar-main">
     <div class="left-arrow disabled" id="left-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -126,7 +27,7 @@ alt=""></a>
                                 <li class="sidebar-main-title">
                                 </li>
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title {{ $activePage == 'master' ? 'active' : '' }}" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    <a class="sidebar-link sidebar-title {{ $activePage == 'master' ? 'active' : '' }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round"
                                             class="feather feather-database">
@@ -137,7 +38,7 @@ alt=""></a>
                                         <span >Master</span>
                                         <div class="according-menu"><i class="fa fa-angle-down"></i></div>
                                     </a>
-                                    <ul class="sidebar-submenu" style="">
+                                    <ul class="sidebar-submenu" style="{{ $activePage !== 'master' ? 'display:none' : '' }}">
                                         <li><a wire:navigate class="{{ $subActivePage == 'supplier' ? 'active' : '' }}" href="{{ url('master/supplier') }}">Supplier</a></li>
                                         <li><a wire:navigate class="{{ $subActivePage == 'pelanggan' ? 'active' : '' }}"  href="{{ url('master/pelanggan') }}" >Pelanggan</a></li>
                                         <li><a wire:navigate class="{{ $subActivePage == 'barang' ? 'active' : '' }}"  href="{{ url('master/barang') }}">Barang</a></li>
@@ -147,17 +48,17 @@ alt=""></a>
                                         <li><a wire:navigate class="{{ $subActivePage == 'merk' ? 'active' : '' }}"  href="{{ url('master/merk') }}">Merk</a></li>
                                         <li><a wire:navigate class="{{ $subActivePage == 'tipe' ? 'active' : '' }}" href="{{ url('master/tipe') }}">Tipe</a></li>
                                         <li><a wire:navigate class="{{ $subActivePage == 'satuan' ? 'active' : '' }}" href="{{ url('master/satuan') }}">Satuan</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/paket" >Paket</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/jenissvc" >Jenis Service</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/aksesmenu">Akses Menu</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/karyawan">Karyawan</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/paketmember">Paket Member</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/vendor">Vendor</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/kontrak">Kontrak</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'paket' ? 'active' : '' }}" href="{{ url('master/paket') }}">Paket</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'jenis_service' ? 'active' : '' }}" href="{{ url('master/jenis_service') }}">Jenis Service</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'akses_menu' ? 'active' : '' }}" href="{{ url('master/akses_menu') }}">Akses Menu</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'karyawan' ? 'active' : '' }}" href="{{ url('master/karyawan') }}">Karyawan</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'paket_member' ? 'active' : '' }}" href="{{ url('master/paket_member') }}">Paket Member</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'vendor' ? 'active' : '' }}" href="{{ url('master/vendor') }}">Vendor</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'kontrak' ? 'active' : '' }}" href="{{ url('master/kontrak') }}">Kontrak</a></li>
                                     </ul>
                                 </li>
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title" href="#" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    <a class="sidebar-link sidebar-title {{ $activePage == 'gudang' ? 'active' : '' }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round"
                                             class="feather feather-truck">
@@ -169,14 +70,14 @@ alt=""></a>
                                         <span >Gudang</span>
                                         <div class="according-menu"><i class="fa fa-angle-right"></i></div>
                                     </a>
-                                    <ul class="sidebar-submenu" style="display:none">
+                                    <ul class="sidebar-submenu" style="{{ $activePage !== 'gudang' ? 'display:none' : '' }}">
 
-                                        <li><a href="https://demo3.otonet.co.id/pembelian" >Pembelian</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/stockopname" >Stock Opname</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/po-pembelian" >PO Pembelian</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/pr-pembelian" >PR Pembelian</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/pengeluaran-bahan">Pengeluaran Bahan</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/kartustok" >Kartu Stok</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'pembelian' ? 'active' : '' }}" href="{{ url('gudang/pembelian') }}">Pembelian</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'stock_opname' ? 'active' : '' }}" href="{{ url('gudang/stock_opname') }}">Stock Opname</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'po_pembelian' ? 'active' : '' }}" href="{{ url('gudang/po_pembelian') }}">PO Pembelian</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'pr_pembelian' ? 'active' : '' }}" href="{{ url('gudang/pr_pembelian') }}">PR Pembelian</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'pengeluaran_bahan' ? 'active' : '' }}" href="{{ url('gudang/pengeluaran_bahan') }}">Pengeluaran Bahan</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'kartu_stok' ? 'active' : '' }}" href="{{ url('gudang/kartu_stok') }}">Kartu Stok</a></li>
 
                                     </ul>
                                 </li>

@@ -90,8 +90,6 @@ class Supplier extends Component
         $supplier = new SupplierService();
         // dd($supplier->show()['data']);
         $this->detail = $supplier->detail($supplierId)['data'] ? $supplier->detail($supplierId)['data'] : [];
-
-
     }
 
     public function openModal()

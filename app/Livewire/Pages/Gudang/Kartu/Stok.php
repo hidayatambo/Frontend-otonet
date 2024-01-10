@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Livewire\Pages\Master\Satuan;
+namespace App\Livewire\Pages\Gudang\Kartu;
 
 use Livewire\Component;
 
-class Satuan extends Component
+class Stok extends Component
 {
     public $activePage;
     public $subActivePage;
@@ -19,11 +19,12 @@ class Satuan extends Component
     public $cell = ['Kode' , 'Nama', 'Divisi', 'Brand', 'Kode 2','Qty', 'Harga Beli','Harga Jual', 'Status'];
     public $sortField;
     public $sortDirection = 'asc';
+
     public function render()
     {
-        return view('livewire.pages.master.satuan.satuan')
+        return view('livewire.pages.gudang.kartu.stok')
         ->layout('layouts.dashboard')
-        ->title('Master Satuan');
+        ->title('Gudang Pengeluaran Bahan');
     }
 
     public function mount()
@@ -31,14 +32,14 @@ class Satuan extends Component
         $this->setActivePages();
         $this->dispatch('breadcrumb', $this->activePage, $this->subActivePage);
         $this->dispatch('pages', $this->activePage);
-    $this->dispatch('sub-pages', $this->subActivePage);
+        $this->dispatch('sub-pages', $this->subActivePage);
         $this->rows = [];
     }
 
     public function setActivePages()
     {
-        $this->activePage = 'master';
-        $this->subActivePage = 'satuan';
+        $this->activePage = 'gudang';
+        $this->subActivePage = 'kartu_stok';
     }
 
     public function openModal()

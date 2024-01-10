@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Livewire\Pages\Master\Satuan;
+namespace App\Livewire\Pages\Master\Kontrak;
 
 use Livewire\Component;
 
-class Satuan extends Component
+class Kontrak extends Component
 {
     public $activePage;
     public $subActivePage;
@@ -21,9 +21,9 @@ class Satuan extends Component
     public $sortDirection = 'asc';
     public function render()
     {
-        return view('livewire.pages.master.satuan.satuan')
+        return view('livewire.pages.master.kontrak.kontrak')
         ->layout('layouts.dashboard')
-        ->title('Master Satuan');
+        ->title('Master Kontrak');
     }
 
     public function mount()
@@ -38,7 +38,7 @@ class Satuan extends Component
     public function setActivePages()
     {
         $this->activePage = 'master';
-        $this->subActivePage = 'satuan';
+        $this->subActivePage = 'kontrak';
     }
 
     public function openModal()
