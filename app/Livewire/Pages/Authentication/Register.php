@@ -19,7 +19,7 @@ class Register extends Component
     // public $address;
     public $confirm;
     public $jenis_aplikasi;
-    public $detail_jenis_aplikasi;
+    public $detail_jenis_aplikasi = [];
 
     public function mount(Request $request)
     {
@@ -29,18 +29,26 @@ class Register extends Component
 
     public function register()
     {
-	/**
         $this->validate([
             'nama' => 'required',
             'nama_perusahaan' => 'required',
             'email' => 'required|email',
             'phone' => 'required',
             'jenis_aplikasi' => 'required',
-            'detail_jenis_aplikasi' => 'required',
+            'detail_jenis_aplikasi' => 'required|array|min:1',
             'confirm' => 'required'
+        ], [
+            'nama.required' => 'Nama wajib diisi.',
+            'nama_perusahaan.required' => 'Nama perusahaan wajib diisi.',
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Email harus berupa alamat email yang valid.',
+            'phone.required' => 'Nomor telepon wajib diisi.',
+            'jenis_aplikasi.required' => 'Jenis aplikasi wajib diisi.',
+            'detail_jenis_aplikasi.required' => 'Pilih setidaknya satu detail jenis aplikasi.',
+            'detail_jenis_aplikasi.array' => 'Detail jenis aplikasi harus berupa array.',
+            'detail_jenis_aplikasi.min' => 'Pilih setidaknya satu detail jenis aplikasi.',
+            'confirm.required' => 'Anda harus mengonfirmasi pilihan Anda.'
         ]);
-	dd($this->validate);
-         **/
 
         $api = new Auth();
 
@@ -63,7 +71,6 @@ class Register extends Component
                 willClose: 'redirectAfterSuccess',
             );
         } else {
-            // if (isset($response['message'])) {
                 foreach ($response['message'] as $field => $errors) {
                     foreach ($errors as $error) {
                         $this->addError($field, $error);

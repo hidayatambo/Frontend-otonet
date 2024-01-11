@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -37,7 +36,7 @@
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/responsive.css')}}">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    @livewireStyles
+
     <style>
         body, html {
             margin: 0;
@@ -92,7 +91,10 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
+
+
     </style>
+    @livewireStyles
   </head>
   <body style="">
     <div class="container-fluid p-0">
@@ -123,5 +125,15 @@
     <!-- Plugins JS Ends-->
     <!-- Theme js-->
     <script src="{{asset('admin/js/script.js')}}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- scrollbar js-->
+    <script src="{{asset('admin/js/scrollbar/simplebar.js')}}"></script>
+    <script src="{{asset('admin/js/scrollbar/custom.js')}}"></script>
+
+    {{-- <script src="../assets/js/theme-customizer/customizer.js"></script> --}}
+
+
   </body>
 </html>

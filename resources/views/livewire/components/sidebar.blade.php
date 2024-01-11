@@ -82,7 +82,7 @@
                                     </ul>
                                 </li>
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title" href="#" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    <a class="sidebar-link sidebar-title {{ $activePage == 'penjualan' ? 'active' : '' }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round"
                                             class="feather feather-shopping-bag">
@@ -93,16 +93,14 @@
                                         <span >Penjualan</span>
                                         <div class="according-menu"><i class="fa fa-angle-right"></i></div>
                                     </a>
-                                    <ul class="sidebar-submenu" style="display:none">
-
-                                        <li><a href="https://demo3.otonet.co.id/toko" >Toko</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/notab" >Nota Bengkel</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/returtoko" >Retur Toko</a></li>
-
+                                    <ul class="sidebar-submenu" style="{{ $activePage !== 'penjualan' ? 'display:none' : '' }}">
+                                        <li><a wire:navigate class="{{ $subActivePage == 'toko' ? 'active' : '' }}" href="{{ url('penjualan/toko') }}">Toko</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'nota_bengkel' ? 'active' : '' }}" href="{{ url('penjualan/nota_bengkel') }}">Nota Bengkel</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'retur_toko' ? 'active' : '' }}" href="{{ url('penjualan/retur_toko') }}">Retur Toko</a></li>
                                     </ul>
                                 </li>
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title" href="#" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    <a class="sidebar-link sidebar-title {{ $activePage == 'kasir' ? 'active' : '' }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round"
                                             class="feather feather-dollar-sign">
@@ -112,12 +110,12 @@
                                         <span >Kasir</span>
                                         <div class="according-menu"><i class="fa fa-angle-right"></i></div>
                                     </a>
-                                    <ul class="sidebar-submenu" style="display:none">
+                                    <ul class="sidebar-submenu" style="{{ $activePage !== 'kasir' ? 'display:none' : '' }}">
 
-                                        <li><a href="https://demo3.otonet.co.id/faktur-service">Invoice Servis</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/buktibayar" >Bukti Bayar</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/formpengajuan" >Form Pengajuan</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/bayarsupplier" >Bayar Supplier</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'invoice_service' ? 'active' : '' }}" href="{{ url('kasir/invoice_service') }}">Invoice Services</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'bukti_bayar' ? 'active' : '' }}" href="{{ url('kasir/bukti_bayar') }}">Bukti Bayar</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'form_pengajuan' ? 'active' : '' }}" href="{{ url('kasir/form_pengajuan') }}">Form Pengajuan</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'bayar_supplier' ? 'active' : '' }}" href="{{ url('kasir/bayar_supplier') }}">Bayar Supplier</a></li>
 
                                     </ul>
                                 </li>

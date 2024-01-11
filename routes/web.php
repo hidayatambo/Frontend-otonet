@@ -1,26 +1,40 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
 
 /**
  * * Route For Authentication
  */
-
-
-Route::prefix('auth')->group(function () {
+ Route::prefix('auth')->group(function () {
     Route::get('login', App\Livewire\Pages\Authentication\Login::class)->name('auth/login');
     Route::get('register', App\Livewire\Pages\Authentication\Register::class);
-
-
-});
-Route::get('email_confirmation', App\Livewire\Pages\Authentication\EmailConfirmaation::class);
-Route::middleware(['token.auth'])->group(function () {
-    Route::get('/dashboard', App\Livewire\Pages\Dashboard\Dashboard::class);
+    Route::get('email_confirmation',function () {
+        return view('livewire.pages.authentication.email-confirmaation');
+    });
 });
 
 Route::get('/', App\Livewire\Pages\Authentication\SelectApplication::class);
 
 Route::middleware(['token.auth'])->group(function () {
+
+    /**
+     * * Route For Dashboard
+     */
+    Route::get('/dashboard', App\Livewire\Pages\Dashboard\Dashboard::class);
+
+    /**
+     * * Route For Master
+     */
     Route::prefix('master')->group(function () {
         Route::prefix('supplier')->group(function () {
             Route::get('/', App\Livewire\Pages\Master\Supplier\Supplier::class)->name('master/supplier');
@@ -74,9 +88,13 @@ Route::middleware(['token.auth'])->group(function () {
             Route::get('/', App\Livewire\Pages\Master\Kontrak\Kontrak::class)->name('master/kontrak');
         });
     });
+
+    /**
+     * * Route For Gudang
+     */
     Route::prefix('gudang')->group(function () {
         Route::prefix('pembelian')->group(function () {
-            Route::get('/', App\Livewire\Pages\Gudang\Pembelian\Pembelian::class)->name('gudang/supplier');
+            Route::get('/', App\Livewire\Pages\Gudang\Pembelian\Pembelian::class)->name('gudang/pembelian');
         });
         Route::prefix('stock_opname')->group(function () {
             Route::get('/', App\Livewire\Pages\Gudang\Stock\Opname::class)->name('gudang/stock_opname');
@@ -94,23 +112,37 @@ Route::middleware(['token.auth'])->group(function () {
             Route::get('/', App\Livewire\Pages\Gudang\Kartu\Stok::class)->name('gudang/kartu_stok');
         });
     });
+
+    /**
+     * * Route For Penjualan
+     */
+    Route::prefix('penjualan')->group(function () {
+        Route::prefix('toko')->group(function () {
+            Route::get('/', App\Livewire\Pages\Penjualan\Toko\Toko::class)->name('penjualan/toko');
+        });
+        Route::prefix('nota_bengkel')->group(function () {
+            Route::get('/', App\Livewire\Pages\Penjualan\Nota\Bengkel::class)->name('penjualan/nota_bengkel');
+        });
+        Route::prefix('retur_toko')->group(function () {
+            Route::get('/', App\Livewire\Pages\Penjualan\Retur\Toko::class)->name('penjualan/retur_toko');
+        });
+    });
+
+    /**
+     * * Route For Kasir
+     */
+    Route::prefix('kasir')->group(function () {
+        Route::prefix('invoice_service')->group(function () {
+            Route::get('/', App\Livewire\Pages\Kasir\Invoice\Service::class)->name('penjualan/invoice_service');
+        });
+        Route::prefix('bukti_bayar')->group(function () {
+            Route::get('/', App\Livewire\Pages\Kasir\Bukti\Bayar::class)->name('penjualan/bukti_bayar');
+        });
+        Route::prefix('form_pengajuan')->group(function () {
+            Route::get('/', App\Livewire\Pages\Kasir\Form\Pengajuan::class)->name('penjualan/form_pengajuan');
+        });
+        Route::prefix('bayar_supplier')->group(function () {
+            Route::get('/', App\Livewire\Pages\Kasir\Bayar\Supplier::class)->name('penjualan/bayar_supplier');
+        });
+    });
 });
-
-
-
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });

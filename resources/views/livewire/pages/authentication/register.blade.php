@@ -19,12 +19,23 @@
                                     <strong>{{ $message }}</strong>
                                 </span> @enderror
                             </div>
-                            <div class="form-group">
+                            <div class="checkbox-checked">
                                 <label class="col-form-label pt-0">Detail Jenis Usaha</label>
-                                <select class="form-select" wire:model="detail_jenis_aplikasi">
-                                    <option value="1">Bengkel Servis</option>
-                                    <option value="2" disabled>Bengkel Body Repair (Coming Soon)</option>
-                                </select>
+                                <div class="form-check">
+                                    <input style="background-color:white;" onclick="changeBackgroundColor(this)" wire:model="detail_jenis_aplikasi" class="form-check-input  @error('detail_jenis_aplikasi') is-invalid @enderror" type="checkbox" value="1" checked>
+                                    <label>
+                                        Bengkel Service
+                                    </label>
+                                  </div>
+                                  <div class="form-check">
+                                    <input onclick="changeBackgroundColor(this)" style="background-color:white;" wire:model="detail_jenis_aplikasi" class="form-check-input  @error('detail_jenis_aplikasi') is-invalid @enderror" type="checkbox" value="2">
+                                    <label>
+                                        Bengkel Body Repair (Coming Soon)
+                                    </label>
+                                  </div>
+                                  @error('detail_jenis_aplikasi') <span class="txt-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span> @enderror
                             </div>
                             <div class="form-group">
                                 <label class="col-form-label pt-0">Nama Bengkel</label>
@@ -66,10 +77,13 @@
                             </div> --}}
                             <div class="form-group mb-0">
                                 <div class="checkbox p-0">
-                                    <input id="checkbox1" type="checkbox" wire:model="confirm" required>
-                                    <label class="text-muted" for="checkbox1">Agree with<a class="ms-2" href="#">Privacy
+                                    <input id="checkbox1" type="checkbox" wire:model="confirm" class=" @error('address') is-invalid @enderror">
+                                    <label class="text-muted" for="checkbox1">Agree with<a class="ms-2" >Privacy
                                             Policy</a></label>
                                 </div>
+                                @error('confirm') <span class="txt-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span> @enderror
                                 <button class="btn btn-primary btn-block w-100" type="submit">Create Account</button>
                             </div>
                             <p class="mt-4 mb-0 text-center">Already have an account?<a class="ms-2"
@@ -84,7 +98,6 @@
         </div>
     </div>
     @livewireScripts
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         Livewire.on('swal:success', function (options) {
             Swal.fire({
@@ -103,4 +116,13 @@
         });
 
     </script>
+    <script>
+        function changeBackgroundColor(checkbox) {
+            if (checkbox.checked) {
+                checkbox.style.backgroundColor = 'blue';
+            } else {
+                checkbox.style.backgroundColor = 'white';
+            }
+        }
+        </script>
 </div>
