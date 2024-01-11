@@ -7,7 +7,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">
                     <svg class="stroke-icon">
-                        <use href="../admin/svg/icon-sprite.svg#stroke-home"></use>
+                        <use href="{{ asset('admin/svg/icon-sprite.svg#stroke-home') }}"></use>
                     </svg></a></li>
             <li class="breadcrumb-item">{{ Str::title($activePage)  }}</li>
             <li class="breadcrumb-item active">{{ Str::title(str_replace('_', ' ', $subActivePage)) }}</li>

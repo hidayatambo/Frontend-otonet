@@ -439,13 +439,13 @@
     $(".simplebar-wrapper .simplebar-content-wrapper") &&
     $("#pageWrapper").hasClass("compact-wrapper")
   ) {
-    $(".simplebar-wrapper .simplebar-content-wrapper").animate(
-      {
-        scrollTop:
-          $(".simplebar-wrapper .simplebar-content-wrapper a.active").offset()
-            .top - 400,
-      },
-      1000
-    );
+    // $(".simplebar-wrapper .simplebar-content-wrapper").animate(
+    //   {
+    //     scrollTop:
+    //       $(".simplebar-wrapper .simplebar-content-wrapper a.active").offset()
+    //         .top - 400,
+    //   },
+    //   1000
+    // );
   }
 })(jQuery);

@@ -73,7 +73,7 @@
               <div class="back-btn"><i class="fa fa-angle-left"></i></div>
               <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
             </div>
-            <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid" src="../admin/images/logo/logo-icon.png" alt=""></a></div>
+            {{-- <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid" src="../admin/images/logo/logo-icon.png" alt=""></a></div> --}}
             <livewire:components.sidebar />
           </div>
         </div>
@@ -118,11 +118,11 @@
     <script src="{{ asset('admin/js/notify/bootstrap-notify.min.js') }}"></script>
     {{-- <script src="{{ asset('admin/js/dashboard/default.js') }}"></script> --}}
     <script src="{{ asset('admin/js/notify/index.js') }}"></script>
-    <script src="{{ asset('admin/js/typeahead/handlebars.js') }}"></script>
-    <script src="{{ asset('admin/js/typeahead/typeahead.bundle.js') }}"></script>
-    <script src="{{ asset('admin/js/typeahead/typeahead.custom.js') }}"></script>
-    <script src="{{ asset('admin/js/typeahead-search/handlebars.js') }}"></script>
-    <script src="{{ asset('admin/js/typeahead-search/typeahead-custom.js') }}"></script>
+    {{-- <script src="{{ asset('admin/js/typeahead/handlebars.js') }}"></script> --}}
+    {{-- <script src="{{ asset('admin/js/typeahead/typeahead.bundle.js') }}"></script> --}}
+    {{-- <script src="{{ asset('admin/js/typeahead/typeahead.custom.js') }}"></script> --}}
+    {{-- <script src="{{ asset('admin/js/typeahead-search/handlebars.js') }}"></script> --}}
+    {{-- <script src="{{ asset('admin/js/typeahead-search/typeahead-custom.js') }}"></script> --}}
     <script src="{{ asset('admin/js/height-equal.js') }}"></script>
     <script src="{{ asset('admin/js/animation/wow/wow.min.js') }}"></script>
     <!-- Plugins JS Ends-->
