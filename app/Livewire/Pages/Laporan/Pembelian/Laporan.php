@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Livewire\Pages\Fo\Membership;
+namespace App\Livewire\Pages\Laporan\Pembelian;
 
 use Livewire\Component;
 
-class Membership extends Component
+class Laporan extends Component
 {
     public $activePage;
     public $subActivePage;
@@ -21,9 +21,9 @@ class Membership extends Component
     public $sortDirection = 'asc';
     public function render()
     {
-        return view('livewire.pages.fo.membership.membership')
+        return view('livewire.pages.laporan.pembelian.laporan')
         ->layout('layouts.dashboard')
-        ->title('Front Office | Membership');
+        ->title('Front Office | Update KM');
     }
 
     public function mount()
@@ -37,8 +37,8 @@ class Membership extends Component
 
     public function setActivePages()
     {
-        $this->activePage = 'front_office';
-        $this->subActivePage = 'membership';
+        $this->activePage = 'laporan';
+        $this->subActivePage = 'laporan_pembelian';
     }
 
     public function openModal()
@@ -49,5 +49,5 @@ class Membership extends Component
     public function closeModal()
     {
         $this->isOpen = false;
-    }
+    } 
 }

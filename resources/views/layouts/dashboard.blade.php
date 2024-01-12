@@ -187,6 +187,9 @@ function toggleFullScreen() {
             new bootstrap.Modal(document.getElementById(event.detail.id)).show();
         });
     </script>
+    <script>
+        window.addEventListener("popstate", function (event) { window.location.reload(); });
+    </script>
 
     @livewireScripts
     <script>
@@ -195,5 +198,4 @@ function toggleFullScreen() {
         });
     </script>
 </body>
-
 </html>

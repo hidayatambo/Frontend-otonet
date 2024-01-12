@@ -111,7 +111,6 @@
                                         <div class="according-menu"><i class="fa fa-angle-right"></i></div>
                                     </a>
                                     <ul class="sidebar-submenu" style="{{ $activePage !== 'kasir' ? 'display:none' : '' }}">
-
                                         <li><a wire:navigate class="{{ $subActivePage == 'invoice_service' ? 'active' : '' }}" href="{{ url('kasir/invoice_service') }}">Invoice Services</a></li>
                                         <li><a wire:navigate class="{{ $subActivePage == 'bukti_bayar' ? 'active' : '' }}" href="{{ url('kasir/bukti_bayar') }}">Bukti Bayar</a></li>
                                         <li><a wire:navigate class="{{ $subActivePage == 'form_pengajuan' ? 'active' : '' }}" href="{{ url('kasir/form_pengajuan') }}">Form Pengajuan</a></li>
@@ -120,7 +119,7 @@
                                     </ul>
                                 </li>
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title" href="#" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    <a class="sidebar-link sidebar-title {{ $activePage == 'front_office' ? 'active' : '' }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round"
                                             class="feather feather-bookmark">
@@ -129,20 +128,20 @@
                                         <span >Front Office</span>
                                         <div class="according-menu"><i class="fa fa-angle-right"></i></div>
                                     </a>
-                                    <ul class="sidebar-submenu" style="display:none">
+                                    <ul class="sidebar-submenu" style="{{ $activePage !== 'front_office' ? 'display:none' : '' }}">
 
-                                        <li><a href="https://demo3.otonet.co.id/svc" >Servis</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/membership" >Membership</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/history" >History Kendaraan</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/cuci" >Cuci</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/kmkendaraan" >Update KM</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/opl" >Order Pekerjaan Luar</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/opsck" >Order Pembelian Part</a></li>
+                                        <li><a  wire:navigate class="{{ $subActivePage == 'service' ? 'active' : '' }}" href="{{ url('front_office/service') }}">Servis</a></li>
+                                        <li><a  wire:navigate class="{{ $subActivePage == 'membership' ? 'active' : '' }}" href="{{ url('front_office/membership') }}">Membership</a></li>
+                                        <li><a  wire:navigate class="{{ $subActivePage == 'history_kendaraan' ? 'active' : '' }}" href="{{ url('front_office/history_kendaraan') }}">History Kendaraan</a></li>
+                                        <li><a  wire:navigate class="{{ $subActivePage == 'cuci' ? 'active' : '' }}" href="{{ url('front_office/cuci') }}">Cuci</a></li>
+                                        <li><a  wire:navigate class="{{ $subActivePage == 'update_km' ? 'active' : '' }}" href="{{ url('front_office/update_km') }}">Update KM</a></li>
+                                        <li><a  wire:navigate class="{{ $subActivePage == 'order_pekerjaan_luar' ? 'active' : '' }}" href="{{ url('front_office/order_pekerjaan_luar') }}">Order Pekerjaan Luar</a></li>
+                                        <li><a  wire:navigate class="{{ $subActivePage == 'order_pembelian_part' ? 'active' : '' }}" href="{{ url('front_office/order_pembelian_part') }}">Order Pembelian Part</a></li>
 
                                     </ul>
                                 </li>
                                 <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title" href="#" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    <a class="sidebar-link sidebar-title {{ $activePage == 'laporan' ? 'active' : '' }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
                                             <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
@@ -151,18 +150,17 @@
                                         <span >Laporan</span>
                                         <div class="according-menu"><i class="fa fa-angle-right"></i></div>
                                     </a>
-                                    <ul class="sidebar-submenu" style="display:none">
-
-                                        <li><a href="https://demo3.otonet.co.id/laptoko" >Laporan Toko</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/lappembelian" >Laporan Pembelian</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/lapsvc" >Laporan Service</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/lapkasir" >Laporan Kasir</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/lapunitentry" >Laporan Unit Entry</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/lapstatpkb" >Laporan Status PKB</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/lapnotab" >Laporan Nota Bengkel</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/lapunitcust" >Laporan Unit Cust</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/lappkb" >Laporan PKB</a></li>
-                                        <li><a href="https://demo3.otonet.co.id/lapstok" >Laporan Stok</a></li>
+                                    <ul class="sidebar-submenu" style="{{ $activePage !== 'laporan' ? 'display:none' : '' }}">
+                                        <li><a wire:navigate class="{{ $subActivePage == 'laporan_toko' ? 'active' : '' }}" href="{{ url('laporan/toko') }}">Laporan Toko</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'laporan_pembelian' ? 'active' : '' }}" href="{{ url('laporan/pembelian') }}">Laporan Pembelian</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'laporan_service' ? 'active' : '' }}" href="{{ url('laporan/service') }}">Laporan Service</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'laporan_kasir' ? 'active' : '' }}" href="{{ url('laporan/kasir') }}">Laporan Kasir</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'laporan_unit_entry' ? 'active' : '' }}" href="{{ url('laporan/unit_entry') }}">Laporan Unit Entry</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'laporan_status_PKB' ? 'active' : '' }}" href="{{ url('laporan/status_pkb') }}">Laporan Status PKB</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'laporan_nota_bengkel' ? 'active' : '' }}" href="{{ url('laporan/nota_bengkel') }}">Laporan Nota Bengkel</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'laporan_unit_cust' ? 'active' : '' }}" href="{{ url('laporan/unit_cust') }}">Laporan Unit Cust</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'laporan_pkb' ? 'active' : '' }}" href="{{ url('laporan/pkb') }}">Laporan PKB</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'laporan_stok' ? 'active' : '' }}" href="{{ url('laporan/stok') }}">Laporan Stok</a></li>
 
                                     </ul>
                                 </li>

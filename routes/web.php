@@ -145,4 +145,66 @@ Route::middleware(['token.auth'])->group(function () {
             Route::get('/', App\Livewire\Pages\Kasir\Bayar\Supplier::class)->name('penjualan/bayar_supplier');
         });
     });
+    /**
+     * * Route For Front Office
+     */
+    Route::prefix('front_office')->group(function () {
+        Route::prefix('service')->group(function () {
+            Route::get('/', App\Livewire\Pages\Fo\Service\Service::class)->name('front_office/service');
+        });
+        Route::prefix('membership')->group(function () {
+            Route::get('/', App\Livewire\Pages\Fo\Membership\Membership::class)->name('front_office/membership');
+        });
+        Route::prefix('history_kendaraan')->group(function () {
+            Route::get('/', App\Livewire\Pages\Fo\History\Kendaraan::class)->name('front_office/history_kendaraan');
+        });
+        Route::prefix('cuci')->group(function () {
+            Route::get('/', App\Livewire\Pages\Fo\Cuci\Cuci::class)->name('front_office/cuci');
+        });
+        Route::prefix('update_km')->group(function () {
+            Route::get('/', App\Livewire\Pages\Fo\Update\Km::class)->name('front_office/update_km');
+        });
+        Route::prefix('order_pekerjaan_luar')->group(function () {
+            Route::get('/', App\Livewire\Pages\Fo\Order\PekerjaanLuar::class)->name('front_office/order_pekerjaan_luar');
+        });
+        Route::prefix('order_pembelian_part')->group(function () {
+            Route::get('/', App\Livewire\Pages\Fo\Order\PembelianPart::class)->name('front_office/order_pembelian_part');
+        });
+    });
+
+    /**
+     * * Route For Laporan
+     */
+    Route::prefix('laporan')->group(function () {
+        Route::prefix('toko')->group(function () {
+            Route::get('/', App\Livewire\Pages\Laporan\Toko\Laporan::class)->name('laporan/toko');
+        });
+        Route::prefix('pembelian')->group(function () {
+            Route::get('/', App\Livewire\Pages\Laporan\Pembelian\Laporan::class)->name('laporan/pembelian');
+        });
+        Route::prefix('service')->group(function () {
+            Route::get('/', App\Livewire\Pages\Laporan\Service\Laporan::class)->name('laporan/service');
+        });
+        Route::prefix('kasir')->group(function () {
+            Route::get('/', App\Livewire\Pages\Laporan\Kasir\Laporan::class)->name('laporan/kasir');
+        });
+        Route::prefix('unit_entry')->group(function () {
+            Route::get('/', App\Livewire\Pages\Laporan\UnitEntry\Laporan::class)->name('laporan/unit_entry');
+        });
+        Route::prefix('status_pkb')->group(function () {
+            Route::get('/', App\Livewire\Pages\Laporan\StatusPkb\Laporan::class)->name('laporan/status_pkb');
+        });
+        Route::prefix('nota_bengkel')->group(function () {
+            Route::get('/', App\Livewire\Pages\Laporan\NotaBengkel\Laporan::class)->name('laporan/nota_bengkel');
+        });
+        Route::prefix('unit_cust')->group(function () {
+            Route::get('/', App\Livewire\Pages\Laporan\UnitCust\Laporan::class)->name('laporan/unit_cust');
+        });
+        Route::prefix('pkb')->group(function () {
+            Route::get('/', App\Livewire\Pages\Laporan\Pkb\Laporan::class)->name('laporan/pkb');
+        });
+        Route::prefix('stok')->group(function () {
+            Route::get('/', App\Livewire\Pages\Laporan\Stok\Laporan::class)->name('laporan/stok');
+        });
+    });
 });

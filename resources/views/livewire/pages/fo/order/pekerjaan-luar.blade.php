@@ -6,7 +6,7 @@
                     <button class="btn btn-success" type="button" data-bs-toggle="modal"
                         wire:click="openModal" style="display: block;">Tambah Data</button>
                     @if ($isOpen === true)
-                    <div class="modal fade show" tabindex="-1" role="dialog" style="display: block;" id="serviceModal">
+                    <div class="modal fade show" tabindex="-1" role="dialog" style="display: block;" id="orderPekerjaanLuar">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -142,7 +142,7 @@
     </div>
     <script>
         window.onclick = function(event) {
-            let modal = document.getElementById('serviceModal');
+            let modal = document.getElementById('orderPekerjaanLuar');
             if (event.target == modal) {
                 modal.style.display = "none";
                 Livewire.emit('closeModal'); // Emitting an event to close the modal
