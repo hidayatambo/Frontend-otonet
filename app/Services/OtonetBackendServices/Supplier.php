@@ -15,7 +15,7 @@ class Supplier
      */
     public function __construct()
     {
-        $this->apiEndpoint = env('API_URL');
+        $this->apiEndpoint = env('API_URL');;
         $this->token = session('token'); // Retrieve the token from the session
     }
 
@@ -65,7 +65,7 @@ class Supplier
     {
         try {
             $response = Http::withHeaders([
-                'Authorization' => 'Bearer ' . $this->token,
+                'Authorization' => '`Bearer` ' . $this->token,
             ])->post($this->apiEndpoint . 'supplier', $data);
             return json_decode($response->body(), true);
         } catch (Exception $e) {

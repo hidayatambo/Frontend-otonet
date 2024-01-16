@@ -8,6 +8,8 @@ use App\Http\Requests\Master\Supplier\StoreSupplier;
 // call api service
 use App\Services\OtonetBackendServices\Supplier as SupplierService;
 
+use Illuminate\Http\Client\RequestException;
+
 class Supplier extends Component
 {
     public $activePage;
@@ -18,11 +20,19 @@ class Supplier extends Component
     public $supplierId;
 
     public $isOpen = false;
-    public $headers = ['Nama Supplier' , 'Alamat', 'Telp', 'Kontak', 'Created By','action'];
+    public $headers = ['Nama Supplier' , 'Alamat', 'Telp', 'Kontak', 'Created By','Action'];
     public $rows = [];
     public $cell = ['nama', 'alamat', 'telp', 'kontak', 'created_at'];
     public $sortField;
     public $sortDirection = 'asc';
+
+    public $apiEndpoint, $token;
+
+    public function __construct()
+    {
+        $this->apiEndpoint = 'http://be.techthinkhub.id/api/';
+        $this->token = session('token'); // Retrieve the token from the session
+    }
 
     public function sortBy($field)
     {
@@ -38,36 +48,33 @@ class Supplier extends Component
     public function mount(SupplierService $services)
     {
         $this->setActivePages();
-        $this->activePage = 'master';
-        $this->subActivePage = 'supplier';
         $this->dispatch('breadcrumb', $this->activePage, $this->subActivePage);
         $this->dispatch('pages', $this->activePage);
         $this->dispatch('sub-pages', $this->subActivePage);
-        $this->list = $services->show();
         $this->rows = $this->getDataSupplier();
     }
 
-    public function store(StoreSupplier $request, SupplierService $services)
-    {
-        $validate = $request->validated();
-        try {
+    // public function store(StoreSupplier $request, SupplierService $services)
+    // {
+    //     $validate = $request->validated();
+    //     try {
 
-            $supplier = $services->store($request->all());
+    //         $supplier = $services->store($request->all());
 
-            if ($response['status'] === true) {
+    //         if ($response['status'] === true) {
 
-            } else {
-                foreach ($response['message'] as $field => $errors) {
-                    foreach ($errors as $error) {
-                        $this->addError($field, $error);
-                    }
-                }
-            }
-        } catch (Exception $e) {
+    //         } else {
+    //             foreach ($response['message'] as $field => $errors) {
+    //                 foreach ($errors as $error) {
+    //                     $this->addError($field, $error);
+    //                 }
+    //             }
+    //         }
+    //     } catch (Exception $e) {
 
-            return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
-        }
-    }
+    //         return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
+    //     }
+    // }
 
     public function setActivePages()
     {
@@ -75,12 +82,9 @@ class Supplier extends Component
         $this->subActivePage = 'supplier';
     }
 
-
-
-    #[Title('Master Supplier')]
     public function render()
     {
-        return view('livewire.pages.master.supplier.supplier')->layout('layouts.dashboard');
+        return view('livewire.pages.master.supplier.supplier')->layout('layouts.dashboard')->title('Master Supplier');
     }
 
     public function editSupplier($supplierId)
@@ -122,7 +126,7 @@ class Supplier extends Component
 
             if ($this->supplierId) {
                 $detail = $services->detail($this->supplierId);
-                $response = $supplier->update($this->validate());
+                // $response = $supplier->update($this->validate());
             } else {
                 $response = $services->store($request->all());
 
@@ -136,9 +140,12 @@ class Supplier extends Component
                     }
                 }
             }
-        } catch (Exception $e) {
-
-            return redirect()->back()->with('error', 'An error occurred: ' . $e->getMessage());
+        } catch (RequestException $e) {
+            // Handle request exception (e.g., connection errors)
+            return response()->json(['error' => 'API request failed: ' . $e->getMessage()], 500);
+        } catch (\Exception $e) {
+            // Handle other exceptions
+            return response()->json(['error' => 'An error occurred: ' . $e->getMessage()], 500);
         }
 
         $this->emit('modalClosed');

@@ -38,12 +38,16 @@ Route::middleware(['token.auth'])->group(function () {
     Route::prefix('master')->group(function () {
         Route::prefix('supplier')->group(function () {
             Route::get('/', App\Livewire\Pages\Master\Supplier\Supplier::class)->name('master/supplier');
+            Route::get('datatable',  [App\Http\Controllers\Master\Supplier::class, 'datatable'])->name('master/supplier/datatable');
         });
         Route::prefix('barang')->group(function () {
             Route::get('/', App\Livewire\Pages\Master\Barang\Barang::class)->name('master/barang');
+            
+
         });
         Route::prefix('pelanggan')->group(function () {
             Route::get('/', App\Livewire\Pages\Master\Pelanggan\Pelanggan::class)->name('master/pelanggan');
+            Route::get('datatable',  [App\Http\Controllers\Master\Pelanggan::class, 'datatable'])->name('master/pelanggan/datatable');
         });
         Route::prefix('divisi_jasa')->group(function () {
             Route::get('/', App\Livewire\Pages\Master\Divisi\Jasa::class)->name('master/divisi_jasa');

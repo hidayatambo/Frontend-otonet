@@ -14,9 +14,11 @@
             </div>
         </form>
         <div class="header-logo-wrapper col-auto p-0">
-            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid" src="{{ asset('admin/images/logo/logo-techthink-hub-indonesia.png') }}"
-                        alt=""></a></div>
-            <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i>
+            <div class="d-flex justify-content-between">
+                <div class="logo-wrapper">
+                    <a href="index.html"><img class="img-fluid" src="{{ asset('admin/images/logo/logo-techthink-hub-indonesia.png') }}" alt=""></a>
+                </div>
+                <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="align-center"></i></div>
             </div>
         </div>
         <div class="left-header col-xxl-5 col-xl-6 col-lg-5 col-md-4 col-sm-3 p-0">

@@ -26,8 +26,8 @@
 
                                 <li class="sidebar-main-title">
                                 </li>
-                                <li class="sidebar-list">
-                                    <a class="sidebar-link sidebar-title {{ $activePage == 'master' ? 'active' : '' }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                <li class="sidebar-list cursor-pointer">
+                                        <a class="sidebar-link sidebar-title {{ $activePage == 'master' ? 'active' : '' }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round"
                                             class="feather feather-database">
@@ -57,7 +57,7 @@
                                         <li><a wire:navigate class="{{ $subActivePage == 'kontrak' ? 'active' : '' }}" href="{{ url('master/kontrak') }}">Kontrak</a></li>
                                     </ul>
                                 </li>
-                                <li class="sidebar-list">
+                                <li class="sidebar-list cursor-pointer">
                                     <a class="sidebar-link sidebar-title {{ $activePage == 'gudang' ? 'active' : '' }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round"
@@ -81,7 +81,7 @@
 
                                     </ul>
                                 </li>
-                                <li class="sidebar-list">
+                                <li class="sidebar-list cursor-pointer">
                                     <a class="sidebar-link sidebar-title {{ $activePage == 'penjualan' ? 'active' : '' }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round"
@@ -99,7 +99,7 @@
                                         <li><a wire:navigate class="{{ $subActivePage == 'retur_toko' ? 'active' : '' }}" href="{{ url('penjualan/retur_toko') }}">Retur Toko</a></li>
                                     </ul>
                                 </li>
-                                <li class="sidebar-list">
+                                <li class="sidebar-list cursor-pointer">
                                     <a class="sidebar-link sidebar-title {{ $activePage == 'kasir' ? 'active' : '' }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round"
@@ -118,7 +118,7 @@
 
                                     </ul>
                                 </li>
-                                <li class="sidebar-list">
+                                <li class="sidebar-list cursor-pointer">
                                     <a class="sidebar-link sidebar-title {{ $activePage == 'front_office' ? 'active' : '' }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round"
@@ -140,7 +140,7 @@
 
                                     </ul>
                                 </li>
-                                <li class="sidebar-list">
+                                <li class="sidebar-list cursor-pointer">
                                     <a class="sidebar-link sidebar-title {{ $activePage == 'laporan' ? 'active' : '' }}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                             stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">

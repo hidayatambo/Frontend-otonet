@@ -27,7 +27,7 @@ class Auth
 
      public function __construct()
      {
-        $this->apiEndpoint = env('API_URL');
+        $this->apiEndpoint = env('API_URL');;
     }
     function login(array $data) : array
     {

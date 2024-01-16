@@ -14,15 +14,25 @@ class Pelanggan extends Component
     public $supplierId;
 
     public $isOpen = false;
-    public $headers = ['Kode' , 'Nama', 'Divisi', 'Brand', 'Kode 2','Qty', 'Harga Beli','Harga Jual', 'Status', 'Action'];
+    public $headers = ['Nama Pelanggan' , 'Alamat', 'Telp', 'HP', 'Email','Kontak', 'Actions'];
     public $rows = [];
     public $cell = ['Kode' , 'Nama', 'Divisi', 'Brand', 'Kode 2','Qty', 'Harga Beli','Harga Jual', 'Status'];
     public $sortField;
     public $sortDirection = 'asc';
-    #[Title('Master Barang')]
+
+    public $apiEndpoint, $token;
+
     public function render()
     {
-        return view('livewire.pages.master.pelanggan.pelanggan')->layout('layouts.dashboard');
+        return view('livewire.pages.master.pelanggan.pelanggan')->layout('layouts.dashboard')->title('Master Barang');
+    }
+
+    public function __construct()
+    {
+        $this->apiEndpoint = 'http://be.techthinkhub.id/api/';;
+        $this->token = session('token'); // Retrieve the token from the session
+        // dd($this->token);
+
     }
 
     public function mount()

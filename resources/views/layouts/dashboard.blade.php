@@ -10,6 +10,7 @@
     <meta name="keywords"
         content="admin template, Cuba admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="pixelstrap">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="icon" href="{{ asset('admin/images/favicon.png') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('admin/images/favicon.png') }}" type="image/x-icon">
     <title>{{ $title ?? 'Page Title' }}</title>
@@ -32,6 +33,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/vendors/slick-theme.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/vendors/scrollbar.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/vendors/animate.css') }}">
+    <!-- Toastr css-->
+    <link rel="stylesheet" type="text/css" href="{{asset('admin/css/vendors/toastr.min.css')}}">
     <!-- Plugins css Ends-->
     <!-- Bootstrap css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/vendors/bootstrap.css') }}">
@@ -40,7 +43,13 @@
     <link id="color" rel="stylesheet" href="{{ asset('admin/css/color-1.css') }}" media="screen">
     <!-- Responsive css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/responsive.css') }}">
+    {{-- <link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"> --}}
     <link rel="stylesheet" type="text/css" href="{{ asset("admin/css/vendors/datatables.css") }}">
+    <style>
+    .cursor-pointer {
+        cursor: pointer;
+    }
+    </style>
 </head>
 
 <body>
@@ -69,11 +78,16 @@
         <!-- Page Sidebar Start-->
         <div class="sidebar-wrapper" sidebar-layout="stroke-svg">
           <div>
-            <div class="logo-wrapper"><a href="index.html"><img class="img-fluid for-light" src="{{ asset('admin/images/logo/logo-techthink-hub-indonesia.png') }}" alt=""><img class="img-fluid for-dark" src="{{ asset('admin/images/logo/logo-techthink-hub-indonesia.png') }}" alt=""></a>
-              <div class="back-btn"><i class="fa fa-angle-left"></i></div>
-              <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
+            <div class="logo-wrapper">
+                <a href="index.html">
+                    <img class="img-fluid for-light pe-4" src="{{ asset('admin/images/logo/logo-techthink-hub-indonesia.png') }}" alt="">
+                    <img class="img-fluid for-dark pe-4" src="{{ asset('admin/images/logo/logo-techthink-hub-indonesia.png') }}" alt="">
+                </a>
+                <div>
+                    <div class="back-btn"><i class="fa fa-angle-left"></i></div>
+                    <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
+                </div>
             </div>
-            {{-- <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid" src="../admin/images/logo/logo-icon.png" alt=""></a></div> --}}
             <livewire:components.sidebar />
           </div>
         </div>
@@ -92,7 +106,10 @@
     </div>
     <!-- latest jquery-->
     {{-- @livewireScripts --}}
-    <script src="{{ asset("admin/js/jquery.min.js") }}"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script> --}}
+    {{-- <script src="{{ asset("admin/js/jquery.min.js") }}"></script> --}}
+    <script src="{{ asset("admin/js/jquery-3.5.1.min.js") }}"></script>
 
     <!-- Bootstrap js-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -130,7 +147,8 @@
     <script src="{{ asset('admin/js/script.js') }}"></script>
     <script src="{{ asset('admin/js/theme-customizer/customizer.js') }}"></script>
 
-
+    <!-- Toastr jquery-->
+    <script src="{{asset('admin/js/toastr.min.js')}}"></script>
     <script>
         new WOW().init();
 
@@ -156,15 +174,12 @@ function toggleFullScreen() {
         }
     }
 }
-
     </script>
-
-    {{-- <script src="{{ asset("admin/js/jquery.min.js") }}"></script> --}}
+    
     <script src="{{ asset("admin/js/datatable/datatables/jquery.dataTables.min.js") }}"></script>
     <script src="{{ asset("admin/js/datatable/datatable-extension/dataTables.buttons.min.js") }}"></script>
-    <script src="{{ asset("admin/js/datatable/datatable-extension/custom.js") }} "></script>
-
-
+    {{-- <script src="{{ asset("admin/js/datatable/datatable-extension/custom.js") }} "></script> --}}
+    <script src="https://cdn.datatables.net/fixedcolumns/4.3.0/js/dataTables.fixedColumns.min.js"></script>
     <script src="{{ asset("admin/js/datatable/datatable-extension/jszip.min.js") }}"></script>
     <script src="{{ asset("admin/js/datatable/datatable-extension/buttons.colVis.min.js") }}"></script>
     <script src="{{ asset("admin/js/datatable/datatable-extension/pdfmake.min.js") }}"></script>
@@ -190,12 +205,12 @@ function toggleFullScreen() {
     <script>
         window.addEventListener("popstate", function (event) { window.location.reload(); });
     </script>
-
+    @yield('script')
     @livewireScripts
-    <script>
+    {{-- <script>
         Livewire.on('modalClosed', () => {
             bootstrap.Modal.getInstance(document.getElementById('exampleModalCenter1')).hide();
         });
-    </script>
+    </script> --}}
 </body>
 </html>
