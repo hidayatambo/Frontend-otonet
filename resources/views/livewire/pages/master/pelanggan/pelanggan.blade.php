@@ -178,8 +178,8 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset("admin/js/jquery.min.js") }}"></script>
-
+</div>
+@section('script')
     <script>
         $(document).ready(function () {
             var apiUrl = "{{ $apiEndpoint }}";
@@ -400,4 +400,4 @@
             });
         });
     </script>
-</div>
+@endsection
