@@ -3,22 +3,23 @@
 namespace App\Livewire\Pages\Master\Tipe;
 
 use Livewire\Component;
-
+use App\Services\OtonetBackendServices\Merk as merkService;
 class Tipe extends Component
 {
     public $activePage;
     public $subActivePage;
 
-    public $detail = [];
+    public $headers = ['Nama Merk' , 'Nama Tipe', 'Created By','Actions'];
 
-    public $supplierId;
+    public $apiEndpoint, $token;
+    public $merk = [];
 
-    public $isOpen = false;
-    public $headers = ['Kode' , 'Nama', 'Divisi', 'Brand', 'Kode 2','Qty', 'Harga Beli','Harga Jual', 'Status', 'Action'];
-    public $rows = [];
-    public $cell = ['Kode' , 'Nama', 'Divisi', 'Brand', 'Kode 2','Qty', 'Harga Beli','Harga Jual', 'Status'];
-    public $sortField;
-    public $sortDirection = 'asc';
+    public function __construct()
+    {
+        $this->apiEndpoint = 'https://be.techthinkhub.id/api/';
+        $this->token = session('token'); // Retrieve the token from the session
+    }
+
     public function render()
     {
         return view('livewire.pages.master.tipe.tipe')
@@ -32,7 +33,7 @@ class Tipe extends Component
         $this->dispatch('breadcrumb', $this->activePage, $this->subActivePage);
         $this->dispatch('pages', $this->activePage);
         $this->dispatch('sub-pages', $this->subActivePage);
-        $this->rows = [];
+        $this->getMerk();
     }
 
     public function setActivePages()
@@ -41,13 +42,9 @@ class Tipe extends Component
         $this->subActivePage = 'tipe';
     }
 
-    public function openModal()
+    public function getMerk()
     {
-        $this->isOpen = true;
-    }
-
-    public function closeModal()
-    {
-        $this->isOpen = false;
+        $service = new merkService;
+        $this->merk = $service->show();
     }
 }

@@ -60,9 +60,12 @@ Route::middleware(['token.auth'])->group(function () {
         });
         Route::prefix('merk')->group(function () {
             Route::get('/', App\Livewire\Pages\Master\Merk\Merk::class)->name('master/merk');
+            Route::get('datatable',  [App\Http\Controllers\Master\Merk::class, 'datatable'])->name('master/merk/datatable');
         });
         Route::prefix('tipe')->group(function () {
             Route::get('/', App\Livewire\Pages\Master\Tipe\Tipe::class)->name('master/tipe');
+            Route::get('datatable',  [App\Http\Controllers\Master\Tipe::class, 'datatable'])->name('master/tipe/datatable');
+
         });
         Route::prefix('satuan')->group(function () {
             Route::get('/', App\Livewire\Pages\Master\Satuan\Satuan::class)->name('master/satuan');

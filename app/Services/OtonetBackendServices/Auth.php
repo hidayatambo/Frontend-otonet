@@ -27,7 +27,7 @@ class Auth
 
      public function __construct()
      {
-        $this->apiEndpoint = env('API_URL');;
+        $this->apiEndpoint = 'https://be.techthinkhub.id/api/';
     }
     function login(array $data) : array
     {

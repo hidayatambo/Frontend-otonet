@@ -4,100 +4,34 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header pb-0 card-no-border">
-                    <button class="btn btn-success" type="button" data-bs-toggle="modal"
-                        wire:click="openModal" style="display: block;">Tambah Data</button>
-                    @if ($isOpen === true)
-                    <div class="modal fade show" tabindex="-1" role="dialog" style="display: block;" id="barangModal">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="modalFormLabel">{{ $supplierId ? 'Ubah' : 'Buat' }}
-                                        Supplier</h5>
-                                    <button wire:click="closeModal" type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form wire:submit.prevent="store">
-                                        <input type="hidden" name="crypt_id" id="input_crypt_id" maxlength="200"
-                                            value="">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="form-group row mb-1">
-                                                    <div class="col-3 col-form-label-sm">Nama <span
-                                                            class="text-danger">*</span></div>
-                                                    <div class="col-9">
-                                                        <input class="form-control form-control-sm" type="text"
-                                                        wire:model.lazy="nama"
-                                                        value="{{ isset($detail['nama']) ? $detail['nama'] : '' }}">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row mb-1">
-                                                    <div class="col-3 col-form-label-sm">Alamat <span
-                                                            class="text-danger">*</span></div>
-                                                    <div class="col-9">
-                                                        <input class="form-control form-control-sm"  wire:model.lazy="alamat"
-                                                        value="{{ isset($detail['alamat']) ? $detail['alamat'] : '' }}">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row mb-1">
-                                                    <div class="col-3 col-form-label-sm">Telp <span
-                                                            class="text-danger">*</span></div>
-                                                    <div class="col-9">
-                                                        <input class="form-control form-control-sm" wire:model.lazy="telp"
-                                                        value="{{ isset($detail['telp']) ? $detail['telp'] : '' }}">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row mb-1">
-                                                    <div class="col-3 col-form-label-sm">Kontak <span
-                                                            class="text-danger">*</span></div>
-                                                    <div class="col-9">
-                                                        <input class="form-control form-control-sm" wire:model.lazy="kontak"
-                                                        value="{{ isset($detail['kontak']) ? $detail['kontak'] : '' }}">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row mb-1">
-                                                    <div class="col-3 col-form-label-sm">NPWP</div>
-                                                    <div class="col-9">
-                                                        <input class="form-control form-control-sm" wire:model.lazy="npwp"
-                                                        value="{{ isset($detail['npwp']) ? $detail['npwp'] : '' }}">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row mb-1">
-                                                    <div class="col-3 col-form-label-sm">No Rekening</div>
-                                                    <div class="col-9">
-                                                        <input class="form-control form-control-sm" wire:model.lazy="no_rekening"
-                                                        value="{{ isset($detail['no_rekening']) ? $detail['no_rekening'] : '' }}">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row mb-1">
-                                                    <div class="col-3 col-form-label-sm">Nama Bank</div>
-                                                    <div class="col-9">
-                                                        <input class="form-control form-control-sm" wire:model.lazy="nama_bank"
-                                                        value="{{ isset($detail['nama_bank']) ? $detail['nama_bank'] : '' }}">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button wire:click="closeModal" type="button" class="btn btn-secondary" aria-label="Close" data-bs-dismiss="modal">Cancel</button>
-                                    <button type="submit"
-                                        class="btn btn-success">{{ $supplierId ? 'Update' : 'Save' }}</button>
-                                </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <button type="button" class="btn btn-primary btn-sm mb-2" onclick="create_form()">Create
+                                Barang</button>
+                            <button type="button" class="btn btn-primary btn-sm mb-2" id="btn_import">Import
+                                Barang</button>
+                            <button type="button" class="btn btn-primary btn-sm mb-2" id="btn_excel">Download dokumen
+                                stock opname barang</button>
+                        </div>
+                        <div class="col-6">
+                            <div class="row float-end">
+                                <select class="form-select form-select-sm" style="width:auto;" name="divisi"
+                                    id="search_divisi" onchange="search_table()">
+                                    <option value="">-- DIVISI --</option>
+                                    {{-- @foreach($divisi_sparepart as $item)
+                                    <option value="{{$item->divisi}}">{{$item->divisi}}</option>
+                                    @endforeach --}}
+                                </select>
                             </div>
                         </div>
                     </div>
-                    @endif
                 </div>
                 <div class="card-body">
                     <div class="dt-ext table-responsive">
                         <div id="keytable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
                             <div class="row">
                                 <div class="col-sm-12">
-                                    <div style="position: absolute; height: 1px; width: 0px; overflow: hidden;"><input
-                                            type="text" tabindex="0"></div>
-                                    <table class="display dataTable" id="keytable" role="grid"
+                                    <table class="display dataTable" id="barangDatatable" role="grid"
                                         aria-describedby="keytable_info" style="position: relative;">
                                         <thead>
                                             <tr role="row">
@@ -109,47 +43,231 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(count($rows) > 0)
-                                            @foreach($rows as $row)
-                                            <tr role="row" class="odd">
-                                                @foreach($cell as $cel)
-                                                <td>{{ $row[$cel] }}</td>
-                                                @endforeach
-                                                <td><button wire:click="editSupplier({{ $row['id'] }})"
-                                                        class="bg-transparent"><i class="fa fa-edit text-primary fa-lg mx-2"></i></button></td>
-                                            </tr>
-                                            @endforeach
-                                            @else
-                                            <tr>
-                                                <td colspan="{{ count($headers) }}">No data available</td>
-                                            </tr>
-                                            @endif
                                         </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                @foreach($headers as $header)
-                                                <th rowspan="1" colspan="1">{{ $header }}</th>
-                                                @endforeach
-                                            </tr>
-                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>
-    <script>
-        window.onclick = function(event) {
-            let modal = document.getElementById('barangModal');
-            if (event.target == modal) {
-                modal.style.display = "none";
-                Livewire.emit('closeModal'); // Emitting an event to close the modal
-            }
-        }
-    </script>
 </div>
+@section('script')
+<script>
+    $(document).ready(function () {
+        var apiUrl = "{{ $apiEndpoint }}";
+
+        var isFirstRequest = true; // Flag to indicate the first request
+        var thisTable;
+        var currentMerkId = null;
+        thisTable = $('#barangDatatable').DataTable({
+            processing: true,
+            serverSide: true,
+            order: [
+                [0, 'desc']
+            ],
+            ajax: function (data, callback, settings) {
+                $.ajax({
+                    url: "{{ route('master/merk/datatable') }}",
+                    type: 'GET',
+                    data: {
+                        ...data,
+                    },
+                    success: function (response) {
+                        console.log(response);
+                        callback({
+                            draw: response.draw,
+                            recordsTotal: response.recordsTotal,
+                            recordsFiltered: response.recordsFiltered,
+                            data: response.data
+                        });
+                    },
+                    error: function (xhr, textStatus, error) {
+                        // console.log("AJAX error:", error);
+                        alert("review your answer");
+                        window.location.href = "{{ url('auth/login') }}";
+                    }
+                });
+            },
+            columns: [{
+                    data: "nama_merk",
+                },
+                {
+                    data: "created_by",
+                },
+                {
+                    data: null,
+                    title: 'Actions',
+                    orderable: false,
+                    render: function (data, type, row) {
+                        return `<a id="edit_merk" data-id="${row.id}" class="cursor-pointer edit-btn" title="Edit"><i class="fa fa-edit text-primary fa-lg mx-2"></i></a>`;
+                    }
+                }
+            ]
+        });
+
+        $('#btn_cancel').click(function () {
+            $('#merkModal').modal('hide');
+        });
+
+        // form create
+        $('#tambah_merk').click(function () {
+            $('#modalFormLabel').html('Buat Merk');
+            $("#modalForm input").val('');
+            $("#btn_create").show();
+            $("#btn_edit").hide();
+            $('#form_modal').trigger("reset"); // Reset the form
+            $("#merkModal").modal('show');
+        });
+
+        // insert data
+        $('#btn_create').click(function () {
+            $("#btn_create").prop('disabled', true);
+            $.ajax({
+                url: apiUrl + "merk",
+                type: "POST",
+                headers: {
+                    'Authorization': 'Bearer ' + '{{ $token }}',
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(
+                        'content') // For CSRF protection in Laravel
+                },
+                data: $('#form_modal').serialize(),
+                dataType: "json",
+                success: function (response) {
+                    if (response.status == "success") {
+                        $("#merkModal").modal('hide');
+                        toastr["success"](response.message);
+                        thisTable.ajax.reload(null, false);
+                    } else {
+                        alert('something wrong!!!');
+                    }
+                    $('[id^="error_"]').text('');
+                    $("#btn_create").prop('disabled', false);
+                },
+                error: function (xhr) {
+                    if (xhr.status === 400) {
+                        $('.txt-danger').text('');
+                        // Extract and display validation errors
+                        var errors = xhr.responseJSON.error;
+                        for (var key in errors) {
+                            if (errors.hasOwnProperty(key)) {
+                                var errorMessage = errors[key][0];
+                                $('#error_' + key).text(errorMessage);
+                            }
+                        }
+                    } else if (xhr.status === 401) { // Check for unauthorized status
+                        // Redirect to the login page
+                        window.location.href = "{{ url('auth/login') }}";
+                    }
+                    $("#btn_create").prop('disabled', false);
+                }
+            });
+        });
+
+        // form edit
+        $('#barangDatatable').on('click', '.edit-btn', function (e) {
+            e.preventDefault();
+            currentMerkId = $(this).data('id'); // Get the ID of the record
+            console.log(apiUrl)
+            $.ajax({
+                url: apiUrl + "merk/" + currentMerkId,
+                type: "GET",
+                headers: {
+                    'Authorization': 'Bearer ' + '{{ $token }}',
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                dataType: "json",
+                success: function (response) {
+                    console.log(response)
+                    $("#btn_edit").prop('disabled', false);
+                    $("#btn_edit").show();
+                    $("#btn_create").hide();
+                    var dt = [];
+                    $.each(response.data, function (key, value) {
+                        dt[key] = value;
+                    });
+                    $('#input_nama_merk').val(dt['nama_merk']);
+                    $('#modalFormLabel').html('Edit Merk');
+                    $("#merkModal").modal('show');
+                },
+                error: function (xhr) {
+                    if (xhr.status === 400) {
+                        $('.txt-danger').text('');
+                        // Extract and display validation errors
+                        var errors = xhr.responseJSON.error;
+                        for (var key in errors) {
+                            if (errors.hasOwnProperty(key)) {
+                                var errorMessage = errors[key][0];
+                                $('#error_' + key).text(errorMessage);
+                            }
+                        }
+                    } else if (xhr.status === 401) { // Check for unauthorized status
+                        // Redirect to the login page
+                        window.location.href = "{{ url('auth/login') }}";
+                    }
+                    $("#btn_edit").prop('disabled', false);
+                }
+            });
+        });
+
+        // update data
+        $('#btn_edit').click(function () {
+            if (currentMerkId === null) {
+                alert('No supplier selected.');
+                return;
+            }
+            $("#btn_edit").prop('disabled', true);
+            $.ajax({
+                url: apiUrl + "merk/" + currentMerkId,
+                type: "PUT",
+                headers: {
+                    'Authorization': 'Bearer ' + '{{ $token }}',
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(
+                        'content') // For CSRF protection in Laravel
+                },
+                data: $('#form_modal').serialize(),
+                dataType: "json",
+                success: function (response) {
+                    console.log(response)
+                    if (response.status == "success") {
+                        $("#merkModal").modal('hide');
+                        toastr["success"](response.message);
+                        thisTable.ajax.reload(null, false);
+                    } else {
+                        alert('something wrong!!!');
+                    }
+                    $('[id^="error_"]').text('');
+                    $("#btn_edit").prop('disabled', false);
+                },
+                error: function (xhr) {
+                    if (xhr.status === 400) {
+                        $('.txt-danger').text('');
+                        // Extract and display validation errors
+                        var errors = xhr.responseJSON.error;
+                        for (var key in errors) {
+                            if (errors.hasOwnProperty(key)) {
+                                var errorMessage = errors[key][0];
+                                $('#error_' + key).text(errorMessage);
+                            }
+                        }
+                    } else if (xhr.status === 401) { // Check for unauthorized status
+                        // Redirect to the login page
+                        console.log(xhr.responseJSON)
+                        // window.location.href = "{{ url('auth/login') }}";
+                        alert('Forbidden')
+                    } else { // Check for unauthorized status
+                        // Redirect to the login page
+                        // window.location.href = "{{ url('auth/login') }}";
+
+                        alert('something wrong')
+                    }
+                    $("#btn_edit").prop('disabled', false);
+                }
+            });
+        });
+    });
+
+</script>
+@endsection
