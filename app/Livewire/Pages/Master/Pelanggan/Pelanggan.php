@@ -3,24 +3,17 @@
 namespace App\Livewire\Pages\Master\Pelanggan;
 
 use Livewire\Component;
-
+use App\Services\OtonetBackendServices\Merk;
 class Pelanggan extends Component
 {
     public $activePage;
     public $subActivePage;
 
-    public $detail = [];
-
-    public $supplierId;
-
-    public $isOpen = false;
     public $headers = ['Nama Pelanggan' , 'Alamat', 'Telp', 'HP', 'Email','Kontak', 'Actions'];
-    public $rows = [];
-    public $cell = ['Kode' , 'Nama', 'Divisi', 'Brand', 'Kode 2','Qty', 'Harga Beli','Harga Jual', 'Status'];
-    public $sortField;
-    public $sortDirection = 'asc';
 
     public $apiEndpoint, $token;
+
+    public $merk = [];
 
     public function render()
     {
@@ -31,32 +24,25 @@ class Pelanggan extends Component
     {
         $this->apiEndpoint = 'http://be.techthinkhub.id/api/';;
         $this->token = session('token'); // Retrieve the token from the session
-        // dd($this->token);
-
     }
 
     public function mount()
     {
+        $this->getMerk();
         $this->setActivePages();
         $this->dispatch('breadcrumb', $this->activePage, $this->subActivePage);
         $this->dispatch('pages', $this->activePage);
         $this->dispatch('sub-pages', $this->subActivePage);
-        $this->rows = [];
     }
+    
     public function setActivePages()
     {
         $this->activePage = 'master';
         $this->subActivePage = 'pelanggan';
     }
-
-    public function openModal()
+    public function getMerk()
     {
-        $this->isOpen = true;
+        $merkService = new Merk;
+        $this->merk = $merkService->show(); 
     }
-
-    public function closeModal()
-    {
-        $this->isOpen = false;
-    }
-
 }
