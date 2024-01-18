@@ -156,6 +156,12 @@ Route::middleware(['token.auth'])->group(function () {
      * * Route For Front Office
      */
     Route::prefix('front_office')->group(function () {
+        Route::prefix('booking_service')->group(function () {
+            Route::get('/', App\Livewire\Pages\Fo\BookingService\BookingService::class)->name('front_office/booking_service');
+        });
+        Route::prefix('emergency_service')->group(function () {
+            Route::get('/', App\Livewire\Pages\Fo\EmergencyService\EmergencyService::class)->name('front_office_emergency_service');
+        });
         Route::prefix('service')->group(function () {
             Route::get('/', App\Livewire\Pages\Fo\Service\Service::class)->name('front_office/service');
         });

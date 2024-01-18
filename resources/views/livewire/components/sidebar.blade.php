@@ -16,9 +16,9 @@
                         <div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll;">
                             <div class="simplebar-content" style="padding: 0px;">
                                 <li class="back-btn">
-                                    <a href="https://demo3.otonet.co.id" ><img
+                                    <a href="" ><img
                                             class="img-fluid"
-                                            src="https://demo3.otonet.co.id/assets/images/logo/logo-icon.png"
+                                            src=""
                                             alt=""></a>
                                     <div class="mobile-back text-end"><span>Back</span><i class="fa fa-angle-right ps-2"
                                             aria-hidden="true"></i></div>
@@ -129,8 +129,9 @@
                                         <div class="according-menu"><i class="fa fa-angle-right"></i></div>
                                     </a>
                                     <ul class="sidebar-submenu" style="{{ $activePage !== 'front_office' ? 'display:none' : '' }}">
-
-                                        <li><a  wire:navigate class="{{ $subActivePage == 'service' ? 'active' : '' }}" href="{{ url('front_office/service') }}">Servis</a></li>
+                                        <li><a  wire:navigate class="{{ $subActivePage == 'booking_service' ? 'active' : '' }}" href="{{ url('front_office/booking_service') }}">Booking Service</a></li>
+                                        <li><a  wire:navigate class="{{ $subActivePage == 'emergency_service' ? 'active' : '' }}" href="{{ url('front_office/emergency_service') }}">Emergency Service</a></li>
+                                        <li><a  wire:navigate class="{{ $subActivePage == 'service' ? 'active' : '' }}" href="{{ url('front_office/service') }}">Service</a></li>
                                         <li><a  wire:navigate class="{{ $subActivePage == 'membership' ? 'active' : '' }}" href="{{ url('front_office/membership') }}">Membership</a></li>
                                         <li><a  wire:navigate class="{{ $subActivePage == 'history_kendaraan' ? 'active' : '' }}" href="{{ url('front_office/history_kendaraan') }}">History Kendaraan</a></li>
                                         <li><a  wire:navigate class="{{ $subActivePage == 'cuci' ? 'active' : '' }}" href="{{ url('front_office/cuci') }}">Cuci</a></li>

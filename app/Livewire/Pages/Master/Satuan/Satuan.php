@@ -8,17 +8,17 @@ class Satuan extends Component
 {
     public $activePage;
     public $subActivePage;
+   
+    public $headers = ['Nama Satuan', 'Created By', 'Actions'];
 
-    public $detail = [];
+    public $apiEndpoint, $token;
 
-    public $supplierId;
+    public function __construct()
+    {
+        $this->apiEndpoint = 'https://be.techthinkhub.id/api/';;
+        $this->token = session('token'); // Retrieve the token from the session
+    }
 
-    public $isOpen = false;
-    public $headers = ['Kode' , 'Nama', 'Divisi', 'Brand', 'Kode 2','Qty', 'Harga Beli','Harga Jual', 'Status', 'Action'];
-    public $rows = [];
-    public $cell = ['Kode' , 'Nama', 'Divisi', 'Brand', 'Kode 2','Qty', 'Harga Beli','Harga Jual', 'Status'];
-    public $sortField;
-    public $sortDirection = 'asc';
     public function render()
     {
         return view('livewire.pages.master.satuan.satuan')
@@ -31,23 +31,12 @@ class Satuan extends Component
         $this->setActivePages();
         $this->dispatch('breadcrumb', $this->activePage, $this->subActivePage);
         $this->dispatch('pages', $this->activePage);
-    $this->dispatch('sub-pages', $this->subActivePage);
-        $this->rows = [];
+        $this->dispatch('sub-pages', $this->subActivePage);
     }
 
     public function setActivePages()
     {
         $this->activePage = 'master';
         $this->subActivePage = 'satuan';
-    }
-
-    public function openModal()
-    {
-        $this->isOpen = true;
-    }
-
-    public function closeModal()
-    {
-        $this->isOpen = false;
     }
 }
