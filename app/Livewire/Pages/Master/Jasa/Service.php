@@ -3,27 +3,27 @@
 namespace App\Livewire\Pages\Master\Jasa;
 
 use Livewire\Component;
+use App\Services\OtonetBackendServices\DivisiJasa;
 
 class Service extends Component
 {
-    public $title = 'Master Jasa Service';
     public $activePage;
     public $subActivePage;
 
-    public $detail = [];
+    public $headers = ['Kode' , 'Nama Jasa', 'Divisi', 'Biaya', 'Menit', 'Actions'];
 
-    public $supplierId;
+    public $divisi_jasa;
+    public $apiEndpoint, $token;
 
-    public $isOpen = false;
-    public $headers = ['Kode' , 'Nama', 'Divisi', 'Brand', 'Kode 2','Qty', 'Harga Beli','Harga Jual', 'Status', 'Action'];
-    public $rows = [];
-    public $cell = ['Kode' , 'Nama', 'Divisi', 'Brand', 'Kode 2','Qty', 'Harga Beli','Harga Jual', 'Status'];
-    public $sortField;
-    public $sortDirection = 'asc';
+    public function __construct()
+    {
+        $this->apiEndpoint = 'https://be.techthinkhub.id/api/';
+        $this->token = session('token'); // Retrieve the token from the session
+    }
 
     public function render()
     {
-        return view('livewire.pages.master.jasa.service')->layout('layouts.dashboard');
+        return view('livewire.pages.master.jasa.service')->layout('layouts.dashboard')->title('Master | Jasa Service');
     }
 
     public function mount()
@@ -32,7 +32,7 @@ class Service extends Component
         $this->dispatch('breadcrumb', $this->activePage, $this->subActivePage);
         $this->dispatch('pages', $this->activePage);
         $this->dispatch('sub-pages', $this->subActivePage);
-        $this->rows = [];
+        $this->getDivisiJasa();
     }
 
     public function setActivePages()
@@ -41,13 +41,9 @@ class Service extends Component
         $this->subActivePage = 'jasa_service';
     }
 
-    public function openModal()
+    public function getDivisiJasa()
     {
-        $this->isOpen = true;
-    }
-
-    public function closeModal()
-    {
-        $this->isOpen = false;
+        $service = new DivisiJasa;
+        $this->divisi_jasa =  $service->show();
     }
 }
