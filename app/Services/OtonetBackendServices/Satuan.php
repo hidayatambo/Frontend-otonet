@@ -5,7 +5,7 @@ namespace App\Services\OtonetBackendServices;
 use Illuminate\Support\Facades\Http;
 use Exception;
 
-class Tipe
+class Satuan
 {
     protected $apiEndpoint;
     protected $token;
@@ -29,7 +29,7 @@ class Tipe
         try {
             $response = Http::withHeaders([
                 'Authorization' => 'Bearer ' . $this->token,
-            ])->get($this->apiEndpoint . 'tipe');
+            ])->get($this->apiEndpoint . 'satuan');
             return json_decode($response->body(), true);
         } catch (Exception $e) {
             return ['error' => 'Exception', 'message' => $e->getMessage()];

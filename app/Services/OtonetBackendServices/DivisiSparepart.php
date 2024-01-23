@@ -5,13 +5,13 @@ namespace App\Services\OtonetBackendServices;
 use Illuminate\Support\Facades\Http;
 use Exception;
 
-class Tipe
+class DivisiSparepart
 {
     protected $apiEndpoint;
     protected $token;
 
     /**
-     * Constructor for the Supplier service.
+     * Constructor for the Divisi Sparepart service.
      */
     public function __construct()
     {
@@ -20,7 +20,7 @@ class Tipe
     }
 
     /**
-     * Retrieve a list of supplier.
+     * Retrieve a list of Divisi Sparepart.
      *
      * @return array The response from the API as an associative array.
      */
@@ -29,17 +29,24 @@ class Tipe
         try {
             $response = Http::withHeaders([
                 'Authorization' => 'Bearer ' . $this->token,
-            ])->get($this->apiEndpoint . 'tipe');
-            return json_decode($response->body(), true);
+            ])->get($this->apiEndpoint . 'divisi-sparepart');
+            // Check if the response was successful
+            if ($response->successful()) {
+                return json_decode($response->body(), true);
+            } else {
+                
+               // If not successful, redirect to the login page
+               return redirect('auth/login');
+            }
         } catch (Exception $e) {
             return ['error' => 'Exception', 'message' => $e->getMessage()];
         }
     }
 
     /**
-     * Retrieve the details of a specific supplier.
+     * Retrieve the details of a specific Divisi Sparepart.
      *
-     * @param int $id The ID of the supplier.
+     * @param int $id The ID of the Divisi Sparepart.
      * @return array The response from the API as an associative array.
      */
     // public function detail(int $id)
@@ -47,7 +54,7 @@ class Tipe
     //     try {
     //         $response = Http::withHeaders([
     //             'Authorization' => 'Bearer ' . $this->token,
-    //         ])->get($this->apiEndpoint . 'supplier/' . $id);
+    //         ])->get($this->apiEndpoint . 'Divisi Sparepart/' . $id);
     //         return json_decode($response->body(), true);
     //     } catch (Exception $e) {
     //         return ['error' => 'Exception', 'message' => $e->getMessage()];
@@ -55,9 +62,9 @@ class Tipe
     // }
 
     /**
-     * Store a new supplier.
+     * Store a new Divisi Sparepart.
      *
-     * @param array $data The data for the new supplier.
+     * @param array $data The data for the new Divisi Sparepart.
      * @return array The response from the API as an associative array.
      */
     // public function store(array $data)
@@ -65,7 +72,7 @@ class Tipe
     //     try {
     //         $response = Http::withHeaders([
     //             'Authorization' => '`Bearer` ' . $this->token,
-    //         ])->post($this->apiEndpoint . 'supplier', $data);
+    //         ])->post($this->apiEndpoint . 'Divisi Sparepart', $data);
     //         return json_decode($response->body(), true);
     //     } catch (Exception $e) {
     //         return ['error' => 'Exception', 'message' => $e->getMessage()];
@@ -73,16 +80,16 @@ class Tipe
     // }
 
     /**
-     * Update the specified supplier's details.
+     * Update the specified Divisi Sparepart's details.
      *
-     * @param int $id The ID of the supplier to update.
-     * @param array $data The data to update the supplier with.
+     * @param int $id The ID of the Divisi Sparepart to update.
+     * @param array $data The data to update the Divisi Sparepart with.
      * @return array The response from the API as an associative array.
      */
     // public function update(int $id, array $data)
     // {
     //     try {
-    //         $response = Http::put($this->apiEndpoint . 'supplier/' . $id, $data);
+    //         $response = Http::put($this->apiEndpoint . 'Divisi Sparepart/' . $id, $data);
     //         return json_decode($response->body(), true);
     //     } catch (Exception $e) {
     //         return ['error' => 'Exception', 'message' => $e->getMessage()];
@@ -90,15 +97,15 @@ class Tipe
     // }
 
     /**
-     * Delete a specific supplier.
+     * Delete a specific Divisi Sparepart.
      *
-     * @param int $id The ID of the supplier to delete.
+     * @param int $id The ID of the Divisi Sparepart to delete.
      * @return array The response from the API as an associative array.
      */
     // public function delete(int $id)
     // {
     //     try {
-    //         $response = Http::delete($this->apiEndpoint . 'supplier/' . $id);
+    //         $response = Http::delete($this->apiEndpoint . 'Divisi Sparepart/' . $id);
     //         return json_decode($response->body(), true);
     //     } catch (Exception $e) {
     //         return ['error' => 'Exception', 'message' => $e->getMessage()];

@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Livewire\Pages\Master\Vendor;
+namespace App\Livewire\Pages\Master\FlatRate;
 
 use Livewire\Component;
 
-class Vendor extends Component
+class FlatRate extends Component
 {
     public $activePage;
     public $subActivePage;
 
-    public $headers = ['Nama Vendor', 'Alamat', 'Telp', 'Kontak' ,'Created By' ,'Actions'];
-
+    public $headers = ['Nama Merk' , 'Created By', 'Actions'];
+   
     public $apiEndpoint, $token;
 
     public function __construct()
@@ -21,9 +21,9 @@ class Vendor extends Component
 
     public function render()
     {
-        return view('livewire.pages.master.vendor.vendor')
+        return view('livewire.pages.master.flat-rate.flat-rate')
         ->layout('layouts.dashboard')
-        ->title('Master | Vendor');
+        ->title('Master Gudang');
     }
 
     public function mount()
@@ -37,6 +37,6 @@ class Vendor extends Component
     public function setActivePages()
     {
         $this->activePage = 'master';
-        $this->subActivePage = 'vendor';
+        $this->subActivePage = 'flat_rate';
     }
 }
