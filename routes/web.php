@@ -42,7 +42,9 @@ Route::middleware(['token.auth'])->group(function () {
         });
         Route::prefix('barang')->group(function () {
             Route::get('/', App\Livewire\Pages\Master\Barang\Barang::class)->name('master/barang');
-            
+            Route::get('form', App\Livewire\Pages\Master\Barang\BarangForm::class)->name('master/barang/form');
+            Route::get('edit/{barangId}', App\Livewire\Pages\Master\Barang\BarangEdit::class)->name('master/barang/edit');
+
 
         });
         Route::prefix('pelanggan')->group(function () {
@@ -93,6 +95,15 @@ Route::middleware(['token.auth'])->group(function () {
         });
         Route::prefix('kontrak')->group(function () {
             Route::get('/', App\Livewire\Pages\Master\Kontrak\Kontrak::class)->name('master/kontrak');
+        });
+        Route::prefix('cabang')->group(function () {
+            Route::get('/', App\Livewire\Pages\Master\Cabang\Cabang::class)->name('master/cabang');
+        });
+        Route::prefix('gudang')->group(function () {
+            Route::get('/', App\Livewire\Pages\Master\Gudang\Gudang::class)->name('master/gudang');
+        });
+        Route::prefix('flat_rate')->group(function () {
+            Route::get('/', App\Livewire\Pages\Master\FlatRate\FlatRate::class)->name('master/flat_rate');
         });
     });
 

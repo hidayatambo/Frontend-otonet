@@ -3,27 +3,26 @@
 namespace App\Livewire\Pages\Master\Akses;
 
 use Livewire\Component;
-
+use App\Services\OtonetBackendServices\Menu as MenuService;
 class Menu extends Component
 {
     public $activePage;
     public $subActivePage;
 
-    public $detail = [];
+    public $headers = ['Nama' , 'Email', ''];
+    public $apiEndpoint, $token;
+    public $menu;
 
-    public $supplierId;
-
-    public $isOpen = false;
-    public $headers = ['Kode' , 'Nama', 'Divisi', 'Brand', 'Kode 2','Qty', 'Harga Beli','Harga Jual', 'Status', 'Action'];
-    public $rows = [];
-    public $cell = ['Kode' , 'Nama', 'Divisi', 'Brand', 'Kode 2','Qty', 'Harga Beli','Harga Jual', 'Status'];
-    public $sortField;
-    public $sortDirection = 'asc';
+    public function __construct()
+    {
+        $this->apiEndpoint = 'https://be.techthinkhub.id/api/';;
+        $this->token = session('token'); // Retrieve the token from the session
+    }
     public function render()
     {
         return view('livewire.pages.master.akses.menu')
         ->layout('layouts.dashboard')
-        ->title('Master Satuan');
+        ->title('Master Akses Menu');
     }
 
     public function mount()
@@ -31,8 +30,8 @@ class Menu extends Component
         $this->setActivePages();
         $this->dispatch('breadcrumb', $this->activePage, $this->subActivePage);
         $this->dispatch('pages', $this->activePage);
-    $this->dispatch('sub-pages', $this->subActivePage);
-        $this->rows = [];
+        $this->dispatch('sub-pages', $this->subActivePage); 
+        $this->getMenu();
     }
 
     public function setActivePages()
@@ -41,13 +40,15 @@ class Menu extends Component
         $this->subActivePage = 'akses_menu';
     }
 
-    public function openModal()
+    public function getMenu()
     {
-        $this->isOpen = true;
-    }
+        try {
+            $menu_service = new MenuService();
 
-    public function closeModal()
-    {
-        $this->isOpen = false;
+            $this->menu = $menu_service->getMenu();
+            // dd($this->menu);
+        } catch (\Exception $e) {
+            return redirect('auth/login');
+        }
     }
 }

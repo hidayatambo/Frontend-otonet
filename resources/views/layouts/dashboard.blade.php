@@ -46,10 +46,15 @@
     {{-- <link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"> --}}
     <link rel="stylesheet" type="text/css" href="{{ asset("admin/css/vendors/datatables.css") }}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin/css/vendors/sweetalert2.css')}}">
+    <!-- Select2 css-->
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('admin/css/vendors/select2.css')}}"> --}}
     <style>
-    .cursor-pointer {
-        cursor: pointer;
-    }
+        .cursor-pointer {
+            cursor: pointer;
+        }
+        span.txt-danger:empty {
+            display: none;
+        }
     </style>
 </head>
 
@@ -71,39 +76,42 @@
     <!-- tap on tap ends-->
     <!-- page-wrapper Start-->
     <div class="page-wrapper compact-wrapper" id="pageWrapper">
-      <!-- Page Header Start-->
-      <livewire:components.header />
-      <!-- Page Header Ends                              -->
-      <!-- Page Body Start-->
-      <div class="page-body-wrapper">
-        <!-- Page Sidebar Start-->
-        <div class="sidebar-wrapper" sidebar-layout="stroke-svg">
-          <div>
-            <div class="logo-wrapper">
-                <a href="index.html">
-                    <img class="img-fluid for-light pe-4" src="{{ asset('admin/images/logo/logo-techthink-hub-indonesia.png') }}" alt="">
-                    <img class="img-fluid for-dark pe-4" src="{{ asset('admin/images/logo/logo-techthink-hub-indonesia.png') }}" alt="">
-                </a>
+        <!-- Page Header Start-->
+        <livewire:components.header />
+        <!-- Page Header Ends                              -->
+        <!-- Page Body Start-->
+        <div class="page-body-wrapper">
+            <!-- Page Sidebar Start-->
+            <div class="sidebar-wrapper" sidebar-layout="stroke-svg">
                 <div>
-                    <div class="back-btn"><i class="fa fa-angle-left"></i></div>
-                    <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i></div>
+                    <div class="logo-wrapper">
+                        <a href="index.html">
+                            <img class="img-fluid for-light pe-4"
+                                src="{{ asset('admin/images/logo/logo-techthink-hub-indonesia.png') }}" alt="">
+                            <img class="img-fluid for-dark pe-4"
+                                src="{{ asset('admin/images/logo/logo-techthink-hub-indonesia.png') }}" alt="">
+                        </a>
+                        <div>
+                            <div class="back-btn"><i class="fa fa-angle-left"></i></div>
+                            <div class="toggle-sidebar"><i class="status_toggle middle sidebar-toggle"
+                                    data-feather="grid"> </i></div>
+                        </div>
+                    </div>
+                    <livewire:components.sidebar />
                 </div>
             </div>
-            <livewire:components.sidebar />
-          </div>
-        </div>
-        <!-- Page Sidebar Ends-->
-        <div class="page-body">
-          <div class="container-fluid">
-            <div class="page-title">
-                <livewire:components.breadcrumb />
+            <!-- Page Sidebar Ends-->
+            <div class="page-body">
+                <div class="container-fluid">
+                    <div class="page-title">
+                        <livewire:components.breadcrumb />
+                    </div>
+                </div>
+                {{ $slot }}
             </div>
-          </div>
-          {{ $slot }}
+            <!-- footer start-->
+            <livewire:components.footer />
         </div>
-        <!-- footer start-->
-        <livewire:components.footer />
-      </div>
     </div>
     <!-- latest jquery-->
     {{-- @livewireScripts --}}
@@ -117,18 +125,23 @@
             return navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             if (isFirefox()) {
                 var elements = document.querySelectorAll('[wire\\:navigate]');
-                elements.forEach(function(el) {
+                elements.forEach(function (el) {
                     el.removeAttribute('wire:navigate');
                 });
             }
         });
+
     </script>
     <!-- Bootstrap js-->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+    </script>
     <!-- feather icon js-->
     <script type="text/javascript" src="{{ asset('admin/js/icons/feather-icon/feather.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('admin/js/icons/feather-icon/feather-icon.js') }}"></script>
@@ -166,61 +179,117 @@
     <script type="text/javascript" src="{{asset('admin/js/toastr.min.js')}}"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <!-- Select2 jquery-->
+    {{-- <script src="{{asset('admin/js/select2/select2.full.min.js')}}"></script> --}}
+    <script>
+        function flashMessage(messages, type = 'success') {
+            if (Array.isArray(messages)) {
+                messages.forEach(function(message) {
+                    // Create the message element for each message
+                    var messageElement = $('<div class="alert alert-' + type + '" role="alert"></div>')
+                        .text(message)
+                        .hide()
+                        .fadeIn(1000)
+                        .delay(3000)
+                        .fadeOut(1000 , function() { 
+                            $(this).remove(); // Remove the element after hiding it
+                        });
+
+                    // Append the message element to the flash message container
+                    $('#flash-message').append(messageElement);
+                });
+            } else {
+                // Handle a single message
+                var messageElement = $('<div class="alert alert-' + type + '" role="alert"></div>')
+                    .text(messages)
+                    .hide()
+                    .fadeIn(400)
+                    .delay(3000)
+                    .fadeOut(400, function() { 
+                        $(this).remove(); // Remove the element after hiding it
+                    });
+
+                // Append the message element to the flash message container
+                $('#flash-message').append(messageElement);
+            }
+        }
+    </script>
     <script>
         new WOW().init();
 
     </script>
     @stack('scripts')
     <script>
-        $(document).ready(function() {
-    $("#fullScreenToggle").click(function() {
-        toggleFullScreen();
-    });
-});
-
-function toggleFullScreen() {
-    if (!document.fullscreenElement) {
-        // Enter full screen on the document body, or a specific element like document.getElementById('content')
-        document.documentElement.requestFullscreen().catch(err => {
-            console.log(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+        $(document).ready(function () {
+            $("#fullScreenToggle").click(function () {
+                toggleFullScreen();
+            });
         });
-    } else {
-        // Exit full screen
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
+
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                // Enter full screen on the document body, or a specific element like document.getElementById('content')
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                // Exit full screen
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
         }
-    }
-}
+
     </script>
 
     <script type="text/javascript" src="{{ asset("admin/js/datatable/datatables/jquery.dataTables.min.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.buttons.min.js") }}"></script>
+    <script type="text/javascript"
+        src="{{ asset("admin/js/datatable/datatable-extension/dataTables.buttons.min.js") }}"></script>
     {{-- <script src="{{ asset("admin/js/datatable/datatable-extension/custom.js") }} "></script> --}}
-    <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/4.3.0/js/dataTables.fixedColumns.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdn.datatables.net/fixedcolumns/4.3.0/js/dataTables.fixedColumns.min.js"></script>
     <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/jszip.min.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/buttons.colVis.min.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/buttons.colVis.min.js") }}">
+    </script>
     <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/pdfmake.min.js") }}"></script>
     <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/vfs_fonts.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.autoFill.min.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.select.min.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/buttons.bootstrap4.min.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/buttons.html5.min.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/buttons.print.min.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.bootstrap4.min.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.responsive.min.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/responsive.bootstrap4.min.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.keyTable.min.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.colReorder.min.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.fixedHeader.min.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.rowReorder.min.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.scroller.min.js") }}"></script>
+    <script type="text/javascript"
+        src="{{ asset("admin/js/datatable/datatable-extension/dataTables.autoFill.min.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.select.min.js") }}">
+    </script>
+    <script type="text/javascript"
+        src="{{ asset("admin/js/datatable/datatable-extension/buttons.bootstrap4.min.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/buttons.html5.min.js") }}">
+    </script>
+    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/buttons.print.min.js") }}">
+    </script>
+    <script type="text/javascript"
+        src="{{ asset("admin/js/datatable/datatable-extension/dataTables.bootstrap4.min.js") }}"></script>
+    <script type="text/javascript"
+        src="{{ asset("admin/js/datatable/datatable-extension/dataTables.responsive.min.js") }}"></script>
+    <script type="text/javascript"
+        src="{{ asset("admin/js/datatable/datatable-extension/responsive.bootstrap4.min.js") }}"></script>
+    <script type="text/javascript"
+        src="{{ asset("admin/js/datatable/datatable-extension/dataTables.keyTable.min.js") }}"></script>
+    <script type="text/javascript"
+        src="{{ asset("admin/js/datatable/datatable-extension/dataTables.colReorder.min.js") }}"></script>
+    <script type="text/javascript"
+        src="{{ asset("admin/js/datatable/datatable-extension/dataTables.fixedHeader.min.js") }}"></script>
+    <script type="text/javascript"
+        src="{{ asset("admin/js/datatable/datatable-extension/dataTables.rowReorder.min.js") }}"></script>
+    <script type="text/javascript"
+        src="{{ asset("admin/js/datatable/datatable-extension/dataTables.scroller.min.js") }}"></script>
     <script>
         window.addEventListener('openModal', event => {
             new bootstrap.Modal(document.getElementById(event.detail.id)).show();
         });
+
     </script>
     <script>
-        window.addEventListener("popstate", function (event) { window.location.reload(); });
+        window.addEventListener("popstate", function (event) {
+            window.location.reload();
+        });
+
     </script>
     @yield('script')
     @livewireScripts
@@ -230,4 +299,5 @@ function toggleFullScreen() {
         });
     </script> --}}
 </body>
+
 </html>
