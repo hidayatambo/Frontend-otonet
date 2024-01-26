@@ -1,103 +1,21 @@
-<div>
+<div wire:ignore>
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header pb-0 card-no-border">
-                    <button class="btn btn-success" type="button" data-bs-toggle="modal"
-                        wire:click="openModal" style="display: block;">Tambah Data</button>
-                    @if ($isOpen === true)
-                    <div class="modal fade show" tabindex="-1" role="dialog" style="display: block;" id="paketModal">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="modalFormLabel">{{ $supplierId ? 'Ubah' : 'Buat' }}
-                                        Supplier</h5>
-                                    <button wire:click="closeModal" type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form wire:submit.prevent="store">
-                                        <input type="hidden" name="crypt_id" id="input_crypt_id" maxlength="200"
-                                            value="">
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="form-group row mb-1">
-                                                    <div class="col-3 col-form-label-sm">Nama <span
-                                                            class="text-danger">*</span></div>
-                                                    <div class="col-9">
-                                                        <input class="form-control form-control-sm" type="text"
-                                                        wire:model.lazy="nama"
-                                                        value="{{ isset($detail['nama']) ? $detail['nama'] : '' }}">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row mb-1">
-                                                    <div class="col-3 col-form-label-sm">Alamat <span
-                                                            class="text-danger">*</span></div>
-                                                    <div class="col-9">
-                                                        <input class="form-control form-control-sm"  wire:model.lazy="alamat"
-                                                        value="{{ isset($detail['alamat']) ? $detail['alamat'] : '' }}">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row mb-1">
-                                                    <div class="col-3 col-form-label-sm">Telp <span
-                                                            class="text-danger">*</span></div>
-                                                    <div class="col-9">
-                                                        <input class="form-control form-control-sm" wire:model.lazy="telp"
-                                                        value="{{ isset($detail['telp']) ? $detail['telp'] : '' }}">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row mb-1">
-                                                    <div class="col-3 col-form-label-sm">Kontak <span
-                                                            class="text-danger">*</span></div>
-                                                    <div class="col-9">
-                                                        <input class="form-control form-control-sm" wire:model.lazy="kontak"
-                                                        value="{{ isset($detail['kontak']) ? $detail['kontak'] : '' }}">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row mb-1">
-                                                    <div class="col-3 col-form-label-sm">NPWP</div>
-                                                    <div class="col-9">
-                                                        <input class="form-control form-control-sm" wire:model.lazy="npwp"
-                                                        value="{{ isset($detail['npwp']) ? $detail['npwp'] : '' }}">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row mb-1">
-                                                    <div class="col-3 col-form-label-sm">No Rekening</div>
-                                                    <div class="col-9">
-                                                        <input class="form-control form-control-sm" wire:model.lazy="no_rekening"
-                                                        value="{{ isset($detail['no_rekening']) ? $detail['no_rekening'] : '' }}">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row mb-1">
-                                                    <div class="col-3 col-form-label-sm">Nama Bank</div>
-                                                    <div class="col-9">
-                                                        <input class="form-control form-control-sm" wire:model.lazy="nama_bank"
-                                                        value="{{ isset($detail['nama_bank']) ? $detail['nama_bank'] : '' }}">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button wire:click="closeModal" type="button" class="btn btn-secondary" aria-label="Close" data-bs-dismiss="modal">Cancel</button>
-                                    <button type="submit"
-                                        class="btn btn-success">{{ $supplierId ? 'Update' : 'Save' }}</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    @endif
+                    <a wire:navigate href="{{ route('master/paket/add_paket') }}" class="btn btn-primary btn-sm mb-2" id="show_create">Create Paket</a>
                 </div>
                 <div class="card-body">
+                    <div id="flash-message" style="">
+                    </div>
                     <div class="dt-ext table-responsive">
                         <div id="keytable_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div style="position: absolute; height: 1px; width: 0px; overflow: hidden;"><input
                                             type="text" tabindex="0"></div>
-                                    <table class="display dataTable" id="keytable" role="grid"
-                                        aria-describedby="keytable_info" style="position: relative;">
+                                    <table class="dataTables_wrapper container-fluid dt-bootstrap4" id="paketDatatable"
+                                        role="grid" aria-describedby="keytable_info" style="position: relative;">
                                         <thead>
                                             <tr role="row">
                                                 @foreach($headers as $header)
@@ -108,29 +26,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(count($rows) > 0)
-                                            @foreach($rows as $row)
-                                            <tr role="row" class="odd">
-                                                @foreach($cell as $cel)
-                                                <td>{{ $row[$cel] }}</td>
-                                                @endforeach
-                                                <td><button wire:click="editSupplier({{ $row['id'] }})"
-                                                        class="bg-transparent"><i class="fa fa-edit text-primary fa-lg mx-2"></i></button></td>
-                                            </tr>
-                                            @endforeach
-                                            @else
-                                            <tr>
-                                                <td colspan="{{ count($headers) }}">No data available</td>
-                                            </tr>
-                                            @endif
                                         </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                @foreach($headers as $header)
-                                                <th rowspan="1" colspan="1">{{ $header }}</th>
-                                                @endforeach
-                                            </tr>
-                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
@@ -140,13 +36,107 @@
             </div>
         </div>
     </div>
-    <script>
-        window.onclick = function(event) {
-            let modal = document.getElementById('paketModal');
-            if (event.target == modal) {
-                modal.style.display = "none";
-                Livewire.emit('closeModal'); // Emitting an event to close the modal
-            }
-        }
-    </script>
 </div>
+@push('scripts')
+    
+<script >
+        console.log('navigated')
+        var thisTable;
+        var apiUrl = "{{ $apiEndpoint }}";
+        var currentPaketId = null;
+        $(document).ready(function () {
+            thisTable = $('#paketDatatable').DataTable({
+                processing: true,
+                serverSide: true,
+                order: [
+                    [0, 'desc']
+                ],
+                ajax: function (data, callback, settings) {
+                    $.ajax({
+                        url: apiUrl + "paket/datatable",
+                        type: 'GET',
+                        data: {
+                            ...data,
+                        },
+                        headers: {
+                            'Authorization': 'Bearer ' + '{{ $token }}',
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(
+                                'content') // For CSRF protection in Laravel
+                        },
+                        success: function (response) {
+                            let originalData = response.original ? response.original :
+                                response[0].original;
+                            callback({
+                                draw: originalData.draw,
+                                recordsTotal: originalData.recordsTotal,
+                                recordsFiltered: originalData.recordsFiltered,
+                                data: originalData.data
+                            });
+                        },
+                        error: function (xhr, textStatus, error) {
+                            window.location.href = "{{ url('auth/login') }}";
+                        }
+                    });
+                },
+                columns: [{
+                        data: "kode_paket",
+                    },
+                    {
+                        data: "nama_paket",
+                    },
+                    {
+                        data: "total",
+                    },
+                    {
+                        data: "tipe_svc",
+                    },
+                    {
+                        data: null,
+                        title: 'Actions',
+                        orderable: false,
+                        render: function (data, type, row) {
+                            return `<a wire:navigate href="{{ url('master/paket/detail_paket/${row.id}') }}" class="cursor-pointer view-karyawan" id="view_karyawan" data-id="${row.id}" title="Buat Akun"><i class="fa fa-file-o text-success fa-lg mx-2"></i></a>
+                            <a wire:navigate class="cursor-pointer hapus-paket" data-id="${row.id}" title="Delete"><i class="fa fa-trash-o text-danger fa-lg mx-2"></i></a>`;
+                        }
+                    }
+                ]
+            });
+            // hapus data
+            $("#paketDatatable").on("click", ".hapus-paket", function () {
+                currentPaketId = $(this).data('id'); // Get the ID of the record
+                Swal.fire({
+                    title: "Apa kamu yakin?",
+                    text: "Kamu tidak akan dapat mengembalikan ini!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Ya, hapus!",
+                    cancelButtonText: "Batal",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // console.log();
+                        $.ajax({
+                            url: apiUrl + "paket/" + currentPaketId,
+                            type: "DELETE",
+                            dataType: "json",
+                            headers: {
+                                'Authorization': 'Bearer ' + '{{ $token }}',
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr(
+                                    'content') // For CSRF protection in Laravel
+                            },
+                            success: function (response) {
+                                // console.log();
+                                Swal.fire("Terhapus!", response.msg, "success");
+                                $("#paketDatatable").DataTable().ajax.reload();
+                            },
+                        });
+                    }
+                });
+            });
+        });
+    
+
+</script>
+@endpush
+

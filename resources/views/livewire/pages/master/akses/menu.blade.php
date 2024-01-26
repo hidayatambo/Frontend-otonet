@@ -128,7 +128,7 @@
                     title: '',
                     orderable: false,
                     render: function (data, type, row) {
-                        return `<a id="open_right" data-id="${row.id}" data-nama="${row.nama}" class="btn btn-primary open-right btn-xs">Open</a>`;
+                        return `<a id="open_right" data-id="${row.id}" data-nama="${row.nama}" class="cursor-pointer btn btn-primary open-right btn-xs">Open</a>`;
                     }
                 }
             ],

@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Livewire\Pages\Master\Karyawan;
+namespace App\Livewire\Pages\Master\Paket;
 
 use Livewire\Component;
-
-class Karyawan extends Component
+use App\Services\OtonetBackendServices\JenisService as JenisServiceService;
+class AddPaket extends Component
 {
     public $activePage;
     public $subActivePage;
 
-    public $headers = ['Kode' , 'Nama', 'HP', 'Email', 'Created By', 'Actions'];
+    public $headers = ['Kode' , 'Nama Paket', 'Total', 'Tipe Service', 'Actions'];
     public $apiEndpoint, $token;
+
+    public $jenis_service;
 
     public function __construct()
     {
@@ -20,9 +22,9 @@ class Karyawan extends Component
 
     public function render()
     {
-        return view('livewire.pages.master.karyawan.karyawan')
+        return view('livewire.pages.master.paket.add-paket')
         ->layout('layouts.dashboard')
-        ->title('Master Karyawan');
+        ->title('Master Paket');
     }
 
     public function mount()
@@ -31,11 +33,23 @@ class Karyawan extends Component
         $this->dispatch('breadcrumb', $this->activePage, $this->subActivePage);
         $this->dispatch('pages', $this->activePage);
         $this->dispatch('sub-pages', $this->subActivePage);
+        $this->getJenisService();
     }
 
     public function setActivePages()
     {
         $this->activePage = 'master';
-        $this->subActivePage = 'karyawan';
+        $this->subActivePage = 'paket';
+    }
+
+    public function getJenisService()
+    {
+        try {
+            $jenis_service_service = new JenisServiceService();
+
+            $this->jenis_service = $jenis_service_service->show();
+        } catch (\Exception $e) {
+            return redirect('auth/login');
+        }
     }
 }

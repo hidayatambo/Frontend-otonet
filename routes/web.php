@@ -74,6 +74,9 @@ Route::middleware(['token.auth'])->group(function () {
         });
         Route::prefix('paket')->group(function () {
             Route::get('/', App\Livewire\Pages\Master\Paket\Paket::class)->name('master/paket');
+            Route::get('add_paket', App\Livewire\Pages\Master\Paket\AddPaket::class)->name('master/paket/add_paket');
+            Route::get('detail_paket/{paketId}', App\Livewire\Pages\Master\Paket\DetailPaket::class)->name('master/paket/detail_paket');
+
         });
         Route::prefix('jenis_service')->group(function () {
             Route::get('/', App\Livewire\Pages\Master\Jenis\Service::class)->name('master/jenis_service');

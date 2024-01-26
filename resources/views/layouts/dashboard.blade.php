@@ -52,23 +52,26 @@
         .cursor-pointer {
             cursor: pointer;
         }
+
         span.txt-danger:empty {
             display: none;
         }
+
     </style>
 </head>
 
 <body>
     <!-- loader starts-->
-    {{-- <div class="loader-wrapper">
-      <div class="loader-index"> <span></span></div>
-      <svg>
-        <defs></defs>
-        <filter id="goo">
-          <fegaussianblur in="SourceGraphic" stddeviation="11" result="blur"></fegaussianblur>
-          <fecolormatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"> </fecolormatrix>
-        </filter>
-      </svg>
+    {{-- <div class="loader-wrapper" style="opacity: 0.7;">
+        <div class="loader-index"> <span></span></div>
+        <svg>
+            <defs></defs>
+            <filter id="goo">
+                <fegaussianblur in="SourceGraphic" stddeviation="11" result="blur"></fegaussianblur>
+                <fecolormatrix in="blur" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo">
+                </fecolormatrix>
+            </filter>
+        </svg>
     </div> --}}
     <!-- loader ends-->
     <!-- tap on top starts-->
@@ -118,6 +121,14 @@
     {{-- <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script> --}}
     {{-- <script src="{{ asset("admin/js/jquery.min.js") }}"></script> --}}
+    <script>
+        // Suppress console warnings
+        console.warn = function () {};
+
+        // Suppress console errors
+        console.error = function () {};
+
+    </script>
     <script type="text/javascript" src="{{ asset("admin/js/jquery-3.5.1.min.js") }}"></script>
 
     <script>
@@ -181,17 +192,64 @@
 
     <!-- Select2 jquery-->
     {{-- <script src="{{asset('admin/js/select2/select2.full.min.js')}}"></script> --}}
+    {{-- Own script --}}
+    <script src="{{asset('admin/js/custom.js')}}"></script>
+
     <script>
+        $(document).ready(function () {
+            displayFlashMessages();
+        });
+
+        function flashMessageRedirect(messages, type = 'success') {
+            sessionStorage.setItem('flashMessages', JSON.stringify({
+                messages,
+                type
+            }));
+        }
+
+        function displayFlashMessages() {
+            var flashMessages = sessionStorage.getItem('flashMessages');
+
+            if (flashMessages) {
+                flashMessages = JSON.parse(flashMessages);
+                var messages = flashMessages.messages;
+                var type = flashMessages.type;
+
+                if (Array.isArray(messages)) {
+                    messages.forEach(function (message) {
+                        createAndShowMessage(message, type);
+                    });
+                } else {
+                    createAndShowMessage(messages, type);
+                }
+
+                // Clear the messages from session storage
+                sessionStorage.removeItem('flashMessages');
+            }
+        }
+
+        function createAndShowMessage(message, type) {
+            var messageElement = $('<div class="alert alert-' + type + '" role="alert"></div>')
+                .text(message)
+                .hide()
+                .fadeIn(400)
+                .delay(3000)
+                .fadeOut(400, function () {
+                    $(this).remove();
+                });
+            $('#flash-message').append(messageElement);
+        }
+
         function flashMessage(messages, type = 'success') {
             if (Array.isArray(messages)) {
-                messages.forEach(function(message) {
+                messages.forEach(function (message) {
                     // Create the message element for each message
                     var messageElement = $('<div class="alert alert-' + type + '" role="alert"></div>')
                         .text(message)
                         .hide()
                         .fadeIn(1000)
                         .delay(3000)
-                        .fadeOut(1000 , function() { 
+                        .fadeOut(1000, function () {
                             $(this).remove(); // Remove the element after hiding it
                         });
 
@@ -205,7 +263,7 @@
                     .hide()
                     .fadeIn(400)
                     .delay(3000)
-                    .fadeOut(400, function() { 
+                    .fadeOut(400, function () {
                         $(this).remove(); // Remove the element after hiding it
                     });
 
@@ -213,12 +271,13 @@
                 $('#flash-message').append(messageElement);
             }
         }
+
     </script>
     <script>
         new WOW().init();
 
     </script>
-    @stack('scripts')
+
     <script>
         $(document).ready(function () {
             $("#fullScreenToggle").click(function () {
@@ -291,8 +350,10 @@
         });
 
     </script>
-    @yield('script')
+
     @livewireScripts
+    @yield('script')
+    @stack('scripts')
     {{-- <script>
         Livewire.on('modalClosed', () => {
             bootstrap.Modal.getInstance(document.getElementById('exampleModalCenter1')).hide();
