@@ -48,6 +48,10 @@
     <link rel="stylesheet" type="text/css" href="{{asset('admin/css/vendors/sweetalert2.css')}}">
     <!-- Select2 css-->
     {{-- <link rel="stylesheet" type="text/css" href="{{asset('admin/css/vendors/select2.css')}}"> --}}
+    <!-- Leaflet -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/vendors/leaflet.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/vendors/prism.css') }}">
+    @yield('style')
     <style>
         .cursor-pointer {
             cursor: pointer;
@@ -117,7 +121,6 @@
         </div>
     </div>
     <!-- latest jquery-->
-    {{-- @livewireScripts --}}
     {{-- <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script> --}}
     {{-- <script src="{{ asset("admin/js/jquery.min.js") }}"></script> --}}
@@ -147,6 +150,8 @@
 
     </script>
     <!-- Bootstrap js-->
+    <script src="{{ asset('admin/js/bootstrap/bootstrap.bundle.min.js') }}"></script>
+    
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
     </script>
@@ -350,7 +355,9 @@
         });
 
     </script>
-
+    <!-- Leaflet -->
+    <script src="{{ asset('admin/js/map-js/leaflet.js') }}"></script>
+    <script src="{{ asset('admin/js/prism/prism.min.js') }}"></script>
     @livewireScripts
     @yield('script')
     @stack('scripts')

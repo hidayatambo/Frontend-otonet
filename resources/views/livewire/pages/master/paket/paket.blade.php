@@ -96,7 +96,7 @@
                         orderable: false,
                         render: function (data, type, row) {
                             return `<a wire:navigate href="{{ url('master/paket/detail_paket/${row.id}') }}" class="cursor-pointer view-karyawan" id="view_karyawan" data-id="${row.id}" title="Buat Akun"><i class="fa fa-file-o text-success fa-lg mx-2"></i></a>
-                            <a wire:navigate class="cursor-pointer hapus-paket" data-id="${row.id}" title="Delete"><i class="fa fa-trash-o text-danger fa-lg mx-2"></i></a>`;
+                            <a class="cursor-pointer hapus-paket" data-id="${row.id}" title="Delete"><i class="fa fa-trash-o text-danger fa-lg mx-2"></i></a>`;
                         }
                     }
                 ]

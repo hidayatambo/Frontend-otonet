@@ -1,28 +1,29 @@
 <?php
 
-namespace App\Livewire\Pages\Fo\BookingService;
+namespace App\Livewire\Pages\Master\Warna;
 
 use Livewire\Component;
 
-class BookingService extends Component
+class Warna extends Component
 {
     public $activePage;
     public $subActivePage;
 
-    public $headers = [ 'Nama', 'No Polisi', 'Tipe', 'Merk','Jenis Service', 'Rest Area', 'Status', 'Action'];
- 
+    public $headers = ['Warna', 'Hex', 'Actions'];
+
     public $apiEndpoint, $token;
 
     public function __construct()
     {
-        $this->apiEndpoint = 'https://be.techthinkhub.id/api/';;
+        $this->apiEndpoint = 'https://be.techthinkhub.id/api/';
         $this->token = session('token'); // Retrieve the token from the session
     }
+
     public function render()
     {
-        return view('livewire.pages.fo.booking-service.booking-service')
+        return view('livewire.pages.master.warna.warna')
         ->layout('layouts.dashboard')
-        ->title('Front Office | Booking Service');
+        ->title('Master | Warna');
     }
 
     public function mount()
@@ -31,12 +32,11 @@ class BookingService extends Component
         $this->dispatch('breadcrumb', $this->activePage, $this->subActivePage);
         $this->dispatch('pages', $this->activePage);
         $this->dispatch('sub-pages', $this->subActivePage);
-        
     }
 
     public function setActivePages()
     {
-        $this->activePage = 'front_office';
-        $this->subActivePage = 'booking_service';
+        $this->activePage = 'master';
+        $this->subActivePage = 'warna';
     }
 }

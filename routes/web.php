@@ -91,7 +91,9 @@ Route::middleware(['token.auth'])->group(function () {
             Route::get('/', App\Livewire\Pages\Master\Karyawan\Karyawan::class)->name('master/karyawan');
         });
         Route::prefix('paket_member')->group(function () {
-            Route::get('/', App\Livewire\Pages\Master\Paket\Member::class)->name('master/paket_member');
+            Route::get('/', App\Livewire\Pages\Master\PaketMember\PaketMember::class)->name('master/paket_member');
+            Route::get('add_paket_member', App\Livewire\Pages\Master\PaketMember\AddPaketMember::class)->name('master/paket_member/add_paket_member');
+            Route::get('detail_paket_member/{paketMemberId}', App\Livewire\Pages\Master\PaketMember\DetailPaketMember::class)->name('master/paket_member/detail_paket_member');
         });
         Route::prefix('vendor')->group(function () {
             Route::get('/', App\Livewire\Pages\Master\Vendor\Vendor::class)->name('master/vendor');
@@ -107,6 +109,9 @@ Route::middleware(['token.auth'])->group(function () {
         });
         Route::prefix('flat_rate')->group(function () {
             Route::get('/', App\Livewire\Pages\Master\FlatRate\FlatRate::class)->name('master/flat_rate');
+        });
+        Route::prefix('warna')->group(function () {
+            Route::get('/', App\Livewire\Pages\Master\Warna\Warna::class)->name('master/warna');
         });
     });
 
@@ -172,6 +177,7 @@ Route::middleware(['token.auth'])->group(function () {
     Route::prefix('front_office')->group(function () {
         Route::prefix('booking_service')->group(function () {
             Route::get('/', App\Livewire\Pages\Fo\BookingService\BookingService::class)->name('front_office/booking_service');
+            Route::get('detail/{id}', App\Livewire\Pages\Fo\BookingService\DetailBookingService::class)->name('front_office/detail_booking_service');
         });
         Route::prefix('emergency_service')->group(function () {
             Route::get('/', App\Livewire\Pages\Fo\EmergencyService\EmergencyService::class)->name('front_office_emergency_service');
