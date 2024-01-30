@@ -22,7 +22,7 @@ class Supplier extends Component
     public function render()
     {
         return view('livewire.pages.kasir.bayar.supplier')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Kasir Bayar Supplier');
     }
 

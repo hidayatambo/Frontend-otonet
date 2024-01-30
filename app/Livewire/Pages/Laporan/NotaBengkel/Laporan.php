@@ -22,7 +22,7 @@ class Laporan extends Component
     public function render()
     {
         return view('livewire.pages.laporan.nota-bengkel.laporan')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Front Office | Update KM');
     }
 

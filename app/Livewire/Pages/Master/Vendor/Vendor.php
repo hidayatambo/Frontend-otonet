@@ -22,7 +22,7 @@ class Vendor extends Component
     public function render()
     {
         return view('livewire.pages.master.vendor.vendor')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Master | Vendor');
     }
 

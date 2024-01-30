@@ -22,7 +22,7 @@ class Pengajuan extends Component
     public function render()
     {
         return view('livewire.pages.kasir.form.pengajuan')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Kasir Invoice Service');
     }
 

@@ -22,7 +22,7 @@ class Gudang extends Component
     public function render()
     {
         return view('livewire.pages.master.gudang.gudang')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Master Gudang');
     }
 

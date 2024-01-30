@@ -22,7 +22,7 @@ class PembelianPart extends Component
     public function render()
     {
         return view('livewire.pages.fo.order.pembelian-part')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Front Office | Update KM');
     }
 

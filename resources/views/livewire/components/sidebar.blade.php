@@ -55,7 +55,7 @@
                                         <li><a wire:navigate class="{{ $subActivePage == 'paket_member' ? 'active' : '' }}" href="{{ url('master/paket_member') }}">Paket Member</a></li>
                                         <li><a wire:navigate class="{{ $subActivePage == 'vendor' ? 'active' : '' }}" href="{{ url('master/vendor') }}">Vendor</a></li>
                                         <li><a wire:navigate class="{{ $subActivePage == 'kontrak' ? 'active' : '' }}" href="{{ url('master/kontrak') }}">Kontrak</a></li>
-                                        <li><a wire:navigate class="{{ $subActivePage == 'cabang' ? 'active' : '' }}" href="{{ url('master/kontrak') }}">Cabang</a></li>
+                                        <li><a wire:navigate class="{{ $subActivePage == 'cabang' ? 'active' : '' }}" href="{{ url('master/cabang') }}">Cabang</a></li>
                                         <li><a wire:navigate class="{{ $subActivePage == 'gudang' ? 'active' : '' }}" href="{{ url('master/gudang') }}">Gudang</a></li>
                                         <li><a wire:navigate class="{{ $subActivePage == 'flat_rate' ? 'active' : '' }}" href="{{ url('master/flat_rate') }}">Flat Rate</a></li>
                                     </ul>

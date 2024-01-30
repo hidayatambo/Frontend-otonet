@@ -23,7 +23,7 @@ class Bengkel extends Component
     public function render()
     {
         return view('livewire.pages.penjualan.nota.bengkel')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Penjualan Toko');
     }
 

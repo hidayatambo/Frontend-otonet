@@ -22,7 +22,7 @@ class Km extends Component
     public function render()
     {
         return view('livewire.pages.fo.update.km')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Front Office | Update KM');
     }
 

@@ -22,7 +22,7 @@ class PekerjaanLuar extends Component
     public function render()
     {
         return view('livewire.pages.fo.order.pekerjaan-luar')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Front Office | Update KM');
     }
 

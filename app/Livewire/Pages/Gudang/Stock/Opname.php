@@ -23,7 +23,7 @@ class Opname extends Component
     public function render()
     {
         return view('livewire.pages.gudang.stock.opname')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Gudang Stock Opname');
     }
 

@@ -22,7 +22,7 @@ class Service extends Component
     public function render()
     {
         return view('livewire.pages.fo.service.service')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Front Office | Service');
     }
 

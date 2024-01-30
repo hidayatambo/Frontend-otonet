@@ -22,7 +22,7 @@ class Warna extends Component
     public function render()
     {
         return view('livewire.pages.master.warna.warna')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Master | Warna');
     }
 

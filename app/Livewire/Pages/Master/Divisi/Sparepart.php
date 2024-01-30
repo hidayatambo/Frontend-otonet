@@ -20,7 +20,7 @@ class Sparepart extends Component
     }
     public function render()
     {
-        return view('livewire.pages.master.divisi.sparepart')->layout('layouts.dashboard')->title('Master | Divisi Sparepart');
+        return view('livewire.pages.master.divisi.sparepart')->layout('layouts.coloradmin')->title('Master | Divisi Sparepart');
     }
 
     public function mount()

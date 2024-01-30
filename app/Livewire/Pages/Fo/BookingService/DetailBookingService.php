@@ -21,7 +21,7 @@ class DetailBookingService extends Component
     public function render()
     {
         return view('livewire.pages.fo.booking-service.detail-booking-service')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Front Office | Detail Booking Service');
     }
 

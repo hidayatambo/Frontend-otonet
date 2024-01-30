@@ -17,7 +17,7 @@ class Pelanggan extends Component
 
     public function render()
     {
-        return view('livewire.pages.master.pelanggan.pelanggan')->layout('layouts.dashboard')->title('Master Barang');
+        return view('livewire.pages.master.pelanggan.pelanggan')->layout('layouts.coloradmin')->title('Master Barang');
     }
 
     public function __construct()

@@ -20,7 +20,7 @@ class Jasa extends Component
     }
     public function render()
     {
-        return view('livewire.pages.master.divisi.jasa')->layout('layouts.dashboard')->title('Master | Divisi Jasa');
+        return view('livewire.pages.master.divisi.jasa')->layout('layouts.coloradmin')->title('Master | Divisi Jasa');
     }
 
     public function mount()

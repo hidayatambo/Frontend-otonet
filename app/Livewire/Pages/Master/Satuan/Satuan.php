@@ -22,7 +22,7 @@ class Satuan extends Component
     public function render()
     {
         return view('livewire.pages.master.satuan.satuan')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Master Satuan');
     }
 

@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// test
+Route::get('test', App\Livewire\Pages\Test\Test::class);
+
 /**
  * * Route For Authentication
  */
@@ -25,10 +28,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', App\Livewire\Pages\Authentication\SelectApplication::class);
 
-Route::middleware(['token.auth'])->group(function () {
+Route::middleware([])->group(function () {
 
     /**
-     * * Route For Dashboard
+     * * Route For Dashboard ['token.auth']
      */
     Route::get('/dashboard', App\Livewire\Pages\Dashboard\Dashboard::class);
 

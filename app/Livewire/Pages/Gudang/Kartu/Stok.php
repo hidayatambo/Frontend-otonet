@@ -23,7 +23,7 @@ class Stok extends Component
     public function render()
     {
         return view('livewire.pages.gudang.kartu.stok')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Gudang Pengeluaran Bahan');
     }
 

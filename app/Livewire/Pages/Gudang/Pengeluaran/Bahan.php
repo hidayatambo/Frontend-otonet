@@ -23,7 +23,7 @@ class Bahan extends Component
     public function render()
     {
         return view('livewire.pages.gudang.pengeluaran.bahan')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Gudang Pengeluaran Bahan');
     }
 

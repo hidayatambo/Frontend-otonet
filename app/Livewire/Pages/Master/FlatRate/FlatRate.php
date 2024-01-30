@@ -22,7 +22,7 @@ class FlatRate extends Component
     public function render()
     {
         return view('livewire.pages.master.flat-rate.flat-rate')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Master Gudang');
     }
 

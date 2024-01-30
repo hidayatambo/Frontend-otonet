@@ -22,7 +22,7 @@ class Merk extends Component
     public function render()
     {
         return view('livewire.pages.master.merk.merk')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Master Merk');
     }
 

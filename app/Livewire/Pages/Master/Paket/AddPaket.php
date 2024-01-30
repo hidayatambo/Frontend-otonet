@@ -23,7 +23,7 @@ class AddPaket extends Component
     public function render()
     {
         return view('livewire.pages.master.paket.add-paket')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Master Paket');
     }
 
