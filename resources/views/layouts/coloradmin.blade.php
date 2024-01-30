@@ -12,6 +12,14 @@
 	<link href="{{ asset('coloradmin/css/default/app.min.css') }}" rel="stylesheet" />
 	<!-- ================== END core-css ================== -->
     <!-- ================== BEGIN extra-css ================== -->
+    <link rel="stylesheet" type="text/css" href="{{asset('admin/css/vendors/toastr.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset("admin/css/vendors/datatables.css") }}">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedcolumns/4.3.0/css/fixedColumns.jqueryui.min.css">
+    {{-- <link rel="stylesheet" type="text/css" href="{{asset('admin/css/vendors/sweetalert2.css')}}"> --}}
+	{{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css"> --}}
+	{{-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"> --}}
+	<link rel="stylesheet" type="text/css" href="{{ asset('admin/css/vendors/leaflet.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/vendors/prism.css') }}">
     <style>
         .cursor-pointer {
             cursor: pointer;
@@ -22,6 +30,12 @@
         }
 
     </style>
+	<style>
+		.table th,
+		.table td {
+		  padding: 0.25rem 0.25rem;
+		}
+	  </style>
     @yield('style')
     <!-- ================== END extra-css ================== -->
 </head>
@@ -58,225 +72,6 @@
 			<livewire:components.color-admin.partials.footer />
 		</div>
 		<!-- END #content -->
-		
-		<!-- BEGIN theme-panel -->
-		<div class="theme-panel">
-			<a href="javascript:;" data-toggle="theme-panel-expand" class="theme-collapse-btn"><i class="fa fa-cog"></i></a>
-			<div class="theme-panel-content" data-scrollbar="true" data-height="100%">
-				<h5>App Settings</h5>
-				
-				<!-- BEGIN theme-list -->
-				<div class="theme-list">
-					<div class="theme-list-item"><a href="javascript:;" class="theme-list-link bg-red" data-theme-class="theme-red" data-toggle="theme-selector" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body" data-bs-title="Red">&nbsp;</a></div>
-					<div class="theme-list-item"><a href="javascript:;" class="theme-list-link bg-pink" data-theme-class="theme-pink" data-toggle="theme-selector" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body" data-bs-title="Pink">&nbsp;</a></div>
-					<div class="theme-list-item"><a href="javascript:;" class="theme-list-link bg-orange" data-theme-class="theme-orange" data-toggle="theme-selector" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body" data-bs-title="Orange">&nbsp;</a></div>
-					<div class="theme-list-item"><a href="javascript:;" class="theme-list-link bg-yellow" data-theme-class="theme-yellow" data-toggle="theme-selector" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body" data-bs-title="Yellow">&nbsp;</a></div>
-					<div class="theme-list-item"><a href="javascript:;" class="theme-list-link bg-lime" data-theme-class="theme-lime" data-toggle="theme-selector" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body" data-bs-title="Lime">&nbsp;</a></div>
-					<div class="theme-list-item"><a href="javascript:;" class="theme-list-link bg-green" data-theme-class="theme-green" data-toggle="theme-selector" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body" data-bs-title="Green">&nbsp;</a></div>
-					<div class="theme-list-item active"><a href="javascript:;" class="theme-list-link bg-teal" data-theme-class="" data-toggle="theme-selector" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body" data-bs-title="Default">&nbsp;</a></div>
-					<div class="theme-list-item"><a href="javascript:;" class="theme-list-link bg-cyan" data-theme-class="theme-cyan" data-toggle="theme-selector" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body" data-bs-title="Cyan">&nbsp;</a></div>
-					<div class="theme-list-item"><a href="javascript:;" class="theme-list-link bg-blue" data-theme-class="theme-blue" data-toggle="theme-selector" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body" data-bs-title="Blue">&nbsp;</a></div>
-					<div class="theme-list-item"><a href="javascript:;" class="theme-list-link bg-purple" data-theme-class="theme-purple" data-toggle="theme-selector" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body" data-bs-title="Purple">&nbsp;</a></div>
-					<div class="theme-list-item"><a href="javascript:;" class="theme-list-link bg-indigo" data-theme-class="theme-indigo" data-toggle="theme-selector" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body" data-bs-title="Indigo">&nbsp;</a></div>
-					<div class="theme-list-item"><a href="javascript:;" class="theme-list-link bg-black" data-theme-class="theme-gray-600" data-toggle="theme-selector" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-container="body" data-bs-title="Black">&nbsp;</a></div>
-				</div>
-				<!-- END theme-list -->
-				
-				<div class="theme-panel-divider"></div>
-				
-				<div class="row mt-10px">
-					<div class="col-8 control-label text-body fw-bold">
-						<div>Dark Mode <span class="badge bg-primary ms-1 py-2px position-relative" style="top: -1px;">NEW</span></div>
-						<div class="lh-14">
-							<small class="text-body opacity-50">
-								Adjust the appearance to reduce glare and give your eyes a break.
-							</small>
-						</div>
-					</div>
-					<div class="col-4 d-flex">
-						<div class="form-check form-switch ms-auto mb-0">
-							<input type="checkbox" class="form-check-input" name="app-theme-dark-mode" id="appThemeDarkMode" value="1" />
-							<label class="form-check-label" for="appThemeDarkMode">&nbsp;</label>
-						</div>
-					</div>
-				</div>
-				
-				<div class="theme-panel-divider"></div>
-				
-				<!-- BEGIN theme-switch -->
-				<div class="row mt-10px align-items-center">
-					<div class="col-8 control-label text-body fw-bold">Header Fixed</div>
-					<div class="col-4 d-flex">
-						<div class="form-check form-switch ms-auto mb-0">
-							<input type="checkbox" class="form-check-input" name="app-header-fixed" id="appHeaderFixed" value="1" checked />
-							<label class="form-check-label" for="appHeaderFixed">&nbsp;</label>
-						</div>
-					</div>
-				</div>
-				<div class="row mt-10px align-items-center">
-					<div class="col-8 control-label text-body fw-bold">Header Inverse</div>
-					<div class="col-4 d-flex">
-						<div class="form-check form-switch ms-auto mb-0">
-							<input type="checkbox" class="form-check-input" name="app-header-inverse" id="appHeaderInverse" value="1" />
-							<label class="form-check-label" for="appHeaderInverse">&nbsp;</label>
-						</div>
-					</div>
-				</div>
-				<div class="row mt-10px align-items-center">
-					<div class="col-8 control-label text-body fw-bold">Sidebar Fixed</div>
-					<div class="col-4 d-flex">
-						<div class="form-check form-switch ms-auto mb-0">
-							<input type="checkbox" class="form-check-input" name="app-sidebar-fixed" id="appSidebarFixed" value="1" checked />
-							<label class="form-check-label" for="appSidebarFixed">&nbsp;</label>
-						</div>
-					</div>
-				</div>
-				<div class="row mt-10px align-items-center">
-					<div class="col-8 control-label text-body fw-bold">Sidebar Grid</div>
-					<div class="col-4 d-flex">
-						<div class="form-check form-switch ms-auto mb-0">
-							<input type="checkbox" class="form-check-input" name="app-sidebar-grid" id="appSidebarGrid" value="1" />
-							<label class="form-check-label" for="appSidebarGrid">&nbsp;</label>
-						</div>
-					</div>
-				</div>
-				<div class="row mt-10px align-items-center">
-					<div class="col-8 control-label text-body fw-bold">Gradient Enabled</div>
-					<div class="col-4 d-flex">
-						<div class="form-check form-switch ms-auto mb-0">
-							<input type="checkbox" class="form-check-input" name="app-gradient-enabled" id="appGradientEnabled" value="1" />
-							<label class="form-check-label" for="appGradientEnabled">&nbsp;</label>
-						</div>
-					</div>
-				</div>
-				<!-- END theme-switch -->
-				
-				<div class="theme-panel-divider"></div>
-				
-				<h5>Admin Design (5)</h5>
-				<!-- BEGIN theme-version -->
-				<div class="theme-version">
-					<div class="theme-version-item">
-						<a href="../template_html/index_v2.html" class="theme-version-link active">
-							<span style="background-image: url({{ asset('coloradmin/img/theme/default.jpg') }});" class="theme-version-cover"></span>
-						</a>
-					</div>
-					<div class="theme-version-item">
-						<a href="../template_transparent/index_v2.html" class="theme-version-link">
-							<span style="background-image: url({{ asset('coloradmin/img/theme/transparent.jpg') }});" class="theme-version-cover"></span>
-						</a>
-					</div>
-					<div class="theme-version-item">
-						<a href="../template_apple/index_v2.html" class="theme-version-link">
-							<span style="background-image: url({{ asset('coloradmin/img/theme/apple.jpg);') }}" class="theme-version-cover"></span>
-						</a>
-					</div>
-					<div class="theme-version-item">
-						<a href="../template_material/index_v2.html" class="theme-version-link">
-							<span style="background-image: url({{ asset('coloradmin/img/theme/material.jpg') }});" class="theme-version-cover"></span>
-						</a>
-					</div>
-					<div class="theme-version-item">
-						<a href="../template_facebook/index_v2.html" class="theme-version-link">
-							<span style="background-image: url({{ asset('coloradmin/img/theme/facebook.jpg') }});" class="theme-version-cover"></span>
-						</a>
-					</div>
-					<div class="theme-version-item">
-						<a href="../template_google/index_v2.html" class="theme-version-link">
-							<span style="background-image: url({{ asset('coloradmin/img/theme/google.jpg') }});" class="theme-version-cover"></span>
-						</a>
-					</div>
-				</div>
-				<!-- END theme-version -->
-				
-				<div class="theme-panel-divider"></div>
-				
-				<h5>Language Version (7)</h5>
-				<!-- BEGIN theme-version -->
-				<div class="theme-version">
-					<div class="theme-version-item">
-						<a href="../template_html/index.html" class="theme-version-link active">
-							<span style="background-image: url({{ asset('coloradmin/img/version/html.jpg') }});" class="theme-version-cover"></span>
-						</a>
-					</div>
-					<div class="theme-version-item">
-						<a href="../template_ajax/index.html" class="theme-version-link">
-							<span style="background-image: url({{ asset('coloradmin/img/version/ajax.jpg);') }}" class="theme-version-cover"></span>
-						</a>
-					</div>
-					<div class="theme-version-item">
-						<a href="../template_angularjs/index.html" class="theme-version-link">
-							<span style="background-image: url({{ asset('coloradmin/img/version/angular1x.jpg') }});" class="theme-version-cover"></span>
-						</a>
-					</div>
-					<div class="theme-version-item">
-						<a href="../template_angularjs16/index.html" class="theme-version-link">
-							<span style="background-image: url({{ asset('coloradmin/img/version/angular10x.jpg') }});" class="theme-version-cover"></span>
-						</a>
-					</div>
-					<div class="theme-version-item">
-						<a href="javascript:alert('Laravel 10 Version only available in downloaded version.');" class="theme-version-link">
-							<span style="background-image: url({{ asset('coloradmin/img/version/laravel.jpg') }});" class="theme-version-cover"></span>
-						</a>
-					</div>
-					<div class="theme-version-item">
-						<a href="../template_vue3/index.html" class="theme-version-link">
-							<span style="background-image: url({{ asset('coloradmin/img/version/vuejs.jpg') }});" class="theme-version-cover"></span>
-						</a>
-					</div>
-					<div class="theme-version-item">
-						<a href="../template_react/index.html" class="theme-version-link">
-							<span style="background-image: url({{ asset('coloradmin/img/version/reactjs.jpg') }});" class="theme-version-cover"></span>
-						</a>
-					</div>
-					<div class="theme-version-item">
-						<a href="javascript:alert('.NET Core 7.0 MVC Version only available in downloaded version.');" class="theme-version-link">
-							<span style="background-image: url({{ asset('coloradmin/img/version/dotnet.jpg') }});" class="theme-version-cover"></span>
-						</a>
-					</div>
-				</div>
-				<!-- END theme-version -->
-				
-				<div class="theme-panel-divider"></div>
-				
-				<h5>Frontend Design (5)</h5>
-				<!-- BEGIN theme-version -->
-				<div class="theme-version">
-					<div class="theme-version-item">
-						<a href="../../../frontend/template/template_one_page_parallax/index.html" class="theme-version-link">
-							<span style="background-image: url({{ asset('coloradmin/img/theme/one-page-parallax.jpg') }});" class="theme-version-cover"></span>
-						</a>
-					</div>
-					<div class="theme-version-item">
-						<a href="../../../frontend/template/template_e_commerce/index.html" class="theme-version-link">
-							<span style="background-image: url({{ asset('coloradmin/img/theme/e-commerce.jpg') }});" class="theme-version-cover"></span>
-						</a>
-					</div>
-					<div class="theme-version-item">
-						<a href="../../../frontend/template/template_blog/index.html" class="theme-version-link">
-							<span style="background-image: url({{ asset('coloradmin/img/theme/blog.jpg') }});" class="theme-version-cover"></span>
-						</a>
-					</div>
-					<div class="theme-version-item">
-						<a href="../../../frontend/template/template_forum/index.html" class="theme-version-link">
-							<span style="background-image: url({{ asset('coloradmin/img/theme/forum.jpg') }});" class="theme-version-cover"></span>
-						</a>
-					</div>
-					<div class="theme-version-item">
-						<a href="../../../frontend/template/template_corporate/index.html" class="theme-version-link">
-							<span style="background-image: url({{ asset('coloradmin/img/theme/corporate.jpg') }});" class="theme-version-cover"></span>
-						</a>
-					</div>
-				</div>
-				<!-- END theme-version -->
-				
-				<div class="theme-panel-divider"></div>
-				
-				<a href="https://seantheme.com/color-admin/documentation/" class="btn btn-dark d-block w-100 rounded-pill mb-10px" target="_blank"><b>Documentation</b></a>
-				<a href="javascript:;" class="btn btn-default d-block w-100 rounded-pill" data-toggle="reset-local-storage"><b>Reset Local Storage</b></a>
-			</div>
-		</div>
-		<!-- END theme-panel -->
 		<!-- BEGIN scroll-top-btn -->
 		<a href="javascript:;" class="btn btn-icon btn-circle btn-theme btn-scroll-to-top" data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
 		<!-- END scroll-top-btn -->
@@ -292,5 +87,145 @@
 	<script src="{{ asset('coloradmin/plugins/@highlightjs/cdn-assets/highlight.min.js') }}"></script>
 	<script src="{{ asset('coloradmin/js/demo/render.highlight.js') }}"></script>
 	<!-- ================== END page-js ================== -->
+
+	<!-- ================== BEGIN extra-js ================== -->
+	<script type="text/javascript" src="{{asset('admin/js/toastr.min.js')}}"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    {{-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.js"></script> --}}
+    {{-- <script type="text/javascript" src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script> --}}
+	
+	<script type="text/javascript" src="{{ asset("admin/js/datatable/datatables/jquery.dataTables.min.js") }}"></script>
+    {{-- <script type="text/javascript" src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script> --}}
+	<script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/4.3.0/js/dataTables.fixedColumns.min.js"></script>
+    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.buttons.min.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/jszip.min.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/pdfmake.min.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/vfs_fonts.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/buttons.html5.min.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/buttons.print.min.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.bootstrap4.min.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/buttons.bootstrap4.min.js") }}"></script>
+    {{-- <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/responsive.bootstrap4.min.js") }}"></script> --}}
+    {{-- <script src="{{ asset("admin/js/datatable/datatable-extension/custom.js") }} "></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/buttons.colVis.min.js") }}"></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.autoFill.min.js") }}"></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.select.min.js") }}"></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.responsive.min.js") }}"></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.keyTable.min.js") }}"></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.colReorder.min.js") }}"></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.fixedHeader.min.js") }}"></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.rowReorder.min.js") }}"></script> --}}
+    {{-- <script type="text/javascript" src="{{ asset("admin/js/datatable/datatable-extension/dataTables.scroller.min.js") }}"></script> --}}
+	<script src="{{ asset('admin/js/map-js/leaflet.js') }}"></script>
+    <script src="{{ asset('admin/js/prism/prism.min.js') }}"></script>
+	<script>
+        window.addEventListener("popstate", function (event) {
+            window.location.reload();
+        });
+
+    </script>
+	<script>
+        $(document).ready(function () {
+            displayFlashMessages();
+        });
+
+        function flashMessageRedirect(messages, type = 'success') {
+            sessionStorage.setItem('flashMessages', JSON.stringify({
+                messages,
+                type
+            }));
+        }
+
+        function displayFlashMessages() {
+            var flashMessages = sessionStorage.getItem('flashMessages');
+
+            if (flashMessages) {
+                flashMessages = JSON.parse(flashMessages);
+                var messages = flashMessages.messages;
+                var type = flashMessages.type;
+
+                if (Array.isArray(messages)) {
+                    messages.forEach(function (message) {
+                        createAndShowMessage(message, type);
+                    });
+                } else {
+                    createAndShowMessage(messages, type);
+                }
+
+                // Clear the messages from session storage
+                sessionStorage.removeItem('flashMessages');
+            }
+        }
+
+        function createAndShowMessage(message, type) {
+            var messageElement = $('<div class="alert alert-' + type + '" role="alert"></div>')
+                .text(message)
+                .hide()
+                .fadeIn(400)
+                .delay(3000)
+                .fadeOut(400, function () {
+                    $(this).remove();
+                });
+            $('#flash-message').append(messageElement);
+        }
+
+        function flashMessage(messages, type = 'success') {
+            if (Array.isArray(messages)) {
+                messages.forEach(function (message) {
+                    // Create the message element for each message
+                    var messageElement = $('<div class="alert alert-' + type + '" role="alert"></div>')
+                        .text(message)
+                        .hide()
+                        .fadeIn(1000)
+                        .delay(3000)
+                        .fadeOut(1000, function () {
+                            $(this).remove(); // Remove the element after hiding it
+                        });
+
+                    // Append the message element to the flash message container
+                    $('#flash-message').append(messageElement);
+                });
+            } else {
+                // Handle a single message
+                var messageElement = $('<div class="alert alert-' + type + '" role="alert"></div>')
+                    .text(messages)
+                    .hide()
+                    .fadeIn(400)
+                    .delay(3000)
+                    .fadeOut(400, function () {
+                        $(this).remove(); // Remove the element after hiding it
+                    });
+
+                // Append the message element to the flash message container
+                $('#flash-message').append(messageElement);
+            }
+        }
+
+    </script>
+	<script>
+        $(document).ready(function () {
+            $("#fullScreenToggle").click(function () {
+                toggleFullScreen();
+            });
+        });
+
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                // Enter full screen on the document body, or a specific element like document.getElementById('content')
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                });
+            } else {
+                // Exit full screen
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+    </script>
+    @livewireScripts
+    @yield('script')
+    @stack('scripts')
 </body>
 </html>
