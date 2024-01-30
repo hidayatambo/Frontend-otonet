@@ -14,7 +14,7 @@ class EmergencyService extends Component
     public function render()
     {
         return view('livewire.pages.fo.emergency-service.emergency-service')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Front Office | Booking Service');
     }
 

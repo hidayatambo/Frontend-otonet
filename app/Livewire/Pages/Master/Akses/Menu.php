@@ -21,7 +21,7 @@ class Menu extends Component
     public function render()
     {
         return view('livewire.pages.master.akses.menu')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Master Akses Menu');
     }
 

@@ -22,7 +22,7 @@ class Kendaraan extends Component
     public function render()
     {
         return view('livewire.pages.fo.history.kendaraan')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Front Office | History Kendaraan');
     }
 

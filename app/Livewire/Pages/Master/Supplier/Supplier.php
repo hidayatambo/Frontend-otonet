@@ -84,7 +84,7 @@ class Supplier extends Component
 
     public function render()
     {
-        return view('livewire.pages.master.supplier.supplier')->layout('layouts.dashboard')->title('Master Supplier');
+        return view('livewire.pages.master.supplier.supplier')->layout('layouts.coloradmin')->title('Master Supplier');
     }
 
     public function editSupplier($supplierId)

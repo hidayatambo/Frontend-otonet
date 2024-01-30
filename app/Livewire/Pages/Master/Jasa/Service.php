@@ -23,7 +23,7 @@ class Service extends Component
 
     public function render()
     {
-        return view('livewire.pages.master.jasa.service')->layout('layouts.dashboard')->title('Master | Jasa Service');
+        return view('livewire.pages.master.jasa.service')->layout('layouts.coloradmin')->title('Master | Jasa Service');
     }
 
     public function mount()

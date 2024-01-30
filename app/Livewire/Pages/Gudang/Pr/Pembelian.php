@@ -23,7 +23,7 @@ class Pembelian extends Component
     public function render()
     {
         return view('livewire.pages.gudang.pr.pembelian')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Gudang Stock Opname');
     }
 

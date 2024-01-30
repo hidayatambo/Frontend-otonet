@@ -21,7 +21,7 @@ class Service extends Component
     public function render()
     {
         return view('livewire.pages.master.jenis.service')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Master | Jenis Service');
     }
 

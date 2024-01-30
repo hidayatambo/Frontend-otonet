@@ -26,7 +26,7 @@ class Barang extends Component
 
     public function render()
     {
-        return view('livewire.pages.master.barang.barang')->layout('layouts.dashboard')->title('Master Barang');
+        return view('livewire.pages.master.barang.barang')->layout('layouts.coloradmin')->title('Master Barang');
     }
 
     public function mount()

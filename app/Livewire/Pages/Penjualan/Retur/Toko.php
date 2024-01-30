@@ -22,7 +22,7 @@ class Toko extends Component
     public function render()
     {
         return view('livewire.pages.penjualan.retur.toko')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Penjualan Retur Toko');
     }
 

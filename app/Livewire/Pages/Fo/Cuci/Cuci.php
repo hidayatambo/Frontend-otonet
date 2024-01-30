@@ -22,7 +22,7 @@ class Cuci extends Component
     public function render()
     {
         return view('livewire.pages.fo.cuci.cuci')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Front Office | History Kendaraan');
     }
 

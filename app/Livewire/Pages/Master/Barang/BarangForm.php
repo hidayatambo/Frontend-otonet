@@ -25,7 +25,7 @@ class BarangForm extends Component
     public function render()
     {
         return view('livewire.pages.master.barang.barang-form')
-        ->layout('layouts.dashboard')
+        ->layout('layouts.coloradmin')
         ->title('Master Barang Form');
     }
     public function mount()
